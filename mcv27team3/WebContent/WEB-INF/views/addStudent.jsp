@@ -9,39 +9,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$("#btn").click(function() {
-				if($("#studentid").val() != null) {
-					
-					if($("#studentid").val().length < 5) {
-						$("#studentidHelper").text("5자이상 작성해주십시요.");
-						return;
-					}else if($("#studentid").val().length >= 5) {
-						$("#studentidHelper").text("");
-					}
-
-				if($("#studentpw").val() != null) {
-					if($("#studentpw").val().length < 10) {
-						$("#studentpwHelper").text("10자이상 작성해주십시요.");
-					}else if($("#studentpw").val().length >= 10) {
-						$("#studentpwHelper").text("");
-					}
-				if($("#studentpwcheck").val() != $("#studentpw").val()) {
-					$("#studentpwcheckHelper").text("pw가 일치하지 않습니다..");
+			$("#btn").click(function() {	
+				if($("#studentid").val().length < 5) {
+					$("#studentidHelper").text("5자이상 작성해주십시요.");
 					return;
+				}else if($("#studentid").val().length >= 5) {
+					$("#studentidHelper").text("");
+				}
+	
+				if($("#studentpw").val().length < 10) {
+					$("#studentpwHelper").text("10자이상 작성해주십시요.");
+					return;
+				}else if($("#studentpw").val().length >= 10) {
+					$("#studentpwHelper").text("");
+				}
+				if($("#studentpwcheck").val() != $("#studentpw").val()) {
+					$("#studentpwcheckHelper").text("pw가 일치하지 않습니다.");
 				}else {
 					$("#myform").submit();
-						} 
-					}		
-				}
-			});	
-		}); 				
+					} 
+						
+		});	
+	}); 				
 	</script>
 
 </head>
 <body>
 	<h1>addStudent</h1>
 	
-	<form class="form-horizontal" method="post" action="<%=request.getContextPath()%>/addStudent.lim">
+	<form id="myform" class="form-horizontal" method="post" action="<%=request.getContextPath()%>/addStudent.lim">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">student_id</label>
     <div class="col-sm-5">
@@ -69,21 +65,6 @@
     </div>
   </div>
 </form>
-	
-	
-	
-	
-	<%-- <form method="post" action="<%=request.getContextPath()%>/addStudent.Lim">
-		student_id :
-		<input type="text" id="studentid" name="studentid" class=""><span id="studentidHelp"></span>
-		student_pw :
-		<input type="password" id="studentpw" name="studentpw" class=""><span id="studentpwHelp"></span>
-		student_pw확인 : 
-		<input type="password" id="studentpw" name="studentpw" class=""><span id="studentpwHelp"></span>
-		<button type="button" id="btn">학생 추가</button>
-	</form> --%>
-	
-	
 	
 </body>
 </html>
