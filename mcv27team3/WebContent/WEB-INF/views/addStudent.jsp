@@ -13,17 +13,14 @@
 				if($("#studentid").val().length < 5) {
 					$("#studentidHelper").text("5자이상 작성해주십시요.");
 					return;
-				}else if($("#studentid").val().length >= 5) {
-					$("#studentidHelper").text("");
-				}
+				}else $("#studentidHelper").text("");
 	
-				if($("#studentpw").val().length < 10) {
-					$("#studentpwHelper").text("10자이상 작성해주십시요.");
+				if($("#studentpw").val().length < 8) {
+					$("#studentpwHelper").text("8자이상 작성해주십시요.");
 					return;
-				}else if($("#studentpw").val().length >= 10) {
-					$("#studentpwHelper").text("");
-				}
-				if($("#studentpwcheck").val() != $("#studentpw").val()) {
+				}else $("#studentpwHelper").text("");
+				
+				if($("#studentpwcheck").val() === $("#studentpw").val()) {
 					$("#studentpwcheckHelper").text("pw가 일치하지 않습니다.");
 				}else {
 					$("#myform").submit();
@@ -68,3 +65,30 @@
 	
 </body>
 </html>
+
+
+<!-- <script>
+		$(document).ready(function() {
+			$("#btn").click(function() {	
+				if($("#studentid").val().length < 5) {
+					$("#studentidHelper").text("5자이상 작성해주십시요.");
+					return;
+				}else if($("#studentid").val().length >= 5) {
+					$("#studentidHelper").text("");
+				}
+	
+				if($("#studentpw").val().length < 10) {
+					$("#studentpwHelper").text("10자이상 작성해주십시요.");
+					return;
+				}else if($("#studentpw").val().length >= 10) {
+					$("#studentpwHelper").text("");
+				}
+				if($("#studentpwcheck").val() != $("#studentpw").val()) {
+					$("#studentpwcheckHelper").text("pw가 일치하지 않습니다.");
+				}else {
+					$("#myform").submit();
+					} 
+						
+		});	
+	}); 				
+	</script> -->
