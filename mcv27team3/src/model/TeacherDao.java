@@ -2,7 +2,9 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +14,8 @@ public class TeacherDao {
 	
 	Connection connection;
 	PreparedStatement preparedstatement;
-
+	ResultSet resultset;
+	ArrayList<Teacher> arrayTeacher;
 	public void insertTeacher(Teacher teacher) {
 		
 		String teacherId = teacher.getTeacherId();
@@ -38,6 +41,35 @@ public class TeacherDao {
 			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
 		}
 		
+	}
+	
+	public ArrayList<Teacher> searchTeacherList() {
+		arrayTeacher = new ArrayList<Teacher>();
+		try {
+			connection = DriveDB.driverdbCon();
+			
+			preparedstatement = connection.prepareStatement("select * from teacher");
+			
+			resultset = preparedstatement.executeQuery();
+			
+			while(resultset.next()) {
+				Teacher teacher = new Teacher();
+				teacher.setTeacherNo(resultset.getInt("teacher_no"));
+				teacher.setTeacherId(resultset.getString("teacher_id"));
+				teacher.setTeacherPw(resultset.getString("teacher_pw"));
+				arrayTeacher.add(teacher);
+			}
+			
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
+		
+		return arrayTeacher;
 	}
 	
 	
