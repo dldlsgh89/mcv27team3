@@ -31,7 +31,7 @@
 					return;
 				}else $("#studentidHelper").text("");
 	
-				if($("#studentpw").val().length < 8) {
+				if($("#studentpw").val().length < 5) {
 					$("#studentpwHelper").text("8자이상 작성해주십시요.");
 					return;
 				}else $("#studentpwHelper").text("");
@@ -58,14 +58,14 @@
 				<div class="form-group" >
 					<label for="studentId" class="col-sm-3 control-label">student_id</label>
 					<div class="col-sm-8" >
-						<input type="text" class="form-control" id="studentid" placeholder="id를 입력해주세요">
+						<input type="text" class="form-control" id="studentid" name="studentid" placeholder="id를 입력해주세요">
 						<span id="studentidHelper"></span>
 					</div>
 				</div>
 				<div class="form-group" >
 					<label for="studentPw" class="col-sm-3 control-label">student_pw</label>
 					<div class="col-sm-8">
-						<input type="password" class="form-control" id="studentpw" placeholder="pw를 입력해주세요">
+						<input type="password" class="form-control" id="studentpw" name="studentpw"  placeholder="pw를 입력해주세요">
 						<span id="studentpwHelper"></span>
 					</div>
 				</div>

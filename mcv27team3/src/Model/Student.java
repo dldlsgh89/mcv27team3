@@ -2,8 +2,8 @@ package Model;
 
 public class Student {
 	private int studentNo;
-	private String studenId;
-	private String studenPw;
+	private String studentId;
+	private String studentPw;
 	
 	public int getStudentNo() {
 		return studentNo;
@@ -11,22 +11,21 @@ public class Student {
 	public void setStudentNo(int studentNo) {
 		this.studentNo = studentNo;
 	}
-	public String getStudenId() {
-		return studenId;
+	public String getStudentId() {
+		return studentId;
 	}
-	public void setStudenId(String studenId) {
-		this.studenId = studenId;
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
-	public String getStudenPw() {
-		return studenPw;
+	public String getStudentPw() {
+		return studentPw;
 	}
-	public void setStudenPw(String studenPw) {
-		this.studenPw = studenPw;
+	public void setStudentPw(String studentPw) {
+		this.studentPw = studentPw;
 	}
 	@Override
 	public String toString() {
-		return "Student [studentNo=" + studentNo + ", studenId=" + studenId + ", studenPw=" + studenPw + "]";
+		return "Student [studentNo=" + studentNo + ", studentId=" + studentId + ", studentPw=" + studentPw + "]";
 	}
-		
 	
 }

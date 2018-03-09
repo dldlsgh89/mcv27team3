@@ -20,15 +20,19 @@ public class addStudentController extends HttpServlet {
 	//student 입력
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.request 처리
-		//2. 모델(DAO) 호출
-		//3. 다른 controller 호출 (redirect 한다)
-		String studentId = request.getParameter("studentId");
-		String studentPw = request.getParameter("studentPs");
+		String studentId = request.getParameter("studentid");
+		System.out.println(studentId +"<--studentId");
+		String studentPw = request.getParameter("studentpw");
+		System.out.println(studentPw +"<--studentPw");
 		Student student = new Student();
+		student.setStudentId(studentId);
+		student.setStudentPw(studentPw);
 		//student setter 호출
 		this.studentdao = new StudentDao();
 		studentdao.insertStudent (student);
-		response.sendRedirect("/WEB-INF/views/getStudentList.lim");
+		//2. 모델(DAO) 호출
+		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
+		//3. 다른 controller 호출 (redirect 한다)
 	}
 
 }
