@@ -1,23 +1,30 @@
 package model;
 
 public class Employee {
-
-	private String m_id;
-	private String m_pw;
-	public String getM_id() {
-		return m_id;
+	
+	private int employeeNo;
+	private String employeeId;
+	private String employeePw;
+	public int getEmployeeNo() {
+		return employeeNo;
 	}
-	public void setM_id(String m_id) {
-		this.m_id = m_id;
+	public void setEmployeeNo(int employeeNo) {
+		this.employeeNo = employeeNo;
 	}
-	public String getM_pw() {
-		return m_pw;
+	public String getEmployeeId() {
+		return employeeId;
 	}
-	public void setM_pw(String m_pw) {
-		this.m_pw = m_pw;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getEmployeePw() {
+		return employeePw;
+	}
+	public void setEmployeePw(String employeePw) {
+		this.employeePw = employeePw;
 	}
 	@Override
 	public String toString() {
-		return "Employee [m_id=" + m_id + ", m_pw=" + m_pw + "]";
+		return "Employee [employeeNo=" + employeeNo + ", employeeId=" + employeeId + ", employeePw=" + employeePw + "]";
 	}
 }

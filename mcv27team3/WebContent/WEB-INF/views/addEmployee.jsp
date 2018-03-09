@@ -23,25 +23,41 @@
  		} 
  	</style> 
 
-	<script type="text/javascript">
+	<script>
 
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 		$("#btn").click(function() {
-				if($("#employeeid").val().length < 5) {
+				if($("#employeeId").val().length < 5) {
 					$("#nameHelper").text("5자이상 작성해주십시요.");
 					
-				}else if($("#employeeid").val().length >= 5) {
+				}else if($("#employeeId").val().length >= 5) {
 					$("#nameHelper").text("");
 				//var check = $("#pwd").val();
-					if ($("#pwdch").val() != $("#pwd").val()){
+					if ($("#pwdch").val() != $("#pwd").val())){
 					$("#pwHelper").text("비밀번호가 일치하지 않습니다.");
 					} else {
 						$("#pwHelper").text("");
+						$("#myform").submit();
 					}
 				}
 			});
 		});
-</script>
+		 */
+		$(document).ready(function(){
+				$("#btn").click(function(){			
+					if($("#employeeId").val().length < 5){
+						$("#nameHelper").html("아이디 5자 이상");
+					}else if($("#pwd").val().length < 5){
+						$("#nameHelper").html("비밀번호 5자 이상")
+					}else if($("#pwdch").val() != $("#pwd").val()){
+						$("#pwHelper").html("동일한 비밀번호를 입력하세요");
+					}else{
+						$("#myform").submit();
+					}					
+				});
+			
+		});
+	</script>
 </head>
 <body>
 	<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addEmployee.pjh">
@@ -53,14 +69,14 @@
 				<div class="form-group" >
 					<label for="studentId" class="col-sm-3 control-label">employee_id</label>
 					<div class="col-sm-8" >
-						<input type="text" class="form-control" id="employeeid" placeholder="id를 입력해주세요">
+						<input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="id를 입력해주세요">
 						<span id="nameHelper"></span>
 					</div>
 				</div>
 				<div class="form-group" >
 					<label for="studentPw" class="col-sm-3 control-label">employee_pw</label>
 					<div class="col-sm-8">
-						<input type="password" class="form-control"name="pwd" id="pwd" placeholder="pw를 입력해주세요">
+						<input type="password" class="form-control" name="pwd" id="pwd" placeholder="pw를 입력해주세요">
 						
 					</div>
 				</div>

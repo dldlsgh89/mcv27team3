@@ -14,7 +14,7 @@ import model.EmployeeDao;
 
 @WebServlet("/addEmployee.pjh")
 public class AddEmployeeController extends HttpServlet {
-	private EmployeeDao employeedao;
+	private EmployeeDao employeeDao;
 	private Employee employee;
 	// employee 입력 form 처리
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,21 +24,20 @@ public class AddEmployeeController extends HttpServlet {
 //employee 입력	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 		String employeeId= request.getParameter("employeeId");
-		String employeePw = request.getParameter("employeePw");
+		String pwd = request.getParameter("pwd");
+		System.out.println(employeeId+"employeeId");
+		System.out.println(pwd+"<--pwd");
 		
-		Employee employee = new Employee();
-		employee.setM_id(employeeId);
-		employee.setM_pw(employeePw);
+		this.employee = new Employee();		
+		employee.setEmployeeId(employeeId);
+		employee.setEmployeePw(pwd);
 		
-		this.employeedao = new EmployeeDao();
-		this.employee = new Employee();
+		this.employeeDao =new EmployeeDao();
+		employeeDao.InsertEmployee(employee);
 		
-		this.employeedao =new EmployeeDao();
-		employeedao.InsertEmployee(employee);
-		
-		response.sendRedirect("/WEB-INF/views/GetEmployeeList.jsp");
+		response.sendRedirect(request.getContextPath()+"/getemployeelist.pjh");
 	} //1.request 처리
 	  //2.모델(DAO)호출
 	  //3.redirect
