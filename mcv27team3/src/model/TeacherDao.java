@@ -19,9 +19,9 @@ public class TeacherDao {
 		System.out.println(teacherId+"<----insertTeacher");
 		String teacherPw = teacher.getTeacherPw();
 			
-		DriveDB drivedb = new DriveDB();
+		
 		try {
-			connection = drivedb.driverdbcon();
+			connection = DriveDB.driverdbCon();
 			
 			preparedstatement = connection.prepareStatement("INSERT INTO teacher(teacher_no, teacher_id, teacher_pw) VALUES (null, ?, ?)");
 			preparedstatement.setString(1, teacherId);
@@ -29,13 +29,13 @@ public class TeacherDao {
 			
 			preparedstatement.executeUpdate();
 			
-		} catch (ClassNotFoundException e) {			
-			e.printStackTrace();
-		} catch (SQLException e) {			
-			e.printStackTrace();
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
 		} finally {
-			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException ex) {}
-			if(connection != null) try{connection.close();} catch(SQLException ex) {}			
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
 		}
 		
 	}

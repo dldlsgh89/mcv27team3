@@ -27,11 +27,11 @@
 		$("#btn2").click(function(){
 			$(".form").show()
 			$("#btn").click(function(){			
-				if($("#teacherid").val().length < 5){
+				if($("#teacherId").val().length < 5){
 					$("#helper").html("아이디 5자 이상");
-				}else if($("#teachertpw").val().length < 5){
+				}else if($("#teacherPw").val().length < 5){
 					$("#helper").html("비밀번호 5자 이상")
-				}else if($("#teacherpwcheck").val() != $("#teachertpw").val()){
+				}else if($("#teacherPwCheck").val() != $("#teacherPw").val()){
 					$("#helper").html("동일한 비밀번호를 입력하세요");
 				}else{
 					$("#myform").submit();
@@ -52,23 +52,23 @@
 				</div>
 				<div class="panel-body">
 					<div class="form-group" >
-						<label for="teacherid" class="col-sm-3 control-label">teacher_id</label>
+						<label for="teacherId" class="col-sm-3 control-label">teacher_id</label>
 						<div class="col-sm-8" >
-							<input type="text" class="form-control" id="teacherid" name="teacherid" placeholder="id를 입력해주세요">
+							<input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="id를 입력해주세요">
 	
 						</div>
 					</div>
 					<div class="form-group" >
-						<label for="teachertpw" class="col-sm-3 control-label">teacher_pw</label>
+						<label for="teacherPw" class="col-sm-3 control-label">teacher_pw</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" id="teachertpw" name="teacherpw" placeholder="pw를 입력해주세요">
+							<input type="password" class="form-control" id="teacherPw" name="teacherPw" placeholder="pw를 입력해주세요">
 	
 						</div>
 					</div>
 					<div class="form-group" >
-						<label for="teacherpwcheck" class="col-sm-3 control-label">teacher_pw확인</label>
+						<label for="teacherPwCheck" class="col-sm-3 control-label">teacher_pw확인</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" id="teacherpwcheck" placeholder="pw를 다시 입력해주세요">
+							<input type="password" class="form-control" id="teacherPwCheck" placeholder="pw를 다시 입력해주세요">
 	
 						</div>
 					</div>

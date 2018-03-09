@@ -20,14 +20,17 @@ public class AddTeacherController extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/addTeacher.jsp").forward(request, response);
 	}
 	//teacher 입력
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.request 처리
 		System.out.println(request.getParameter("teacherid")+"<----AddTeacherController");
 		//Teacher setter 호출
 		
-		String teacherId = request.getParameter("teacherid");
-		String teacherPw = request.getParameter("teacherpw");
-		this.teacher = new Teacher();
+		String teacherId = request.getParameter("teacherId");
+		String teacherPw = request.getParameter("teacherPw");
+		
+		this.teacher = new Teacher();		
 		teacher.setTeacherId(teacherId);
 		teacher.setTeacherPw(teacherPw);
 		
