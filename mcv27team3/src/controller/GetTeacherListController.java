@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Teacher;
-import Model.TeacherDao;
+import model.Teacher;
+import model.TeacherDao;
 
 @WebServlet("/getTeacherList.lee")
 public class GetTeacherListController extends HttpServlet {

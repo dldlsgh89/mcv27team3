@@ -1,31 +1,34 @@
-package Model;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class StudentDao {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+
+public class TeacherDao {
+	
 	Connection connection;
 	PreparedStatement preparedstatement;
-	
-	public void insertStudent(Student student) {
-		String studentId = student.getStudentId();
-		System.out.println(studentId + "<--insertStudent ID");
-		String studentPw = student.getStudentPw();
-		System.out.println(studentPw + "<--insertStudent PW");
+
+	public void insertTeacher(Teacher teacher) {
 		
+		String teacherId = teacher.getTeacherId();
+		System.out.println(teacherId+"<----insertTeacher");
+		String teacherPw = teacher.getTeacherPw();
+			
 		DriveDB drivedb = new DriveDB();
-		
 		try {
 			connection = drivedb.driverdbcon();
 			
-			preparedstatement = connection.prepareStatement("INSERT INTO student(student_no, student_id, student_pw) VALUES (null, ?, ?)");
-			preparedstatement.setString(1, studentId);
-			preparedstatement.setString(2, studentPw);
+			preparedstatement = connection.prepareStatement("INSERT INTO teacher(teacher_no, teacher_id, teacher_pw) VALUES (null, ?, ?)");
+			preparedstatement.setString(1, teacherId);
+			preparedstatement.setString(2, teacherPw);
 			
 			preparedstatement.executeUpdate();
-		
+			
 		} catch (ClassNotFoundException e) {			
 			e.printStackTrace();
 		} catch (SQLException e) {			
@@ -36,5 +39,7 @@ public class StudentDao {
 		}
 		
 	}
+	
+	
 	
 }
