@@ -13,16 +13,17 @@ public class TeacherDao {
 	Connection connection;
 	PreparedStatement preparedstatement;
 
-	public void insertTeacher(HttpServletRequest request, HttpServletResponse response) {
-		String teacherId = request.getParameter("teacherid");
+	public void insertTeacher(Teacher teacher) {
+		
+		String teacherId = teacher.getTeacherId();
 		System.out.println(teacherId+"<----insertTeacher");
-		String teacherPw = request.getParameter("teacherpw");
+		String teacherPw = teacher.getTeacherPw();
 			
 		DriveDB drivedb = new DriveDB();
 		try {
 			connection = drivedb.driverdbcon();
 			
-			preparedstatement = connection.prepareStatement("INSERT INTO teacher(teacher_no, teacher_id, teacher_pw) VALUES (0, ?, ?)");
+			preparedstatement = connection.prepareStatement("INSERT INTO teacher(teacher_no, teacher_id, teacher_pw) VALUES (null, ?, ?)");
 			preparedstatement.setString(1, teacherId);
 			preparedstatement.setString(2, teacherPw);
 			

@@ -23,11 +23,19 @@ public class AddTeacherController extends HttpServlet {
 		// 1.request 처리
 		System.out.println(request.getParameter("teacherid")+"<----AddTeacherController");
 		//Teacher setter 호출
+		
+		String teacherId = request.getParameter("teacherid");
+		String teacherPw = request.getParameter("teacherpw");
+		this.teacher = new Teacher();
+		teacher.setTeacherId(teacherId);
+		teacher.setTeacherPw(teacherPw);
+		
+		
 		this.teacherDao = new TeacherDao();
-		teacherDao.insertTeacher(request, response);
+		teacherDao.insertTeacher(teacher);
 		
 		// 2. 모델(DAO) 호출
-		response.sendRedirect("/getTeacherList");
+		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
 		// 3. 다른 controller 호출 (redirect)
 	}
 }
