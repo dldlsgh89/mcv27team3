@@ -31,13 +31,13 @@
 	  <div class="form-group">
 	    <label for="teacherid" class="col-sm-2 control-label">teacher_id :</label>
 	    <div class="col-sm-5">
-	      <input type="text" class="form-control" id="teacherid" placeholder="id">
+	      <input type="text" class="form-control" id="teacherid" name="teacherid" placeholder="id">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="teacherpw" class="col-sm-2 control-label">teacher_pw :</label>
 	    <div class="col-sm-5">
-	      <input type="password" class="form-control" id="teacherpw" placeholder="Password">
+	      <input type="password" class="form-control" id="teacherpw" name="teacherpw" placeholder="Password">
 	    </div>
 	  </div>
 	  <div class="form-group">
