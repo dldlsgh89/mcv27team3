@@ -7,66 +7,91 @@
 <title>addEmployee</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<style type="text/css"> 
+ 		body{
+ 			padding: 250px;
+ 			background-image: url("https://images.unsplash.com/photo-1509210459313-17feefdff5cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c5ddf153f3339e6ceffb94528f018a9d&w=1000&q=80");
+			background-size: 1600px 800px;
+ 			}
+		form{ 
+ 			margin: 0 auto; 
+ 			padding: 10px 10px 10px 10px; 
+			width: 40%; 
+ 			background-color: #ffffff;
+ 			text-align: center;
+ 		} 
+ 	</style> 
+
 	<script type="text/javascript">
 
 	$(document).ready(function() {
 		$("#btn").click(function() {
-			if($("#employeeid").val() != null) {
-				
 				if($("#employeeid").val().length < 5) {
 					$("#nameHelper").text("5자이상 작성해주십시요.");
-					return;
+					
 				}else if($("#employeeid").val().length >= 5) {
 					$("#nameHelper").text("");
-				}
-				}if($("#pwd").val() != null){
-					var getPwd = document.getElementById("pwd").value;
-					console.log("getPwd: + getPwd");
-					}else if($("#pwdch").val()!=null){
-					getPwd!=getPwdCh
-					document.getElementById("txt").innerHTML = "<font color = 'Red'>비밀번호가 일치하지 않습니다</font>";
-					}else{
-						document.getElementById("txt").innerHTML = "";	
+				//var check = $("#pwd").val();
+					if ($("#pwdch").val() != $("#pwd").val()){
+					$("#pwHelper").text("비밀번호가 일치하지 않습니다.");
+					} else {
+						$("#pwHelper").text("");
 					}
+				}
 			});
 		});
-	/* $(document).ready(function(){
-		$("#btn").click(function(){
-			if($("#name").val().length <3) {
-				$("#nameHelper").text("이름은 3자 이상");
-				return;
-			
-			}else if{			
-	function aa(){}
-		var getPwd = document.getElementById("pwd").value;
-		console.log("getPwd : + getPwd");
-			}else if{(getPwd!=getPwdCh){
-			document.getElementById("txt").innerHTML = "<font color='Red'>비밀번호가 일치하지 않습니다.</font>";
-			}else{
-				document.getElementById("txt").innerHTML = "";
-		}
-	}
-		} */
-	
 </script>
 </head>
 <body>
+	<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addEmployee.pjh">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="panel-title">addEmployee</h1>
+			</div>
+			<div class="panel-body">
+				<div class="form-group" >
+					<label for="studentId" class="col-sm-3 control-label">employee_id</label>
+					<div class="col-sm-8" >
+						<input type="text" class="form-control" id="employeeid" placeholder="id를 입력해주세요">
+						<span id="nameHelper"></span>
+					</div>
+				</div>
+				<div class="form-group" >
+					<label for="studentPw" class="col-sm-3 control-label">employee_pw</label>
+					<div class="col-sm-8">
+						<input type="password" class="form-control"name="pwd" id="pwd" placeholder="pw를 입력해주세요">
+						
+					</div>
+				</div>
+				<div class="form-group" >
+					<label for="pwdch" class="col-sm-3 control-label">employee_pw확인</label>
+					<div class="col-sm-8">
+						<input type="password" class="form-control" id="pwdch" placeholder="pw를 다시 입력해주세요">
+						<span id="pwHelper"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" id="btn" class="btn btn-default">직원확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>	
 
-	 <h1>addEmployee</h1>
+	 <%--  <h1>addEmployee</h1>
 	<form method="post" action="<%=request.getContextPath()%>/addEmployee.pjh">
-	<div>
 		employee_id:
-		<input type="text" id="employeeid" class="">
-		<span id="nameHelper"></span>
-	</div> 
-	employee_pw:
-	<input type="password" name="pw" id="pwd" class="">
-	employee_pw확인:
-	<input type="password" name="pwdCh" id="pwdch" class="" onkeyup="aa()">
-	<p>
-	<span id="txt"></span>
-	</p>
-	<button type="button"id="btn">직원추가</button>
-	</form> 
+			<input type="text" id="employeeid" class="">
+			<span id="nameHelper"></span>
+		employee_pw:
+			<input type="password" name="pwd" id="pwd" class="">
+		employee_pw확인:
+			<input type="password" name="pwdCh" id="pwdch" class="">
+			<span id="pwHelper"></span>
+			
+		<button type="button"id="btn">직원추가</button>
+	</form>  --%>
 </body>
 </html>
