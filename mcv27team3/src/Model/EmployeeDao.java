@@ -14,7 +14,7 @@ PreparedStatement preparedstatement = null;
 ResultSet resultset = null;
 Employee e = null;
 
-public void EmployeeDao(Member m,Connection connection) {
+public void InsertEmployee(Employee employee) {
 	//3단계 쿼리실행준비 부터 시작
 	DriveDB drivedb = new DriveDB();
 	try {
@@ -38,5 +38,5 @@ public void EmployeeDao(Member m,Connection connection) {
 			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException ex) {}
 			if(connection != null) try{connection.close();} catch(SQLException ex) {}			
 		}
-}
+	}
 }

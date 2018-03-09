@@ -27,9 +27,16 @@ public class addEmployeeController extends HttpServlet {
 		doGet(request, response);
 		String employeeId= request.getParameter("employeeId");
 		String employeePw = request.getParameter("employeePw");
+		
+		Employee employee = new Employee();
+		employee.setM_id(employeeId);
+		employee.setM_pw(employeePw);
+		
 		this.employeedao = new EmployeeDao();
 		this.employee = new Employee();
-	
+		
+		this.employeedao =new EmployeeDao();
+		employeedao.InsertEmployee(employee);
 		
 		response.sendRedirect("/WEB-INF/views/GetEmployeeList.jsp");
 	} //1.request Ã³¸®
