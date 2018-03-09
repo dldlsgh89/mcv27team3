@@ -1,6 +1,8 @@
+<!-- 27기 3팀 임가현 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -26,18 +28,18 @@
 	<script>
 		$(document).ready(function() {
 			$("#btn").click(function() {	
-				if($("#studentid").val().length < 5) {
-					$("#studentidHelper").text("5자이상 작성해주십시요.");
+				if($("#studentId").val().length < 5) {
+					$("#studentIdHelper").text("5자이상 작성해주십시요.");
 					return;
 				}else $("#studentidHelper").text("");
 	
-				if($("#studentpw").val().length < 5) {
-					$("#studentpwHelper").text("8자이상 작성해주십시요.");
+				if($("#studentPw").val().length < 5) {
+					$("#studentPwHelper").text("5자이상 작성해주십시요.");
 					return;
-				}else $("#studentpwHelper").text("");
+				}else $("#studentPwHelper").text("");
 				
-				if($("#studentpwcheck").val() != $("#studentpw").val()) {
-					$("#studentpwcheckHelper").text("pw가 일치하지 않습니다.");
+				if($("#studentPwCheck").val() != $("#studentPw").val()) {
+					$("#studenPpwCheckHelper").text("pw가 일치하지 않습니다.");
 				}else {
 					$("#myform").submit();
 					} 
@@ -58,22 +60,22 @@
 				<div class="form-group" >
 					<label for="studentId" class="col-sm-3 control-label">student_id</label>
 					<div class="col-sm-8" >
-						<input type="text" class="form-control" id="studentid" name="studentid" placeholder="id를 입력해주세요">
-						<span id="studentidHelper"></span>
+						<input type="text" class="form-control" id="studentId" name="studentId" placeholder="id를 입력해주세요">
+						<span id="studentIdHelper"></span>
 					</div>
 				</div>
 				<div class="form-group" >
 					<label for="studentPw" class="col-sm-3 control-label">student_pw</label>
 					<div class="col-sm-8">
-						<input type="password" class="form-control" id="studentpw" name="studentpw"  placeholder="pw를 입력해주세요">
-						<span id="studentpwHelper"></span>
+						<input type="password" class="form-control" id="studentPw" name="studentPw"  placeholder="pw를 입력해주세요">
+						<span id="studentPwHelper"></span>
 					</div>
 				</div>
 				<div class="form-group" >
 					<label for="studentPwcheck" class="col-sm-3 control-label">student_pw확인</label>
 					<div class="col-sm-8">
-						<input type="password" class="form-control" id="studentpwcheck" placeholder="pw를 다시 입력해주세요">
-						<span id="studentpwcheckHelper"></span>
+						<input type="password" class="form-control" id="studentPwCheck" placeholder="pw를 다시 입력해주세요">
+						<span id="studentPwCheckHelper"></span>
 					</div>
 				</div>
 				<div class="form-group">
