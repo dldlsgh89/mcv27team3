@@ -13,7 +13,7 @@ import model.EmployeeDao;
 
 
 @WebServlet("/addEmployee.pjh")
-public class addEmployeeController extends HttpServlet {
+public class AddEmployeeController extends HttpServlet {
 	private EmployeeDao employeedao;
 	private Employee employee;
 	// employee 입력 form 처리

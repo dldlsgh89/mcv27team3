@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class getemployeelist
  */
 @WebServlet("/getemployeelist")
-public class getemployeelist extends HttpServlet {
+public class Getemployeelist extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/GetEmployeeList.jsp").forward(request, response);
 	}
