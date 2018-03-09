@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class getStudentListController
  */
 @WebServlet("/getstudentListcontroller.lim")
-public class getStudentListController extends HttpServlet {
+public class GetStudentListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//request...
 		//studentDAO

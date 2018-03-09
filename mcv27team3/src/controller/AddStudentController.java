@@ -11,7 +11,7 @@ import model.Student;
 import model.StudentDao;
 
 @WebServlet("/addStudent.lim")
-public class addStudentController extends HttpServlet {
+public class AddStudentController extends HttpServlet {
 	private StudentDao studentdao;
 	//student 입력 폼 요청
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
