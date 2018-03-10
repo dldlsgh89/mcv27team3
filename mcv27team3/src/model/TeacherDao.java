@@ -60,6 +60,7 @@ public class TeacherDao {
 				arrayTeacher.add(teacher);
 			}
 			
+			return arrayTeacher;
 		} catch (ClassNotFoundException classEX) {			
 			classEX.printStackTrace();
 		} catch (SQLException sqlEX) {			
@@ -69,7 +70,7 @@ public class TeacherDao {
 			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
 		}
 		
-		return arrayTeacher;
+		return null;
 	}
 	
 	

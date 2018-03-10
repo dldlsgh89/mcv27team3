@@ -1,6 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="model.Teacher"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<%
+	
+	 ArrayList<Teacher> list = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -38,13 +43,20 @@
           <th>Column heading</th>
         </tr>
       </thead>
+<%
+	for(int i = 0; i<list.size(); i++){
+		Teacher teacher = list.get(i);
+%>
       <tbody>
         <tr class="active">
-          <th scope="row" <%= %>></th>
-          <td>Column content</td>
-          <td>Column content</td>
+          <th scope="row"><%= teacher.getTeacherNo() %></th>
+          <td><%=teacher.getTeacherId() %></td>
+          <td><%=teacher.getTeacherPw() %></td>
         </tr>       
       </tbody>
+<%
+	}
+%>
     </table>
   </div>
 </body>
