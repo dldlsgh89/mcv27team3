@@ -1,9 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@page import="model.Teacher"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<%
-	
+<%	
 	 ArrayList<Teacher> list = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
 %>
 <html>
@@ -38,9 +37,9 @@
     <table class="table">
       <thead>
         <tr class="active">
-          <th>Column heading</th>
-          <th>Column heading</th>
-          <th>Column heading</th>
+          <th>teacher number</th>
+          <th>teacher ID</th>
+          <th>teacher PW</th>
         </tr>
       </thead>
 <%

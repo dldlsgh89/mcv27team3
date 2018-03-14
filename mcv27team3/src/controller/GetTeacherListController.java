@@ -26,7 +26,7 @@ public class GetTeacherListController extends HttpServlet {
 		
 		//TeacherDao 클래스에 전체 리스트를 select해주는 매서드를 생성한다 
 	
-		
+		request.setCharacterEncoding("euckr");
 		//request
 		this.teacher = new Teacher();
 		//TeacherDao

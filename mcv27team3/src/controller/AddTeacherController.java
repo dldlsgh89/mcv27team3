@@ -15,6 +15,8 @@ import model.TeacherDao;
 public class AddTeacherController extends HttpServlet {
 	private TeacherDao teacherDao;
 	private Teacher teacher;
+	
+	
 	//teacher 입력 폼요청
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/addTeacher.jsp").forward(request, response);
@@ -24,10 +26,13 @@ public class AddTeacherController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.request 처리
-		System.out.println(request.getParameter("teacherid")+"<----AddTeacherController");
+		
 		//Teacher setter 호출
 		
+		request.setCharacterEncoding("euc-kr");
+		
 		String teacherId = request.getParameter("teacherId");
+		System.out.println(request.getParameter("teacherid")+"<----AddTeacherController");
 		String teacherPw = request.getParameter("teacherPw");
 		
 		this.teacher = new Teacher();		

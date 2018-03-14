@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +17,9 @@ public class TeacherDao {
 	PreparedStatement preparedstatement;
 	ResultSet resultset;
 	ArrayList<Teacher> arrayTeacher;
+	
 	public void insertTeacher(Teacher teacher) {
+		
 		
 		String teacherId = teacher.getTeacherId();
 		System.out.println(teacherId+"<----insertTeacher");
