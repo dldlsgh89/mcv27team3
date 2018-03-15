@@ -33,9 +33,9 @@
 					<th style="text-align: center">student No</th>
 					<th style="text-align: center">student ID</th>
 					<th style="text-align: center">student PW</th>
+					<th style="text-align: center">ADD student_ADDR</th> <!-- StudentAddrDao.insertStudentAddr -->
 					<th style="text-align: center">수정</th><!-- StudentDao.update / studentNO=? -->
 					<th style="text-align: center">삭제</th><!-- StudentDao.delete -->
-					<th style="text-align: center">ADD student_ADDR</th> <!-- StudentAddrDao.insertStudentAddr -->
 				</tr>
 			</thead>
 <%
@@ -47,9 +47,9 @@ ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arra
 					<td><%= student.getStudentNo() %></td>
 					<td><%= student.getStudentId() %></td>
 					<td>****</td>
-					<td><a href="<%= request.getContextPath()%>/UpdateStudentController.lim?studentNO=<%=student.getStudentNo() %>">수정</a></td>
-					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?studentNo=<%=student.getStudentNo()%>">삭제</a></td>
-					<td><a href="<%=request.getContextPath()%>/AddressStudent.java?studentAddr=<%=student.getStudentNo()%>">주소추가</a></td>
+					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%=student.getStudentNo()%>">주소추가</a></td>
+					<td><a href="<%=request.getContextPath()%>/UpdateStudentController.lim?studentNO=<%=student.getStudentNo()%>">수정</a></td>
+					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?studentNO=<%=student.getStudentNo()%>">삭제</a></td>
 				</tr>
 			</tbody>
 				<%
