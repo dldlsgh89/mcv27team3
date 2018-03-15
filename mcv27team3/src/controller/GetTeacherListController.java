@@ -14,11 +14,9 @@ import model.Teacher;
 import model.TeacherDao;
 
 
-@WebServlet("/getTeacherList.lee")
+@WebServlet("/getTeacherList.lee") //맴핑된 GetTeacherListController를 주소
 public class GetTeacherListController extends HttpServlet {
-	private TeacherDao teacherDao;
-	private Teacher teacher;
-
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//AddTeacherController에서 넘어온 request,response를 받는다.
@@ -29,20 +27,17 @@ public class GetTeacherListController extends HttpServlet {
 		//TeacherDao 클래스에 전체 리스트를 select해주는 매서드를 생성한다 
 	
 		request.setCharacterEncoding("euckr");
-		//request
 		
-		//TeacherDao
-		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>();
+		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>(); //생성자 매서드로 Teacher타입의 ArrayList 객체를 생성해 참조값을 arrayTeacher변수에 할당한다 
 		
-		this.teacherDao = new TeacherDao();
-		arrayTeacher = teacherDao.selectTeacher();
-		//request에 속성 추가
-		
-		request.setAttribute("arrayTeacher", arrayTeacher);
-		
-		//forward
+		TeacherDao teacherDao = new TeacherDao(); //생성자 메서드로 TeacherDao클래스의 객체를 생성해 미리 선언해둔 변수 teacherDao에 할당한다
+		arrayTeacher = teacherDao.selectTeacher(); //teacherDao의 참조값에 찾아가 selectTeacher메서드를 실행한다
+													//selectTeacher메서드에서 리턴된 데이터를 미리 선언해둔 참조변수 arrayTeacher에 할당한다
+					
+		request.setAttribute("arrayTeacher", arrayTeacher); //request에 결과를 담기위해 setAttribute메서드를 호출해주고 이름은 "arrayTeacher"인것에  참조변수 arrayTeacher를 담는다?
 		
 		request.getRequestDispatcher("/WEB-INF/views/getTeacherList.jsp").forward(request, response);
+		//
 	}
 
 }

@@ -13,8 +13,8 @@ import model.TeacherDao;
 
 @WebServlet("/DeleteTeacherController.lee")
 public class DeleteTeacherController extends HttpServlet {
-	private TeacherDao teacherDao;
-	private Teacher teacher;
+	
+	
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class DeleteTeacherController extends HttpServlet {
 		int	sendNO = Integer.parseInt(request.getParameter("sendNO"));
 		System.out.println(sendNO+"<-----DeleteTeacherController");
 		
-		this.teacherDao = new TeacherDao();
+		TeacherDao teacherDao = new TeacherDao();
 		teacherDao.deleteTeacher(sendNO);
 		
 		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");

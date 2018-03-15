@@ -40,18 +40,18 @@
 	ArrayList<Teacher> arrayTeacher = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
 		for(Teacher teacher : arrayTeacher){
 %>
-      <tbody>
-        <tr class="active">
-          <th scope="row"><%= teacher.getTeacherNo() %></th>
-          <td><%=teacher.getTeacherId() %></td>
-          <td>****</td>          
-          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacher.getTeacherNo() %>">주소추가</a></td>
-          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
-          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
-        </tr>       
-      </tbody>
+	      <tbody>
+	        <tr class="active">
+	          <th scope="row"><%= teacher.getTeacherNo() %></th>
+	          <td><%=teacher.getTeacherId() %></td>
+	          <td>****</td>          
+	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacher.getTeacherNo() %>">주소추가</a></td>
+	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
+	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
+	        </tr>       
+	      </tbody>
 <%
-	}
+		}
 %>
     </table>
   </div>
