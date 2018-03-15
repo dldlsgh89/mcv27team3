@@ -17,16 +17,16 @@ public class UpdateStudentController extends HttpServlet {
 	private Student student;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		request.setCharacterEncoding("euckr");
 		int studentNo = (Integer.parseInt(request.getParameter("studentNO")));
-		System.out.println(request.getParameter("studentNO")+"<-----doGet-----UpdateStudentController");
+		System.out.println(studentNo+"<-----doGet-----UpdateStudentController");
 		
 		this.studentdao = new StudentDao();
 		
 		this.student = new Student();
 		student	 =	studentdao.SelectforUpdate(studentNo);
 		
+		System.out.println(student+"student");
 		request.setAttribute("student", student);
 		
 		
@@ -49,7 +49,7 @@ public class UpdateStudentController extends HttpServlet {
 			
 		studentdao.updateStudent(student);
 		
-		response.sendRedirect(request.getContextPath()+"/getStudentList.lee");
+		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
 		
 		//request.getRequestDispatcher(request.getContextPath()+"/GetTeacherListController").forward(request, response);
 	}

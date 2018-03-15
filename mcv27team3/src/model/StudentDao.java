@@ -55,9 +55,9 @@ public class StudentDao {
 			while(resultset.next()) {
 				System.out.println("StudentDao.java/selectStudent 연결");
 				Student student = new Student();
-				student.setStudentId(resultset.getString("student_no"));
+				student.setStudentNo(resultset.getInt("student_no"));
 				student.setStudentId(resultset.getString("student_id"));
-				student.setStudentId(resultset.getString("student_pw"));
+				student.setStudentPw(resultset.getString("student_pw"));
 				arrayStudent.add(student);	
 				System.out.println(arrayStudent + "<--StudentDao.java/arrayStudent 출력");
 			}
@@ -78,7 +78,7 @@ public class StudentDao {
 	}
 	//mSelectforUpdate : 한명회원조회
 	public Student SelectforUpdate(int studentNo){
-		System.out.println("teacherNo : "+studentNo+"<------mSelectforUpdate");
+		System.out.println("studentNo : "+studentNo+"<------StudentDao.java/SelectforUpdate");
 
 		try {
 		connection = DriveDB.driverdbCon();
@@ -106,19 +106,52 @@ public class StudentDao {
 	}
 	
 	
-	public int updateStudent(Student student) {
-		String studentId = student.getStudentId();
-		System.out.println(studentId + "<-- StudentDao.java/insertStudent");
-		String studentPw = student.getStudentPw();
-		System.out.println(studentPw + "<-- StudentDao.java/insertStudent");
+	public void updateStudent(Student student) {
+		System.out.println("studentNo : "+student.getStudentNo()+"<------StudentDao.java/updatestudentNo");
+		
+		try {
+		connection = DriveDB.driverdbCon();
+		preparedstatement = connection.prepareStatement("UPDATE student SET student_id=?, student_pw=? WHERE student_no = ?");
+		preparedstatement.setString(1, student.getStudentId());
+		preparedstatement.setString(2, student.getStudentPw());
+		preparedstatement.setInt(3, student.getStudentNo());
+		
+		preparedstatement.executeUpdate();
+		
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
 		
 		
-		
-		return 0;
 	}
 	
-	public int deleteStudent(int studentNo) {
-		return 0;
+public void deleteStudent(int studentNo) { //입력데이터는 아무거나 선택
+		
+		System.out.println("StudentNo : "+studentNo+"<------StudentDao.java/deleteStudent");
+		
+		try {
+		connection = DriveDB.driverdbCon();
+		preparedstatement = connection.prepareStatement("DELETE FROM student WHERE student_no=?");
+		preparedstatement.setInt(1, studentNo);
+		preparedstatement.executeUpdate();
+		
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
+		
 	}
+		
+	
+	
 	
 }
