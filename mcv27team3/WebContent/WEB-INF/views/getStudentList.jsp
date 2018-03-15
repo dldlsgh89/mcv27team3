@@ -1,9 +1,8 @@
 <!-- 27기 3팀 임가현 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import = "model.Student" %>
-<%@ page import = "model.StudentDao" %>
 <%@ page import = "java.util.ArrayList" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -39,24 +38,24 @@
 					<th style="text-align: center">ADD student_ADDR</th> <!-- StudentAddrDao.insertStudentAddr -->
 				</tr>
 			</thead>
-			<%
-				ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arrayStudent");
-				for(int i = 0; i<arrayStudent.size(); i++){
-					Student student = arrayStudent.get(i);
-			%>
+<%
+ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arrayStudent");
+	for(Student student : arrayStudent) {
+%>
 			<tbody>
 				<tr class="active">
 					<td><%= student.getStudentNo() %></td>
-					<td><%= student.getStudentId()%></td>
+					<td><%= student.getStudentId() %></td>
 					<td>****</td>
-					<td><a href="<%=request.getContextPath()%>/controller/UpdateStudent.java?studentId=<%=student.getStudentNo()%>">수정</a></td>
-					<td><a href="<%=request.getContextPath()%>/controller/DeleteStudent.java?studentPw=<%=student.getStudentNo()%>">삭제</a></td>
-					<td><a href="<%=request.getContextPath()%>/contrller/AddressStudent.java?studentAddr=<%=student.getStudentNo()%>">주소추가</a></td>
+					<td><a href="<%= request.getContextPath()%>/UpdateStudentController.lim?studentNO=<%=student.getStudentNo() %>">수정</a></td>
+					<td><a href="<%=request.getContextPath()%>/DeleteStudent.java?studentPw=<%=student.getStudentNo()%>">삭제</a></td>
+					<td><a href="<%=request.getContextPath()%>/AddressStudent.java?studentAddr=<%=student.getStudentNo()%>">주소추가</a></td>
 				</tr>
+			</tbody>
 				<%
 					}
 				%> 
-			</tbody>
+			
 		</table>
 	</div>
 </body>

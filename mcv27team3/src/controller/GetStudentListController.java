@@ -29,6 +29,8 @@ public class GetStudentListController extends HttpServlet {
 		//studentDAO
 		ArrayList<Student> arrayStudent = new ArrayList<Student>();
 		this.studentdao = new StudentDao();
+		arrayStudent = studentdao.selectStudent();
+		
 		request.setAttribute("arrayStudent", arrayStudent);
 		
 

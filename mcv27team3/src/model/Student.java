@@ -9,8 +9,8 @@ public class Student {
 	public int getStudentNo() {
 		return studentNo;
 	}
-	public void setStudentNo(int studentNo) {
-		this.studentNo = studentNo;
+	public void setStudentNo(int string) {
+		this.studentNo = string;
 	}
 	public String getStudentId() {
 		return studentId;
