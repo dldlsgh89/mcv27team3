@@ -31,9 +31,9 @@
           <th>teacher number</th>
           <th>teacher ID</th>
           <th>teacher PW</th>
-          <th>수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+          <th>주소</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+          <th>수정</th>
           <th>삭제</th>
-          <th>주소 입력</th>
         </tr>
       </thead>
 <%
