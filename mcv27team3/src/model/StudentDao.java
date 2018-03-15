@@ -53,13 +53,13 @@ public class StudentDao {
 			resultset = preparedstatement.executeQuery();			
 			
 			while(resultset.next()) {
-				System.out.println("StudentDao.java/selectStudent 연결");
+				
 				Student student = new Student();
 				student.setStudentNo(resultset.getInt("student_no"));
 				student.setStudentId(resultset.getString("student_id"));
 				student.setStudentPw(resultset.getString("student_pw"));
 				arrayStudent.add(student);	
-				System.out.println(arrayStudent + "<--StudentDao.java/arrayStudent 출력");
+				
 			}
 			return arrayStudent;
 		}catch (SQLException ex) {
@@ -78,8 +78,7 @@ public class StudentDao {
 	}
 	//mSelectforUpdate : 한명회원조회
 	public Student SelectforUpdate(int studentNo){
-		System.out.println("studentNo : "+studentNo+"<------StudentDao.java/SelectforUpdate");
-
+		
 		try {
 		connection = DriveDB.driverdbCon();
 		preparedstatement = connection.prepareStatement("select * from student WHERE student_no=?");
@@ -111,7 +110,7 @@ public class StudentDao {
 		
 		try {
 		connection = DriveDB.driverdbCon();
-		preparedstatement = connection.prepareStatement("UPDATE student SET student_id=?, student_pw=? WHERE student_no = ?");
+		preparedstatement = connection.prepareStatement("UPDATE student SET student_id=?, student_pw=? WHERE student_no=?");
 		preparedstatement.setString(1, student.getStudentId());
 		preparedstatement.setString(2, student.getStudentPw());
 		preparedstatement.setInt(3, student.getStudentNo());
@@ -130,9 +129,8 @@ public class StudentDao {
 		
 	}
 	
-public void deleteStudent(int studentNo) { //입력데이터는 아무거나 선택
-		
-		System.out.println("StudentNo : "+studentNo+"<------StudentDao.java/deleteStudent");
+public void deleteStudent(int studentNo) {
+		System.out.println("studentNo : " + studentNo + "<------StudentDao.java/deleteStudent");
 		
 		try {
 		connection = DriveDB.driverdbCon();
