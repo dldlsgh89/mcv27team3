@@ -29,7 +29,7 @@
 					<td><%=employee.getEmployeeNo() %></td>
 					<td><%=employee.getEmployeeId() %></td>
 					<td>*****</td>
-					<td><a href="<%=request.getContextPath()%>/modifyEmployee.jjdev?employeeNo>=">수정</a></td>
+					<td><a href="<%=request.getContextPath()%>/UpdateEmployeeController.pjh?employeeNo=<%=employee.getEmployeeNo() %>">수정</a></td>
 					<td><a href="<%=request.getContextPath()%>/modifyEmployee.jjdev?employeeNo>=">삭제</a></td>
 					
 				</tr>
