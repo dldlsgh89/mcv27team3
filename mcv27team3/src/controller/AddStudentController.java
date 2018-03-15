@@ -9,24 +9,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Student;
 import model.StudentDao;
+import model.Teacher;
 
 @WebServlet("/addStudent.lim")
 public class AddStudentController extends HttpServlet {
 	private StudentDao studentdao;
+	private Student student;
+	
 	//student 입력 폼 요청
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/addStudent.jsp").forward(request, response);
 	}
+	
 	//student 입력
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("euc-kr");
 		//1.request 처리
 		String studentId = request.getParameter("studentId");
-		System.out.println(studentId +"<--studentId");
+		System.out.println(studentId +"<--AddStudentController.java");
 		String studentPw = request.getParameter("studentPw");
-		System.out.println(studentPw +"<--studentPw");
+		System.out.println(studentPw +"<--AddStudentController.java");
 		
 		//student setter 호출
-		Student student = new Student();
+		this.student = new Student();
 		student.setStudentId(studentId);
 		student.setStudentPw(studentPw);
 		

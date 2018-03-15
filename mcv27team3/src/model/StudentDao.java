@@ -12,12 +12,13 @@ public class StudentDao {
 	Connection connection = null;
 	PreparedStatement preparedstatement = null;
 	ResultSet resultset = null;
+	ArrayList<Student> arrayStudent;
 	
 	public void insertStudent(Student student) {
 		String studentId = student.getStudentId();
-		System.out.println(studentId + "<--insertStudent ID");
+		System.out.println(studentId + "<-- StudentDao.java/insertStudent");
 		String studentPw = student.getStudentPw();
-		System.out.println(studentPw + "<--insertStudent PW");
+		System.out.println(studentPw + "<-- StudentDao.java/insertStudent");
 		
 		
 		try {
@@ -41,7 +42,7 @@ public class StudentDao {
 	}
 	
 	public ArrayList<Student> selectStudent() {
-		ArrayList<Student> arraylist = new ArrayList<Student>();
+		arrayStudent = new ArrayList<Student>();
 		
 		try {
 			connection = DriveDB.driverdbCon();
@@ -50,16 +51,12 @@ public class StudentDao {
 			resultset = preparedstatement.executeQuery();			
 			
 			while(resultset.next()) {
-				System.out.println("selectStudent 연결");
+				System.out.println("StudentDao.java/selectStudent 연결");
 				Student student = new Student();
 				student.setStudentId(resultset.getString("studentId"));
 				student.setStudentId(resultset.getString("studentPw"));
-				arraylist.add(student);	
-				System.out.println(arraylist + "<-- arraylist 출력");
-			}
-			for(Student student : arraylist) {
-				System.out.println(student.getStudentId());
-				System.out.println(student.getStudentPw());
+				arrayStudent.add(student);	
+				System.out.println(arrayStudent + "<--StudentDao.java/arrayStudent 출력");
 			}
 		}catch (SQLException ex) {
 			ex.getStackTrace();
@@ -72,8 +69,16 @@ public class StudentDao {
 			if(preparedstatement == null) try {preparedstatement.close();} catch(SQLException ex) {}
 			if(connection == null) try {connection.close();} catch(SQLException ex) {}
 		}
-		return arraylist;
+		return arrayStudent;
 		
+	}
+	
+	public int updateStudent(Student student) {
+		return 0;
+	}
+	
+	public int deleteStudent(int studentNo) {
+		return 0;
 	}
 	
 }
