@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Teacher;
 import model.TeacherDao;
@@ -28,13 +29,14 @@ public class GetTeacherListController extends HttpServlet {
 	
 		request.setCharacterEncoding("euckr");
 		//request
-		this.teacher = new Teacher();
+		
 		//TeacherDao
 		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>();
 		
 		this.teacherDao = new TeacherDao();
 		arrayTeacher = teacherDao.searchTeacherList();
 		//request에 속성 추가
+		
 		request.setAttribute("arrayTeacher", arrayTeacher);
 		
 		//forward

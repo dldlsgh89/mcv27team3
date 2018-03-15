@@ -2,9 +2,6 @@
 <%@page import="model.Teacher"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
-<%	
-	 ArrayList<Teacher> list = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
-%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -24,12 +21,6 @@
  			text-align: center;
  		} 
 </style>  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script>
-	
-</script>
-
 </head>
 <body>
 	<h1>Teacher List</h1>
@@ -40,17 +31,23 @@
           <th>teacher number</th>
           <th>teacher ID</th>
           <th>teacher PW</th>
+          <th>수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+          <th>삭제</th>
+          <th>ADD 주소 입력</th>
         </tr>
       </thead>
 <%
-	for(int i = 0; i<list.size(); i++){
-		Teacher teacher = list.get(i);
+	ArrayList<Teacher> arrayTeacher = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
+		for(Teacher teacher : arrayTeacher){
 %>
       <tbody>
         <tr class="active">
           <th scope="row"><%= teacher.getTeacherNo() %></th>
           <td><%=teacher.getTeacherId() %></td>
-          <td><%=teacher.getTeacherPw() %></td>
+          <td>****</td>
+          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
+          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
+          <td><a href="<%= request.getContextPath()%>/controller/UpdateTeacherController?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
         </tr>       
       </tbody>
 <%
