@@ -47,7 +47,7 @@ public class TeacherDao {
 		
 	}
 	
-	public ArrayList<Teacher> searchTeacherList() {
+	public ArrayList<Teacher> selectTeacher() {
 		arrayTeacher = new ArrayList<Teacher>();
 		try {
 			connection = DriveDB.driverdbCon();

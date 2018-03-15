@@ -33,7 +33,7 @@
           <th>teacher PW</th>
           <th>수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
           <th>삭제</th>
-          <th>ADD 주소 입력</th>
+          <th>주소 입력</th>
         </tr>
       </thead>
 <%
@@ -44,10 +44,10 @@
         <tr class="active">
           <th scope="row"><%= teacher.getTeacherNo() %></th>
           <td><%=teacher.getTeacherId() %></td>
-          <td>****</td>
+          <td>****</td>          
+          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacher.getTeacherNo() %>">주소추가</a></td>
           <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
           <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
-          <td><a href="<%= request.getContextPath()%>/controller/UpdateTeacherController?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
         </tr>       
       </tbody>
 <%

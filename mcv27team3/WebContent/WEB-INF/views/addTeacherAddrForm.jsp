@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <%
-	Teacher teacher = (Teacher)request.getAttribute("teacher");
+	int teacherNo = (int)request.getAttribute("teacherNo");
 %>
 </head>
 <body>
@@ -14,21 +14,16 @@
 	<table border="1">
 	<tr>
 		<td>teacherNo</td>
-		<td><input type="text" name="teacherNo" size="20" value="<%= teacher.getTeacherNo() %>" readonly></td>
+		<td><input type="text" name="teacherNo" size="20" value="<%= teacherNo %>" readonly></td>
 	<tr>
 	<tr>
-		<td>teacherId</td>
-		<td><input type="text" name="teacherId" size="20" value="<%= teacher.getTeacherId() %>"></td>
-	<tr>
-	<tr>
-		<td>teacherPw</td>
-		<td><input type="text" name="teacherPw" size="20" value="<%= teacher.getTeacherPw() %>"></td>
+		<td>teacherAddr</td>
+		<td><input type="text" name="teacherAddr" size="20" value=""></td>
 	<tr>
 	<tr>
 		<td colspan="4"><input type="submit" value="회원수정버튼"></td>
 	</tr>
 	</table>
 	</form>
-
 </body>
 </html>

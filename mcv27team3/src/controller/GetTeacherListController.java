@@ -34,7 +34,7 @@ public class GetTeacherListController extends HttpServlet {
 		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>();
 		
 		this.teacherDao = new TeacherDao();
-		arrayTeacher = teacherDao.searchTeacherList();
+		arrayTeacher = teacherDao.selectTeacher();
 		//request에 속성 추가
 		
 		request.setAttribute("arrayTeacher", arrayTeacher);
