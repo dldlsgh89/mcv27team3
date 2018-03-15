@@ -40,7 +40,7 @@ public class AddEmployeeController extends HttpServlet {
 		response.sendRedirect(request.getContextPath()+"/getemployeelist.pjh");
 	} //1.request 처리
 	  //2.모델(DAO)호출
-	  //3.redirect
+	  //3.redirect123
 	
 	
 }
