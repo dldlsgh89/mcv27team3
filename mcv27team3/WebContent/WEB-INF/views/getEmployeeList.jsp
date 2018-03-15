@@ -14,9 +14,29 @@
 			<tr>
 			<td>직원id</td>
 			<td>직원pw</td>
-			<td>수정</td>
-			<td>삭제</td>
+			<td>수정</td><!-- GuestDao.updateGuest() -->
+			<td>삭제</td><!-- GuestDAo,deleteGuest() -->
+			<td>ADD Guest_ADDR</td><!-- GuestAddrDao.insertGuestAddr() -->
 			</tr>
+			<%
+				ArrayList<Employee> arrayEmployee = (ArrayList<Employee>)request.getAttribute("arrayEmployee");
+				for(Employee employee : arrayEmployee) {
+					
+				
+			%>
+			
+				<tr>
+					<td><%=employee.getEmployeeNo() %></td>
+					<td><%=employee.getEmployeeId() %></td>
+					<td>*****</td>
+					<td><a href="<%=request.getContextPath()%>/modifyEmployee.jjdev?employeeNo>=">수정</a></td>
+					<td><a href="<%=request.getContextPath()%>/modifyEmployee.jjdev?employeeNo>=">삭제</a></td>
+					
+				</tr>
+			<%
+				}
+			%>
+			
 	
 	</table>
 </html>
