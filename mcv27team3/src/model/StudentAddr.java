@@ -4,6 +4,7 @@ public class StudentAddr {
 	private int stuedentAddrNo;
 	private int StudentNo;
 	private String address;
+	
 	public int getStuedentAddrNo() {
 		return stuedentAddrNo;
 	}

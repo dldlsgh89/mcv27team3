@@ -1,6 +1,6 @@
 <!-- 27기 3팀 임가현 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ page import = "model.Student" %>
+<%@ page import = "model.StudentAddr" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -25,31 +25,27 @@
 
 </head>
 <body>
-	<h1>Student List</h1>
+	<h1>Student Addr List</h1>
 	<div class="bs-example" data-example-id="contextual-table">
 		<table class="table">
 			<thead>
 				<tr class="active">
-					<th style="text-align: center">student No</th>
-					<th style="text-align: center">student ID</th>
-					<th style="text-align: center">student PW</th>
-					<th style="text-align: center">Add student_Addr</th> <!-- StudentAddrDao.insertStudentAddr -->
+					<th style="text-align: center">student addr no</th>
+					<th style="text-align: center">student no</th>
+					<th style="text-align: center">address</th>
 					<th style="text-align: center">수정</th><!-- StudentDao.update / studentNO=? -->
-					<th style="text-align: center">삭제</th><!-- StudentDao.delete -->
 				</tr>
 			</thead>
 <%
-ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arrayStudent");
-	for(Student student : arrayStudent) {
+ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAttribute("arrayStudentAddr");
+	for(StudentAddr studentAddr : arrayStudentAddr) {
 %>
 			<tbody>
 				<tr class="active">
-					<td><%= student.getStudentNo() %></td>
-					<td><%= student.getStudentId() %></td>
-					<td>****</td>
-					<td><a href="<%=request.getContextPath()%>/GetStudentAddrListController.lim?studentNO=<%=student.getStudentNo()%>">주소확인</a></td>
-					<td><a href="<%=request.getContextPath()%>/UpdateStudentController.lim?studentNO=<%=student.getStudentNo()%>">수정</a></td>
-					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?studentNO=<%=student.getStudentNo()%>">삭제</a></td>
+					<td><%= studentAddr.getStuedentAddrNo() %></td>
+					<td><%= studentAddr.getStudentNo() %></td>
+					<td><%= studentAddr.getAddress() %></td>
+					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?studentNO=<%=studentAddr.getStudentNo()%>">수정</a></td>
 				</tr>
 			</tbody>
 				<%

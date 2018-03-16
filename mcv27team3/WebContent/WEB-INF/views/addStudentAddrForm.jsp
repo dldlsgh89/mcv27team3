@@ -14,7 +14,7 @@
 <form action="<%= request.getContextPath() %>/AddStudentAddrController.lim" method="post">
 		<table border="1">
 			<tr>
-				<td>"studentNo"</td>
+				<td>studentNo</td>
 				<td><input type="text" name="studentNo" size="20" value="<%= studentNo %>" readonly></td>
 			<tr>
 			<tr>
