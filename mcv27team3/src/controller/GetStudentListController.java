@@ -29,6 +29,6 @@ public class GetStudentListController extends HttpServlet {
 		
 
 		//forward
-		request.getRequestDispatcher("/WEB-INF/views/getStudentList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/student/getStudentList.jsp").forward(request, response);
 	} 
 }

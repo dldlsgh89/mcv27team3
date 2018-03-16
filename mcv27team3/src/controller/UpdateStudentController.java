@@ -30,7 +30,7 @@ public class UpdateStudentController extends HttpServlet {
 		request.setAttribute("student", student);
 		
 		
-		request.getRequestDispatcher("/WEB-INF/views/updateStudentForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/student/updateStudentForm.jsp").forward(request, response);
 	}
 
 	

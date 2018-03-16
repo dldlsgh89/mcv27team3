@@ -19,14 +19,14 @@ public class AddStudentAddrController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//입력값에 숫자,한글,영어를 쓸 수 있게 한다.
-		request.setCharacterEncoding("utf8");
+		request.setCharacterEncoding("utf-8");
 		
 		int studentNo = Integer.parseInt(request.getParameter("sendNO"));
 		System.out.println(request.getParameter("sendNO")+"<-----doGet  AddTeacherAddrController.java");
 		
 		request.setAttribute("studentNo", studentNo);
 		
-		request.getRequestDispatcher("/WEB-INF/views/addStudentAddrForm.jsp").forward(request, response);		
+		request.getRequestDispatcher("/WEB-INF/views/student/addStudentAddrForm.jsp").forward(request, response);		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -30,7 +30,7 @@ public class GetStudentAddrListController extends HttpServlet {
 		session.setAttribute("sendNO", sendNo);				
 		request.setAttribute("arrayStudentAddr", arrayStudentAddr);
 		
-		request.getRequestDispatcher("/WEB-INF/views/getStudentAddrList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/student/getStudentAddrList.jsp").forward(request, response);
 	}
 	
 	

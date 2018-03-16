@@ -17,7 +17,7 @@ public class AddStudentController extends HttpServlet {
 	private Student student;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/addStudent.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/student/addStudent.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
