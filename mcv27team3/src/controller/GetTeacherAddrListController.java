@@ -19,15 +19,12 @@ public class GetTeacherAddrListController extends HttpServlet {
 		 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//��𼱰� �ּҸ���Ʈ���⸦ Ŭ���ÿ� ����Ǵ� �޼���
-		//
-		
-		
+				
 		request.setCharacterEncoding("UTF-8");
-		//sendNO = (int)request.getAttribute("sendNO");
+	
 		
 		int sendNO = Integer.parseInt(request.getParameter("sendNO"));
-		//int teacherNo = (int)request.getAttribute("teacherNo");
+		
 		
 		System.out.println(sendNO+"<----GetTeacherAddrListController");
 		
@@ -38,7 +35,7 @@ public class GetTeacherAddrListController extends HttpServlet {
 		arrayTeacherAddr = teacherAddrDao.selectTeacherAddr(sendNO);
 		
 		System.out.println(arrayTeacherAddr.size()+"<------arrayTeacher.size()  GetTeacherAddrListController");
-		//request.setAttribute("sendNO", sendNO);
+		
 		
 		request.setAttribute("sendNO", sendNO);
 		request.setAttribute("arrayTeacherAddr", arrayTeacherAddr);

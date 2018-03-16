@@ -18,20 +18,19 @@ public class AddTeacherAddrController extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//���Ե� number�� �ּҸ� �߰������� �Է� ����
+		
 		request.setCharacterEncoding("UTF-8");
-		//����Ʈ���� �ּ� �߰��� ������ Controller�� ��ȯ
+		
 		int teacherNo = Integer.parseInt(request.getParameter("sendNO"));
 		System.out.println(request.getParameter("sendNO")+"<-----doGet  AddTeacherAddrController");
 		
-		//��Ʈ�ѷ����� number�� �Ѱܹް� �ش� number�� �̹� �ԷµǾ� �����Ҽ� ���� jsp�� �ѷ��ش�.
+		
 		request.setAttribute("teacherNo", teacherNo);
-		//�ش� jsp���� number ����, address_number�� ����� �Է�ó�� X ��������� �ּҰ��� �ϷµǴ� form �ۼ�
+		
 		
 		request.getRequestDispatcher("/WEB-INF/views/addTeacherAddrForm.jsp").forward(request, response);
 		
-		//form �ۼ��� controller�� �Ѿ���� �Էµ� �����͸� Dao�� ������� query���� ���� 
-		//list.jsp�� ������� ������
+		
 		
 		
 	}
@@ -55,8 +54,8 @@ public class AddTeacherAddrController extends HttpServlet {
 		
 		
 				
-		//response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
-		//request.getRequestDispatcher("/WEB-INF/views/getTeacherAddrList.jsp").forward(request, response);
+		
+		
 		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController2.lee");
 	}
 

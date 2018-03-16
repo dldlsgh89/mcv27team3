@@ -50,6 +50,5 @@ public class UpdateTeacherController extends HttpServlet {
 		
 		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
 		
-		//request.getRequestDispatcher(request.getContextPath()+"/GetTeacherListController").forward(request, response);
 	}
 }

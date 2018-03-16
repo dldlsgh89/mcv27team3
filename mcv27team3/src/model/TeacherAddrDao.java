@@ -42,27 +42,27 @@ public class TeacherAddrDao {
 	public ArrayList<TeacherAddr> selectTeacherAddr(int sendNO) {
 		
 		System.out.println(sendNO+"<---- selectTeacherAddr");
-		arrayTeacherAddr = new ArrayList<TeacherAddr>(); //미리 선언해둔 변수 arrayTeacherAddr에 TeacherAddr타입의 ArrayList객체를 만들어 참조값을 할당한다
+		arrayTeacherAddr = new ArrayList<TeacherAddr>(); 
 		try {
-			connection = DriveDB.driverdbCon(); //드라이브 로딩
+			connection = DriveDB.driverdbCon();
 			
-			preparedstatement = connection.prepareStatement("select * from teacher_addr WHERE teacher_no=?"); //teacher테이블에 모든 컬럼을 select 하는 쿼리문을 준비한다
+			preparedstatement = connection.prepareStatement("select * from teacher_addr WHERE teacher_no=?"); 
 			preparedstatement.setInt(1, sendNO);
 			
-			resultset = preparedstatement.executeQuery(); //쿼리문 실행후 참조값을 미리선언해둔 resultset변수에 담는다
+			resultset = preparedstatement.executeQuery(); 
 			
-			while(resultset.next()) { //while 반복문을 실행해 쿼리문 실행후 참조값을 담은 변수 resultset의 next메서드가 false일경우까지 반복한다. next 메서드는 결과값을 검색해 값이 잇으면 true, 없으면 false를 리턴하는 메서드다
-				teacherAddr = new TeacherAddr();  //생성자 매서드로 Teacher객체 생성후 teacher에 참조값 할당 
-				teacherAddr.setTeacherAddrNo(resultset.getInt("teacher_addr_no")); //쿼리 실행결과의 참조값이 담근 resultset에 찾아가 쿼리 실행 결과 컬럼명이 teacher_no인것의 값을 겟팅해와서 teacher참조값의 setTeacherNo메서드의 입력데이터로 입력한다
+			while(resultset.next()) { 
+				teacherAddr = new TeacherAddr();  
+				teacherAddr.setTeacherAddrNo(resultset.getInt("teacher_addr_no")); 
 				System.out.println(teacherAddr.getTeacherAddrNo());
-				teacherAddr.setTeacherNo(resultset.getInt("teacher_no")); //쿼리 실행결과의 참조값이 담근 resultset에 찾아가 쿼리 실행 결과 컬럼명이 teacher_id인것의 값을 겟팅해와서 teacher참조값의 setTeacherId메서드의 입력데이터로 입력한다
-				teacherAddr.setAddress(resultset.getString("address")); //쿼리 실행결과의 참조값이 담근 resultset에 찾아가 쿼리 실행 결과 컬럼명이 teacher_pw인것의 값을 겟팅해와서 teacher참조값의 setTeacherPw메서드의 입력데이터로 입력한다
-				arrayTeacherAddr.add(teacherAddr); //위의 처리를 완료하고 미리 선언해둔 ArrayList타입의 참조변수 arrayTeacher에 add메서드를 입력데이터로 셋팅이 끝난 teacher참조변수를 넣어 실행해 호출한다;
+				teacherAddr.setTeacherNo(resultset.getInt("teacher_no"));
+				teacherAddr.setAddress(resultset.getString("address")); 
+				arrayTeacherAddr.add(teacherAddr); 
 				
-				//결과값이 false일때까지 처리를 계속 반복한다
+				
 			}
 			
-			return arrayTeacherAddr;	//resultset.next()메서드의 결과가 false 일때 while 문을 빠져나오고 이제까지 ArrayList를 추가(add)한 참조변수 arrayTeacher를 리턴한다
+			return arrayTeacherAddr;	
 		} catch (ClassNotFoundException classEX) {			
 			classEX.printStackTrace();
 		} catch (SQLException sqlEX) {			
