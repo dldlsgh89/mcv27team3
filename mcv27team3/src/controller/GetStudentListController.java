@@ -13,18 +13,12 @@ import model.Student;
 import model.StudentDao;
 import model.Teacher;
 
-/**
- * Servlet implementation class getStudentListController
- */
 @WebServlet("/getStudentList.lim")
 public class GetStudentListController extends HttpServlet {
 	private StudentDao studentdao;
-	private Student student;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
-		//request
-		this.student = new Student();
+		request.setCharacterEncoding("utf-8");
 		
 		//studentDAO
 		ArrayList<Student> arrayStudent = new ArrayList<Student>();

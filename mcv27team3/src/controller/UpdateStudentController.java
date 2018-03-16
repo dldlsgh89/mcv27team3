@@ -17,8 +17,9 @@ public class UpdateStudentController extends HttpServlet {
 	private Student student;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
-		int studentNo = (Integer.parseInt(request.getParameter("studentNO")));
+		request.setCharacterEncoding("utf-8");
+		
+		int studentNo = (Integer.parseInt(request.getParameter("sendNO")));
 		System.out.println(studentNo+"<-----doGet-----UpdateStudentController");
 		
 		this.studentdao = new StudentDao();
@@ -26,7 +27,6 @@ public class UpdateStudentController extends HttpServlet {
 		this.student = new Student();
 		student	 =	studentdao.SelectforUpdate(studentNo);
 		
-		System.out.println(student+"student");
 		request.setAttribute("student", student);
 		
 		

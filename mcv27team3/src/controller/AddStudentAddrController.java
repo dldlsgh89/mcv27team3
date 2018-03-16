@@ -17,28 +17,21 @@ public class AddStudentAddrController extends HttpServlet {
 	private StudentAddr studentAddr;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//°¡ÀÔ½Ã ¼ıÀÚ »Ó¸¸¾Æ´Ï¶ó ÇÑ±Û,¿µ¾îµµ ÀÎÄÚµù 
-		request.setCharacterEncoding("euckr");
 		
-		//list¿¡¼­ ÁÖ¼Ò Ãß°¡¸¦ ´©¸£¸é Controller·Î ÀÌµ¿
-		int studentNo = Integer.parseInt(request.getParameter("studentNO"));
-		System.out.println(request.getParameter("studentNo")+"<-----doGet  AddTeacherAddrController.java");
+		//ì…ë ¥ê°’ì— ìˆ«ì,í•œê¸€,ì˜ì–´ë¥¼ ì“¸ ìˆ˜ ìˆê²Œ í•œë‹¤.
+		request.setCharacterEncoding("utf8");
 		
-		//ÄÜÆ®·Ñ·¯¿¡¼­ number¸¦ ³Ñ°Ü¹Ş°í ÇØ´ç number°¡ ÀÌ¹Ì ÀÔ·ÂµÇ¾î ¼öÁ¤ÇÒ¼ö ¾ø´Â jsp·Î »Ñ·ÁÁØ´Ù.
+		int studentNo = Integer.parseInt(request.getParameter("sendNO"));
+		System.out.println(request.getParameter("sendNO")+"<-----doGet  AddTeacherAddrController.java");
+		
 		request.setAttribute("studentNo", studentNo);
-		//ÇØ´ç jsp¿¡¼­ number °íÁ¤, address_number´Â ¿ÀÅä·Î ÀÔ·ÂÃ³¸® X °á°úÀûÀ¸·Î ÁÖ¼Ò°ª¸¸ ÀÏ·ÂµÇ´Â form ÀÛ¼º
 		
-		request.getRequestDispatcher("/WEB-INF/views/addStudentAddrForm.jsp").forward(request, response);
-		
-		//form ÀÛ¼º½Ã controller·Î ³Ñ¾î¿À°í ÀÔ·ÂµÈ µ¥ÀÌÅÍ¸¦ Dao¿¡ ¿¬°á½ÃÄÑ query¹®Àå ½ÇÇà 
-		//list.jsp·Î ¿¬°á½ÃÄÑ ¸¶¹«¸®
-		
-		
+		request.getRequestDispatcher("/WEB-INF/views/addStudentAddrForm.jsp").forward(request, response);		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("euckr");
+
+		request.setCharacterEncoding("utf8");
 		
 		int studentNo = Integer.parseInt(request.getParameter("studentNo"));
 		String studentAddr = request.getParameter("studentAddr");

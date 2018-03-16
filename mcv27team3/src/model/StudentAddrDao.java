@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StudentAddrDao {
-	
 	Connection connection;
 	PreparedStatement preparedstatement;
 	ResultSet resultset;
@@ -37,17 +36,18 @@ public class StudentAddrDao {
 	}
 	
 	//ArrayList<StudentAddr> selectStudentAddr
-		public ArrayList<StudentAddr> selectStudentAddr() {
+		public ArrayList<StudentAddr> selectStudentAddr(int sendNO) {
+			System.out.println(sendNO+"<---- StudentAddrDao.java/selectStudentAddr");
 			arrayStudentAddr = new ArrayList<StudentAddr>();
 			
 			try {
 				connection = DriveDB.driverdbCon();
 				
 				preparedstatement = connection.prepareStatement("select * from student_addr");
+				preparedstatement.setInt(1, sendNO);
 				resultset = preparedstatement.executeQuery();			
 				
 				while(resultset.next()) {
-					
 					StudentAddr studentAddr = new StudentAddr();
 					studentAddr.setStuedentAddrNo(resultset.getInt("student_addr_no"));
 					studentAddr.setStudentNo(resultset.getInt("student_no"));
@@ -56,7 +56,6 @@ public class StudentAddrDao {
 					
 				}
 				return arrayStudentAddr;
-				
 			}catch (SQLException ex) {
 				ex.getStackTrace();
 				System.out.println(ex.getMessage());	

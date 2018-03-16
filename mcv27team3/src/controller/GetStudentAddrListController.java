@@ -15,38 +15,24 @@ import model.StudentAddrDao;
 @WebServlet("/GetStudentAddrListController.lim")
 public class GetStudentAddrListController extends HttpServlet {
 	private StudentAddrDao studentAddrdao;
-	private StudentAddr studentAddr;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
-		//request
-		this.studentAddr = new StudentAddr();
+		request.setCharacterEncoding("utf-8");
 		
-		//studentDAO
+		int sendNO = Integer.parseInt(request.getParameter("sendNO"));
+				
 		ArrayList<StudentAddr> arrayStudentAddr = new ArrayList<StudentAddr>();
+		
 		this.studentAddrdao = new StudentAddrDao();
-		arrayStudentAddr = studentAddrdao.selectStudentAddr();
+		
+		arrayStudentAddr = studentAddrdao.selectStudentAddr(sendNO);
+		
+		System.out.println(arrayStudentAddr.size()+"<------arrayStudent.size()  GetStudentAddrListController");
 				
 		request.setAttribute("arrayStudentAddr", arrayStudentAddr);
 		
-
-		//forward
 		request.getRequestDispatcher("/WEB-INF/views/getStudentAddrList.jsp").forward(request, response);
 	}
 	
-	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("euckr");
-		
-		int studentNo = Integer.parseInt(request.getParameter("studentNo"));
-		String studentAddr = request.getParameter("studentAddr");
-		System.out.println(studentNo+"<-------doPost AddStudentAddrController");
-		System.out.println(studentAddr+"<-------doPost AddStudentAddrController");
-		
-		studentAddrdao = new StudentAddrDao();
-		studentAddrdao.insertStudentAddr(studentNo, studentAddr);
-		
-		response.sendRedirect(request.getContextPath()+"/getStudentAddrList.jsp");
-	}
-*/
+	
 }

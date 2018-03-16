@@ -19,11 +19,11 @@ public class DeleteStudentController extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int	studentNO = Integer.parseInt(request.getParameter("studentNO"));
-		System.out.println(studentNO+"<-----DeleteStudentController.java");
+		int	sendNO = Integer.parseInt(request.getParameter("sendNO"));
+		System.out.println(sendNO+"<-----DeleteStudentController.java");
 		
 		this.studentdao = new StudentDao();
-		studentdao.deleteStudent(studentNO);
+		studentdao.deleteStudent(sendNO);
 		
 		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
 	}

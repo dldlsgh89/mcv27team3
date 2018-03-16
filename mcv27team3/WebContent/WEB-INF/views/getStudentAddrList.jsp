@@ -1,11 +1,11 @@
-<!-- 27±â 3ÆÀ ÀÓ°¡Çö -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!-- 27ê¸° 3íŒ€ ìž„ê°€í˜„ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "model.StudentAddr" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Student List</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style type="text/css"> 
@@ -21,7 +21,22 @@
  			background-color: #ffffff;
  			text-align: center;
  		} 
-</style>  
+</style> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script>
+<%
+ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAttribute("arrayStudentAddr");
+	int arrayStudentAddrSize = arrayStudentAddr.size();
+%>
+	var arrayStudentAddrSize = <%=arrayStudentAddrSize%>;
+	$(document).ready(function(){				
+		if(arrayStudentAddrSize<5){
+			$(".addressAdd").show();
+		}else if(arrayStudentAddrSize>5)	
+			$(".addressAdd").hide();
+		}			
+	);
+</script> 
 
 </head>
 <body>
@@ -33,26 +48,29 @@
 					<th style="text-align: center">student addr no</th>
 					<th style="text-align: center">student no</th>
 					<th style="text-align: center">address</th>
-					<th style="text-align: center">¼öÁ¤</th><!-- StudentDao.update / studentNO=? -->
+					<th style="text-align: center">ìˆ˜ì •</th><!-- StudentDao.update / studentNO=? -->
 				</tr>
 			</thead>
-<%
-ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAttribute("arrayStudentAddr");
-	for(StudentAddr studentAddr : arrayStudentAddr) {
+<%			
+		for(StudentAddr studentAddr : arrayStudentAddr){
 %>
 			<tbody>
 				<tr class="active">
+					<th scop e="row"><%= studentAddr.getStudentNo() %></th>
 					<td><%= studentAddr.getStuedentAddrNo() %></td>
 					<td><%= studentAddr.getStudentNo() %></td>
 					<td><%= studentAddr.getAddress() %></td>
-					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?studentNO=<%=studentAddr.getStudentNo()%>">¼öÁ¤</a></td>
+					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%=studentAddr.getStudentNo()%>">ìˆ˜ì •</a></td>
 				</tr>
 			</tbody>
-				<%
-					}
-				%> 
+		<%
+		}	
+		%>	
 			
-		</table>
+		</table>	
+	</div>
+	<div class="addressAdd">
+  		<td><a href="<%= request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%= arrayStudentAddr.get(0).getStudentNo() %>">ì£¼ì†Œ ì¶”ê°€</a></td>
 	</div>
 </body>
 </html>

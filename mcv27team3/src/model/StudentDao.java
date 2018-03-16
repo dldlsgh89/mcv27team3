@@ -1,4 +1,4 @@
-//27±â 3ÆÀ ÀÓ°¡Çö
+//27ï¿½ï¿½ 3ï¿½ï¿½ ï¿½Ó°ï¿½ï¿½ï¿½
 package model;
 
 import java.sql.Connection;
@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class StudentDao {
 
-	Connection connection = null;
-	PreparedStatement preparedstatement = null;
-	ResultSet resultset = null;
-	Student student = null;
+	Connection connection;
+	PreparedStatement preparedstatement;
+	ResultSet resultset;
+	Student student;
 	ArrayList<Student> arrayStudent;
 	
 	//insertStudent
@@ -31,7 +31,6 @@ public class StudentDao {
 			preparedstatement.setString(2, studentPw);
 			
 			preparedstatement.executeUpdate();
-		
 		} catch (ClassNotFoundException e) {			
 			e.printStackTrace();
 		} catch (SQLException e) {			
@@ -53,13 +52,11 @@ public class StudentDao {
 			resultset = preparedstatement.executeQuery();			
 			
 			while(resultset.next()) {
-				
 				Student student = new Student();
 				student.setStudentNo(resultset.getInt("student_no"));
 				student.setStudentId(resultset.getString("student_id"));
 				student.setStudentPw(resultset.getString("student_pw"));
 				arrayStudent.add(student);	
-				
 			}
 			return arrayStudent;
 		}catch (SQLException ex) {
@@ -76,8 +73,9 @@ public class StudentDao {
 		return null;
 		
 	}
-	//mSelectforUpdate : ÇÑ¸íÈ¸¿øÁ¶È¸
+	//SelectforUpdate
 	public Student SelectforUpdate(int studentNo){
+		System.out.println("studentNo : "+studentNo+"<------StudentDao.java/SelectforUpdate");
 		
 		try {
 		connection = DriveDB.driverdbCon();
@@ -129,7 +127,7 @@ public class StudentDao {
 		
 	}
 	
-public void deleteStudent(int studentNo) {
+	public void deleteStudent(int studentNo) {
 		System.out.println("studentNo : " + studentNo + "<------StudentDao.java/deleteStudent");
 		
 		try {

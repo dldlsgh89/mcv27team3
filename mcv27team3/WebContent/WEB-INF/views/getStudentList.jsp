@@ -1,11 +1,11 @@
-<!-- 27±â 3ÆÀ ÀÓ°¡Çö -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!-- 27ê¸° 3íŒ€ ì„ê°€í˜„ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "model.Student" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Student List</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style type="text/css"> 
@@ -34,8 +34,8 @@
 					<th style="text-align: center">student ID</th>
 					<th style="text-align: center">student PW</th>
 					<th style="text-align: center">Add student_Addr</th> <!-- StudentAddrDao.insertStudentAddr -->
-					<th style="text-align: center">¼öÁ¤</th><!-- StudentDao.update / studentNO=? -->
-					<th style="text-align: center">»èÁ¦</th><!-- StudentDao.delete -->
+					<th style="text-align: center">ìˆ˜ì •</th><!-- StudentDao.update / studentNO=? -->
+					<th style="text-align: center">ì‚­ì œ</th><!-- StudentDao.delete -->
 				</tr>
 			</thead>
 <%
@@ -47,9 +47,9 @@ ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arra
 					<td><%= student.getStudentNo() %></td>
 					<td><%= student.getStudentId() %></td>
 					<td>****</td>
-					<td><a href="<%=request.getContextPath()%>/GetStudentAddrListController.lim?studentNO=<%=student.getStudentNo()%>">ÁÖ¼ÒÈ®ÀÎ</a></td>
-					<td><a href="<%=request.getContextPath()%>/UpdateStudentController.lim?studentNO=<%=student.getStudentNo()%>">¼öÁ¤</a></td>
-					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?studentNO=<%=student.getStudentNo()%>">»èÁ¦</a></td>
+					<td><a href="<%=request.getContextPath()%>/GetStudentAddrListController.lim?sendNO=<%=student.getStudentNo()%>">ì£¼ì†Œí™•ì¸</a></td>
+					<td><a href="<%=request.getContextPath()%>/UpdateStudentController.lim?sendNO=<%=student.getStudentNo()%>">ìˆ˜ì •</a></td>
+					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?sendNO=<%=student.getStudentNo()%>">ì‚­ì œ</a></td>
 				</tr>
 			</tbody>
 				<%

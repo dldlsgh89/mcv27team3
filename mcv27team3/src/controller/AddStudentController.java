@@ -16,30 +16,25 @@ public class AddStudentController extends HttpServlet {
 	private StudentDao studentdao;
 	private Student student;
 	
-	//student 입력 폼 요청
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/addStudent.jsp").forward(request, response);
 	}
 	
-	//student 입력
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
-		//1.request 처리
+		request.setCharacterEncoding("utf-8");
+		
 		String studentId = request.getParameter("studentId");
 		System.out.println(studentId +"<--AddStudentController.java");
 		String studentPw = request.getParameter("studentPw");
 		System.out.println(studentPw +"<--AddStudentController.java");
 		
-		//student setter 호출
 		this.student = new Student();
 		student.setStudentId(studentId);
 		student.setStudentPw(studentPw);
 		
-		//2. 모델(DAO) 호출
 		this.studentdao = new StudentDao();
-		studentdao.insertStudent (student);
+		studentdao.insertStudent(student);
 		
-		//3. 다른 controller 호출 (redirect 한다)
 		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
 	}
 

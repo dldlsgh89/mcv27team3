@@ -1,11 +1,10 @@
-<!-- 27±â 3ÆÀ ÀÓ°¡Çö -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<!-- 27ê¸° 3íŒ€ ì„ê°€í˜„ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>addStudent</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style type="text/css"> 
@@ -29,17 +28,17 @@
 		$(document).ready(function() {
 			$("#btn").click(function() {	
 				if($("#studentId").val().length < 5) {
-					$("#studentIdHelper").text("5ÀÚÀÌ»ó ÀÛ¼ºÇØÁÖ½Ê½Ã¿ä.");
+					$("#studentIdHelper").text("5ìì´ìƒ ì‘ì„±í•´ì£¼ì‹­ì‹œìš”.");
 					return;
 				}else $("#studentidHelper").text("");
 	
 				if($("#studentPw").val().length < 5) {
-					$("#studentPwHelper").text("5ÀÚÀÌ»ó ÀÛ¼ºÇØÁÖ½Ê½Ã¿ä.");
+					$("#studentPwHelper").text("5ìì´ìƒ ì‘ì„±í•´ì£¼ì‹­ì‹œìš”.");
 					return;
 				}else $("#studentPwHelper").text("");
 				
 				if($("#studentPwCheck").val() != $("#studentPw").val()) {
-					$("#studenPpwCheckHelper").text("pw°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+					$("#studenPpwCheckHelper").text("pwê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				}else {
 					$("#myform").submit();
 					} 
@@ -60,27 +59,27 @@
 				<div class="form-group" >
 					<label for="studentId" class="col-sm-3 control-label">student_id</label>
 					<div class="col-sm-8" >
-						<input type="text" class="form-control" id="studentId" name="studentId" placeholder="id¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä">
+						<input type="text" class="form-control" id="studentId" name="studentId" placeholder="idë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 						<span id="studentIdHelper"></span>
 					</div>
 				</div>
 				<div class="form-group" >
 					<label for="studentPw" class="col-sm-3 control-label">student_pw</label>
 					<div class="col-sm-8">
-						<input type="password" class="form-control" id="studentPw" name="studentPw"  placeholder="pw¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä">
+						<input type="password" class="form-control" id="studentPw" name="studentPw"  placeholder="pwë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 						<span id="studentPwHelper"></span>
 					</div>
 				</div>
 				<div class="form-group" >
-					<label for="studentPwcheck" class="col-sm-3 control-label">student_pwÈ®ÀÎ</label>
+					<label for="studentPwcheck" class="col-sm-3 control-label">student_pwí™•ì¸</label>
 					<div class="col-sm-8">
-						<input type="password" class="form-control" id="studentPwCheck" placeholder="pw¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä">
+						<input type="password" class="form-control" id="studentPwCheck" placeholder="pwë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”">
 						<span id="studentPwCheckHelper"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="button" id="btn" class="btn btn-default">ÇĞ»ıÈ®ÀÎ</button>
+						<button type="button" id="btn" class="btn btn-default">í•™ìƒí™•ì¸</button>
 					</div>
 				</div>
 			</div>

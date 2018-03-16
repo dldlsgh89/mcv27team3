@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "model.Student"  %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <%
 
@@ -20,19 +20,19 @@ System.out.println(student + "<<---------- updateStudentForm.jsp");
 	<form action="<%= request.getContextPath() %>/UpdateStudentController.lim" method="post">
 		<table border="1">
 			<tr>
-				<td>�л���ȣ</td>
+				<td>학생번호</td>
 				<td><input type="text" name="studentNo" size="20" value="<%= student.getStudentNo() %>" readonly></td>
 			<tr>
 			<tr>
-				<td>�л����̵�</td>
+				<td>학생아이디</td>
 				<td><input type="text" name="studentId" size="20" value="<%= student.getStudentId() %>"></td>
 			<tr>
 			<tr>
-				<td>�л���й�ȣ</td>
+				<td>학생비밀번호</td>
 				<td><input type="text" name="studentPw" size="20" value="<%= student.getStudentPw() %>"></td>
 			<tr>
 			<tr>
-				<td colspan="4"><input type="submit" value="ȸ��������ư"></td>
+				<td colspan="4"><input type="submit" value="회원수정버튼"></td>
 			</tr>
 		</table>
 	</form>
