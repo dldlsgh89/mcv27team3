@@ -50,7 +50,7 @@
 	        </tr>
 	      </thead>
 <%				
-		int sendNO = (int)session.getAttribute("sendNO");
+		int sendNO = (int)request.getAttribute("sendNO");
 		for(TeacherAddr teacherAddr : arrayTeacherAddr){
 %>
 	      <tbody>

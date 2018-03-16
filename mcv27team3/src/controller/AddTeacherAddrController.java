@@ -40,20 +40,24 @@ public class AddTeacherAddrController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int sendNO = Integer.parseInt(request.getParameter("teacherNo"));
+		int teacherNo = Integer.parseInt(request.getParameter("teacherNo"));
 		String teacherAddr = request.getParameter("teacherAddr");
-		System.out.println(sendNO+"<-------doPost AddTeacherAddrController");
+		System.out.println(teacherNo+"<-------doPost AddTeacherAddrController");
 		System.out.println(teacherAddr+"<-------doPost AddTeacherAddrController");
 		
 		teacherAddrDao = new TeacherAddrDao();		
-		teacherAddrDao.addTeacherAddress(sendNO, teacherAddr);
+		teacherAddrDao.addTeacherAddress(teacherNo, teacherAddr);
 		
-		request.setAttribute("sendNO", sendNO);
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("teacherNo", teacherNo);
+		
 		
 				
-		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
+		//response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
 		//request.getRequestDispatcher("/WEB-INF/views/getTeacherAddrList.jsp").forward(request, response);
-		//response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
+		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController2.lee");
 	}
 
 }

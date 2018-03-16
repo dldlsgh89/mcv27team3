@@ -14,8 +14,8 @@ import javax.websocket.Session;
 import model.TeacherAddr;
 import model.TeacherAddrDao;
 
-@WebServlet("/GetTeacherAddrListController.lee")
-public class GetTeacherAddrListController extends HttpServlet {
+@WebServlet("/GetTeacherAddrListController2.lee")
+public class GetTeacherAddrListController2 extends HttpServlet {
 		 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,11 +25,13 @@ public class GetTeacherAddrListController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		//sendNO = (int)request.getAttribute("sendNO");
+		//int	sendNO = Integer.parseInt(request.getParameter("sendNO"));
 		
-		int sendNO = Integer.parseInt(request.getParameter("sendNO"));
-		//int teacherNo = (int)request.getAttribute("teacherNo");
+		HttpSession session = request.getSession(true);
 		
-		System.out.println(sendNO+"<----GetTeacherAddrListController");
+		int sendNO = (int)session.getAttribute("teacherNo");
+		
+		System.out.println(sendNO+"<------GetTeacherAddrListController2");
 		
 		ArrayList<TeacherAddr> arrayTeacherAddr = new ArrayList<TeacherAddr>();
 		
