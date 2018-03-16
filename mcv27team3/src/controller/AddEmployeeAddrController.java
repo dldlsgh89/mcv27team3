@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -39,7 +39,8 @@ public class AddEmployeeAddrController extends HttpServlet {
 		employeeAddrDao = new EmployeeAddrDao();
 		employeeAddrDao.InsertEmployeeAddr(EmployeeNo,employeeAddr);
 
-		response.sendRedirect(request.getContextPath()+"//addEmployee.pjh");
+		response.sendRedirect(request.getContextPath()+"/addEmployee.pjh");
 	}
 
 }
+*/

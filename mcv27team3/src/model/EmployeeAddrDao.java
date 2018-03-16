@@ -1,15 +1,18 @@
-package model;
+/*package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class EmployeeAddrDao {
 
 	Connection connection = null;
 	PreparedStatement preparedstatement = null;
 	ResultSet resultset = null;
+	ArrayList<EmployeeAddr> arrayEmployeeAddr;
+	Employee employee;
 	
 	public int InsertEmployeeAddr(int EmployeeNo, String employeeAddr) {
 		System.out.println(EmployeeNo+"<---------addTeacherAddress");
@@ -32,4 +35,43 @@ public class EmployeeAddrDao {
 		}
 		return EmployeeNo;
 	}
+	
+	public ArrayList<EmployeeAddr> selectEmployeeAddr() {
+		arrayEmployeeAddr = new ArrayList<EmployeeAddr>();
+		
+		try {
+			connection = DriveDB.driverdbCon();
+			
+			preparedstatement = connection.prepareStatement("select * from employee_addr");
+			resultset = preparedstatement.executeQuery();			
+			
+			while(resultset.next()) {
+				
+				StudentAddr studentAddr = new StudentAddr();
+				studentAddr.setStuedentAddrNo(resultset.getInt("student_addr_no"));
+				studentAddr.setStudentNo(resultset.getInt("student_no"));
+				studentAddr.setAddress(resultset.getString("address"));
+				arrayStudentAddr.add(studentAddr);	
+				
+			}
+			return arrayStudentAddr;
+			
+		}catch (SQLException ex) {
+			ex.getStackTrace();
+			System.out.println(ex.getMessage());	
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}finally {
+			if(resultset != null) try {resultset.close();} catch(SQLException ex) {}
+			if(preparedstatement == null) try {preparedstatement.close();} catch(SQLException ex) {}
+			if(connection == null) try {connection.close();} catch(SQLException ex) {}
+		}
+		return null;
+		
+	}
+
 }
+}
+
+*/
