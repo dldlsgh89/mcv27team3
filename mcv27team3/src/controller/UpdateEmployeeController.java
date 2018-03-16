@@ -29,7 +29,7 @@ public class UpdateEmployeeController extends HttpServlet {
 		this.employee = new Employee();
 		employee = employeeDao.SelectforUpdate(employeeNo);
 		
-		request.setAttribute("employee", employee);
+		request.setAttribute("Employee", employee);
 		
 		request.getRequestDispatcher("/WEB-INF/views/updateEmployeeForm.jsp").forward(request, response);	
 	}

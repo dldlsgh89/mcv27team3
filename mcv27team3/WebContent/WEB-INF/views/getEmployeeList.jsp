@@ -12,8 +12,8 @@
 	<h1>직원목록</h1>
 		<table border="1" type = "text" value = "">
 			<tr>
-			<td>직원id</td>
-			<td>직원pw</td>
+			<td>직원No</td>
+			<td>직원ID</td>
 			<td>수정</td><!-- GuestDao.updateGuest() -->
 			<td>삭제</td><!-- GuestDAo,deleteGuest() -->
 			<td>ADD Guest_ADDR</td><!-- GuestAddrDao.insertGuestAddr() -->
@@ -23,12 +23,12 @@
 				for(Employee employee : arrayEmployee) {
 					
 				
-			%>
-			
+			%>			
 				<tr>
 					<td><%=employee.getEmployeeNo() %></td>
 					<td><%=employee.getEmployeeId() %></td>
 					<td>*****</td>
+					<td><a href="<%=request.getContextPath()%>/AddEmployeeAddrController.pjh?employeeNo=<%=employee.getEmployeeNo() %>">주소추가</a></td>
 					<td><a href="<%=request.getContextPath()%>/UpdateEmployeeController.pjh?employeeNo=<%=employee.getEmployeeNo() %>">수정</a></td>
 					<td><a href="<%=request.getContextPath()%>/modifyEmployee.jjdev?employeeNo>=">삭제</a></td>
 					
