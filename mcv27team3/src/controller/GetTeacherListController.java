@@ -31,7 +31,7 @@ public class GetTeacherListController extends HttpServlet {
 				
 		request.setAttribute("arrayTeacher", arrayTeacher); 
 		
-		request.getRequestDispatcher("/WEB-INF/views/getTeacherList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/teacher/getTeacherList.jsp").forward(request, response);
 		
 	}
 

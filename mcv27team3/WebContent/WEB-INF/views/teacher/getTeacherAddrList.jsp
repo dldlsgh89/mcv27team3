@@ -47,6 +47,7 @@
 	          <th>teacher addr number</th>
 	          <th>address</th>
 	          <th>주소수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+	          <th>삭제</th>
 	        </tr>
 	      </thead>
 <%				
@@ -59,6 +60,7 @@
 	          <td><%=teacherAddr.getTeacherAddrNo() %></td>
 	          <td><%=teacherAddr.getAddress() %></td>          
 	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherNo() %>">주소 수정</a></td>
+	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherAddrNo() %>">주소 삭제</a></td>
 	        </tr>       
 	      </tbody>	     
 <%
