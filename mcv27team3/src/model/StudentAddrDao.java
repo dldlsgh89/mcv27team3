@@ -11,17 +11,17 @@ public class StudentAddrDao {
 	Connection connection;
 	PreparedStatement preparedstatement;
 	ResultSet resultset;
-	ArrayList<Teacher> arrayTeacher;
+	ArrayList<Student> arrayStudent;
 	Teacher teacher;
 	
-	public int insertStudentAddr(int StudentNo, String studentAddr) {
-		System.out.println(StudentNo+"<---------addTeacherAddress");
+	public void insertStudentAddr(int StudentNo, String StudentAddr) {
+		System.out.println(StudentNo+"<--------- StudentAddrDao.java/insertStudentAddr");
 		try {
 			connection = DriveDB.driverdbCon();
 			
-			preparedstatement = connection.prepareStatement("INSERT INTO student_addr(student_addr_no, Student_no, address) VALUES (null, ?, ?)");
+			preparedstatement = connection.prepareStatement("INSERT INTO student_addr(student_addr_no, student_no, address) VALUES (null, ?, ?)");
 			preparedstatement.setInt(1, StudentNo);
-			preparedstatement.setString(2, studentAddr);
+			preparedstatement.setString(2, StudentAddr);
 			
 			preparedstatement.executeUpdate();
 			
@@ -33,8 +33,7 @@ public class StudentAddrDao {
 			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
 			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
 		}
-		return StudentNo;
 		
 	}
-
 }
+

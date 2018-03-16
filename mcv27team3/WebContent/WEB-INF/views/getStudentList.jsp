@@ -47,7 +47,7 @@ ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arra
 					<td><%= student.getStudentNo() %></td>
 					<td><%= student.getStudentId() %></td>
 					<td>****</td>
-					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%=student.getStudentNo()%>">주소추가</a></td>
+					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?studentNO=<%=student.getStudentNo()%>">주소추가</a></td>
 					<td><a href="<%=request.getContextPath()%>/UpdateStudentController.lim?studentNO=<%=student.getStudentNo()%>">수정</a></td>
 					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?studentNO=<%=student.getStudentNo()%>">삭제</a></td>
 				</tr>

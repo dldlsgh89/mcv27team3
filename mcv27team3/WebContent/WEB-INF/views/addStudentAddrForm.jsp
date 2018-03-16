@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>addStudentAddrForm.jsp</title>
 <%
-	int StudentNo = (int)request.getAttribute("StudentNo");
+	int studentNo = (int)request.getAttribute("studentNo");
 %>
 </head>
 <body>
@@ -15,7 +15,7 @@
 		<table border="1">
 			<tr>
 				<td>"studentNo"</td>
-				<td><input type="text" name="StudentNo" size="20" value="<%= StudentNo %>" readonly></td>
+				<td><input type="text" name="studentNo" size="20" value="<%= studentNo %>" readonly></td>
 			<tr>
 			<tr>
 				<td>studentAddr</td>
