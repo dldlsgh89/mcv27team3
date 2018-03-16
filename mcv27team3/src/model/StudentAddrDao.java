@@ -43,7 +43,7 @@ public class StudentAddrDao {
 			try {
 				connection = DriveDB.driverdbCon();
 				
-				preparedstatement = connection.prepareStatement("select * from student_addr");
+				preparedstatement = connection.prepareStatement("select * from student_addr WHERE student_no=?");
 				preparedstatement.setInt(1, sendNO);
 				resultset = preparedstatement.executeQuery();			
 				

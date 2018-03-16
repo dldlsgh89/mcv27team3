@@ -51,7 +51,8 @@ ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAtt
 					<th style="text-align: center">수정</th><!-- StudentDao.update / studentNO=? -->
 				</tr>
 			</thead>
-<%			
+<%		
+		int sendNO = (int)session.getAttribute("sendNO");
 		for(StudentAddr studentAddr : arrayStudentAddr){
 %>
 			<tbody>
@@ -70,7 +71,7 @@ ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAtt
 		</table>	
 	</div>
 	<div class="addressAdd">
-  		<td><a href="<%= request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%= arrayStudentAddr.get(0).getStudentNo() %>">주소 추가</a></td>
+  		<td><a href="<%= request.getContextPath()%>/AddStudentAddrController.lim?sendNo=<%=sendNO%>">주소 추가</a></td>
 	</div>
 </body>
 </html>
