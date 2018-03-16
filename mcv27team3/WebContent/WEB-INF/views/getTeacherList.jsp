@@ -45,7 +45,7 @@
 	          <th scope="row"><%= teacher.getTeacherNo() %></th>
 	          <td><%=teacher.getTeacherId() %></td>
 	          <td>****</td>          
-	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacher.getTeacherNo() %>">林家眠啊</a></td>
+	          <td><a href="<%= request.getContextPath()%>/GetTeacherAddrListController.lee?sendNO=<%= teacher.getTeacherNo() %>">林家List</a></td>
 	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">荐沥</a></td>
 	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">昏力</a></td>
 	        </tr>       

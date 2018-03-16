@@ -3,7 +3,7 @@ package model;
 public class TeacherAddr {
 	private int teacherAddrNo;
 	private int teacherNo;
-	private int address;
+	private String address;
 	public int getTeacherAddrNo() {
 		return teacherAddrNo;
 	}
@@ -16,10 +16,10 @@ public class TeacherAddr {
 	public void setTeacherNo(int teacherNo) {
 		this.teacherNo = teacherNo;
 	}
-	public int getAddress() {
+	public String getAddress() {
 		return address;
 	}
-	public void setAddress(int address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	@Override
@@ -30,5 +30,5 @@ public class TeacherAddr {
 	
 	
 	
-	
+
 }

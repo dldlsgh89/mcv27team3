@@ -37,7 +37,7 @@ public class GetTeacherListController extends HttpServlet {
 		request.setAttribute("arrayTeacher", arrayTeacher); //request에 결과를 담기위해 setAttribute메서드를 호출해주고 이름은 "arrayTeacher"인것에  참조변수 arrayTeacher를 담는다?
 		
 		request.getRequestDispatcher("/WEB-INF/views/getTeacherList.jsp").forward(request, response);
-		//
+		//저장한 값들을 바탕으로 views에서 뿌려줘야하기 때문에 이번에는 forward 한다. request.getRequestDispatcher로 이동할 경로를 잡아준뒤 해당 경로로 forward해서 request와 response를 넘겨준다
 	}
 
 }
