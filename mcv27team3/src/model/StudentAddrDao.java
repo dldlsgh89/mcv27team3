@@ -11,8 +11,8 @@ public class StudentAddrDao {
 	Connection connection;
 	PreparedStatement preparedstatement;
 	ResultSet resultset;
-	ArrayList<Student> arrayStudent;
-	Teacher teacher;
+	ArrayList<StudentAddr> arrayStudentAddr;
+	Student student;
 	
 	public void insertStudentAddr(int StudentNo, String StudentAddr) {
 		System.out.println(StudentNo+"<--------- StudentAddrDao.java/insertStudentAddr");
@@ -35,5 +35,42 @@ public class StudentAddrDao {
 		}
 		
 	}
+	
+	//ArrayList<StudentAddr> selectStudentAddr
+		public ArrayList<StudentAddr> selectStudentAddr() {
+			arrayStudentAddr = new ArrayList<StudentAddr>();
+			
+			try {
+				connection = DriveDB.driverdbCon();
+				
+				preparedstatement = connection.prepareStatement("select * from student_addr");
+				resultset = preparedstatement.executeQuery();			
+				
+				while(resultset.next()) {
+					
+					StudentAddr studentAddr = new StudentAddr();
+					studentAddr.setStuedentAddrNo(resultset.getInt("student_addr_no"));
+					studentAddr.setStudentNo(resultset.getInt("student_no"));
+					studentAddr.setAddress(resultset.getString("address"));
+					arrayStudentAddr.add(studentAddr);	
+					
+				}
+				return arrayStudentAddr;
+				
+			}catch (SQLException ex) {
+				ex.getStackTrace();
+				System.out.println(ex.getMessage());	
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}finally {
+				if(resultset != null) try {resultset.close();} catch(SQLException ex) {}
+				if(preparedstatement == null) try {preparedstatement.close();} catch(SQLException ex) {}
+				if(connection == null) try {connection.close();} catch(SQLException ex) {}
+			}
+			return null;
+			
+		}
+	
 }
 

@@ -48,7 +48,7 @@ public class AddStudentAddrController extends HttpServlet {
 		studentAddrDao = new StudentAddrDao();
 		studentAddrDao.insertStudentAddr(studentNo, studentAddr);
 		
-		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
+		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.lim");
 	}
 
 }
