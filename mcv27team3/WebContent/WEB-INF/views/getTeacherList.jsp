@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="model.Teacher"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style type="text/css"> 
@@ -31,9 +31,9 @@
           <th>teacher number</th>
           <th>teacher ID</th>
           <th>teacher PW</th>
-          <th>ÁÖ¼Ò</th><!-- teacher num ³Ñ°ÜÁÙ¶§ ¹»·Î ³Ñ°ÜÁÙ°ÍÀÎ°¡  -->
-          <th>¼öÁ¤</th>
-          <th>»èÁ¦</th>
+          <th>ì£¼ì†Œ</th><!-- teacher num ë„˜ê²¨ì¤„ë•Œ ë­˜ë¡œ ë„˜ê²¨ì¤„ê²ƒì¸ê°€  -->
+          <th>ìˆ˜ì •</th>
+          <th>ì‚­ì œ</th>
         </tr>
       </thead>
 <%
@@ -44,10 +44,10 @@
 	        <tr class="active">
 	          <th scope="row"><%= teacher.getTeacherNo() %></th>
 	          <td><%=teacher.getTeacherId() %></td>
-	          <td>****</td>          
-	          <td><a href="<%= request.getContextPath()%>/GetTeacherAddrListController.lee?sendNO=<%= teacher.getTeacherNo() %>">ÁÖ¼ÒList</a></td>
-	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">¼öÁ¤</a></td>
-	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">»èÁ¦</a></td>
+	          <td>****</td>       
+	          <td><a href="<%= request.getContextPath()%>/GetTeacherAddrListController.lee?sendNO=<%= teacher.getTeacherNo() %>">ì£¼ì†ŒList</a></td>
+	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">ìˆ˜ì •</a></td>
+	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">ì‚­ì œ</a></td>
 	        </tr>       
 	      </tbody>
 <%

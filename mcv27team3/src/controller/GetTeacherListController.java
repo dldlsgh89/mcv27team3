@@ -14,30 +14,30 @@ import model.Teacher;
 import model.TeacherDao;
 
 
-@WebServlet("/getTeacherList.lee") //¸ÉÇÎµÈ GetTeacherListController¸¦ ÁÖ¼Ò
+@WebServlet("/getTeacherList.lee") //ï¿½ï¿½ï¿½Îµï¿½ GetTeacherListControllerï¿½ï¿½ ï¿½Ö¼ï¿½
 public class GetTeacherListController extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//AddTeacherController¿¡¼­ ³Ñ¾î¿Â request,response¸¦ ¹Þ´Â´Ù.
-		//insert¿¡¼­´Â returnµ¥ÀÌÅÍ°¡ ¾ø°í ±×°÷¿¡¼­ ¸Å¼­µå°¡ ³¡³ª¹ö¸®´Âµ¥ request³ª response¸¦ ¹Þ´Â ÀÌÀ¯°¡ ÀÖ³ª? 
-		//±×³É µ¶¸³ÀûÀ¸·Î Æ¯º°ÇÑ µ¥ÀÌÅÍ¸¦ ¹ÞÁö ¾Ê°í All select ÇØÁÖ´Â model¿¡ ¿¬°á¸¸ ÇÏ¸é ¾ÈµÇ´ÂÁö? 
-		//¸¸¾à¿¡ model¿¡ µé¾î°¡´Â request³ª response°¡ ÀÖÀ¸¸é Á¤È®È÷ °Å±â¿¡ µé¾î°¡ÀÖ´Â°Ç ¹¹ÀÎÁö?
+		//AddTeacherControllerï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ request,responseï¿½ï¿½ ï¿½Þ´Â´ï¿½.
+		//insertï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ returnï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¼ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ requestï¿½ï¿½ responseï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö³ï¿½? 
+		//ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ All select ï¿½ï¿½ï¿½Ö´ï¿½ modelï¿½ï¿½ ï¿½ï¿½ï¿½á¸¸ ï¿½Ï¸ï¿½ ï¿½ÈµÇ´ï¿½ï¿½ï¿½? 
+		//ï¿½ï¿½ï¿½à¿¡ modelï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ requestï¿½ï¿½ responseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½Å±â¿¡ ï¿½ï¿½î°¡ï¿½Ö´Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
 		
-		//TeacherDao Å¬·¡½º¿¡ ÀüÃ¼ ¸®½ºÆ®¸¦ selectÇØÁÖ´Â ¸Å¼­µå¸¦ »ý¼ºÇÑ´Ù 
+		//TeacherDao Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ selectï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Å¼ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ 
 	
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("UTF-8");
 		
-		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>(); //»ý¼ºÀÚ ¸Å¼­µå·Î TeacherÅ¸ÀÔÀÇ ArrayList °´Ã¼¸¦ »ý¼ºÇØ ÂüÁ¶°ªÀ» arrayTeacherº¯¼ö¿¡ ÇÒ´çÇÑ´Ù 
+		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¼ï¿½ï¿½ï¿½ï¿½ TeacherÅ¸ï¿½ï¿½ï¿½ï¿½ ArrayList ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ arrayTeacherï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ñ´ï¿½ 
 		
-		TeacherDao teacherDao = new TeacherDao(); //»ý¼ºÀÚ ¸Þ¼­µå·Î TeacherDaoÅ¬·¡½ºÀÇ °´Ã¼¸¦ »ý¼ºÇØ ¹Ì¸® ¼±¾ðÇØµÐ º¯¼ö teacherDao¿¡ ÇÒ´çÇÑ´Ù
-		arrayTeacher = teacherDao.selectTeacher(); //teacherDaoÀÇ ÂüÁ¶°ª¿¡ Ã£¾Æ°¡ selectTeacher¸Þ¼­µå¸¦ ½ÇÇàÇÑ´Ù
-													//selectTeacher¸Þ¼­µå¿¡¼­ ¸®ÅÏµÈ µ¥ÀÌÅÍ¸¦ ¹Ì¸® ¼±¾ðÇØµÐ ÂüÁ¶º¯¼ö arrayTeacher¿¡ ÇÒ´çÇÑ´Ù
-					
-		request.setAttribute("arrayTeacher", arrayTeacher); //request¿¡ °á°ú¸¦ ´ã±âÀ§ÇØ setAttribute¸Þ¼­µå¸¦ È£ÃâÇØÁÖ°í ÀÌ¸§Àº "arrayTeacher"ÀÎ°Í¿¡  ÂüÁ¶º¯¼ö arrayTeacher¸¦ ´ã´Â´Ù?
+		TeacherDao teacherDao = new TeacherDao(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ TeacherDaoÅ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ teacherDaoï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ñ´ï¿½
+		arrayTeacher = teacherDao.selectTeacher(); //teacherDaoï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ selectTeacherï¿½Þ¼ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+													//selectTeacherï¿½Þ¼ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ arrayTeacherï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ñ´ï¿½
+				
+		request.setAttribute("arrayTeacher", arrayTeacher); //requestï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ setAttributeï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ "arrayTeacher"ï¿½Î°Í¿ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ arrayTeacherï¿½ï¿½ ï¿½ï¿½Â´ï¿½?
 		
 		request.getRequestDispatcher("/WEB-INF/views/getTeacherList.jsp").forward(request, response);
-		//ÀúÀåÇÑ °ªµéÀ» ¹ÙÅÁÀ¸·Î views¿¡¼­ »Ñ·ÁÁà¾ßÇÏ±â ¶§¹®¿¡ ÀÌ¹ø¿¡´Â forward ÇÑ´Ù. request.getRequestDispatcher·Î ÀÌµ¿ÇÒ °æ·Î¸¦ Àâ¾ÆÁØµÚ ÇØ´ç °æ·Î·Î forwardÇØ¼­ request¿Í response¸¦ ³Ñ°ÜÁØ´Ù
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ viewsï¿½ï¿½ï¿½ï¿½ ï¿½Ñ·ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ forward ï¿½Ñ´ï¿½. request.getRequestDispatcherï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Î·ï¿½ forwardï¿½Ø¼ï¿½ requestï¿½ï¿½ responseï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
 	}
 
 }

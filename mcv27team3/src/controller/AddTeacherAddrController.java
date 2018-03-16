@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.TeacherAddr;
 import model.TeacherAddrDao;
@@ -17,37 +18,42 @@ public class AddTeacherAddrController extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//°¡ÀÔµÈ number·Î ÁÖ¼Ò¸¦ Ãß°¡ÇßÀ»¶§ ÀÔ·Â °úÁ¤
-		request.setCharacterEncoding("euckr");
-		//¸®½ºÆ®¿¡¼­ ÁÖ¼Ò Ãß°¡¸¦ ´©¸£¸é Controller·Î ¼ÒÈ¯
+		//ï¿½ï¿½ï¿½Ôµï¿½ numberï¿½ï¿½ ï¿½Ö¼Ò¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½
+		request.setCharacterEncoding("UTF-8");
+		//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Controllerï¿½ï¿½ ï¿½ï¿½È¯
 		int teacherNo = Integer.parseInt(request.getParameter("sendNO"));
 		System.out.println(request.getParameter("sendNO")+"<-----doGet  AddTeacherAddrController");
 		
-		//ÄÜÆ®·Ñ·¯¿¡¼­ number¸¦ ³Ñ°Ü¹Þ°í ÇØ´ç number°¡ ÀÌ¹Ì ÀÔ·ÂµÇ¾î ¼öÁ¤ÇÒ¼ö ¾ø´Â jsp·Î »Ñ·ÁÁØ´Ù.
+		//ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ï¿½ï¿½ numberï¿½ï¿½ ï¿½Ñ°Ü¹Þ°ï¿½ ï¿½Ø´ï¿½ numberï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ô·ÂµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ jspï¿½ï¿½ ï¿½Ñ·ï¿½ï¿½Ø´ï¿½.
 		request.setAttribute("teacherNo", teacherNo);
-		//ÇØ´ç jsp¿¡¼­ number °íÁ¤, address_number´Â ¿ÀÅä·Î ÀÔ·ÂÃ³¸® X °á°úÀûÀ¸·Î ÁÖ¼Ò°ª¸¸ ÀÏ·ÂµÇ´Â form ÀÛ¼º
+		//ï¿½Ø´ï¿½ jspï¿½ï¿½ï¿½ï¿½ number ï¿½ï¿½ï¿½ï¿½, address_numberï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½Ã³ï¿½ï¿½ X ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ ï¿½Ï·ÂµÇ´ï¿½ form ï¿½Û¼ï¿½
 		
 		request.getRequestDispatcher("/WEB-INF/views/addTeacherAddrForm.jsp").forward(request, response);
 		
-		//form ÀÛ¼º½Ã controller·Î ³Ñ¾î¿À°í ÀÔ·ÂµÈ µ¥ÀÌÅÍ¸¦ Dao¿¡ ¿¬°á½ÃÄÑ query¹®Àå ½ÇÇà 
-		//list.jsp·Î ¿¬°á½ÃÄÑ ¸¶¹«¸®
+		//form ï¿½Û¼ï¿½ï¿½ï¿½ controllerï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ Daoï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ queryï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+		//list.jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("UTF-8");
 		
-		int teacherNo = Integer.parseInt(request.getParameter("teacherNo"));
+		int sendNO = Integer.parseInt(request.getParameter("teacherNo"));
 		String teacherAddr = request.getParameter("teacherAddr");
-		System.out.println(teacherNo+"<-------doPost AddTeacherAddrController");
+		System.out.println(sendNO+"<-------doPost AddTeacherAddrController");
 		System.out.println(teacherAddr+"<-------doPost AddTeacherAddrController");
 		
-		teacherAddrDao = new TeacherAddrDao();
-		teacherAddrDao.addTeacherAddress(teacherNo, teacherAddr);
+		teacherAddrDao = new TeacherAddrDao();		
+		teacherAddrDao.addTeacherAddress(sendNO, teacherAddr);
 		
+		request.setAttribute("sendNO", sendNO);
+		
+				
 		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
+		//request.getRequestDispatcher("/WEB-INF/views/getTeacherAddrList.jsp").forward(request, response);
+		//response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
 	}
 
 }

@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>addStudent</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style type="text/css"> 
@@ -27,28 +27,28 @@
 			$(".form").show()
 			$("#btn").click(function(){			
 				if($("#teacherId").val().length < 5){
-					$("#helper").html("¾ÆÀÌµğ 5ÀÚ ÀÌ»ó");
+					$("#helper").html("ì•„ì´ë”” 5ì ì´ìƒ");
 				}else if($("#teacherPw").val().length < 5){
-					$("#helper").html("ºñ¹Ğ¹øÈ£ 5ÀÚ ÀÌ»ó")
+					$("#helper").html("ë¹„ë°€ë²ˆí˜¸ 5ì ì´ìƒ")
 				}else if($("#teacherPwCheck").val() != $("#teacherPw").val()){
-					$("#helper").html("µ¿ÀÏÇÑ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+					$("#helper").html("ë™ì¼í•œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 				}else{
 					$("#myform").submit();
 				}					
 			});
 		});
 	});
-		/* ±âº»ÀûÀ¸·Î class= formÀº ÀüÃ¼°¡ hide µÇ¾îÀÖ´Ù°¡ ¹öÆ° btn2À» Å¬¸¯ÇÏ´Â ¼ø°£ showÀÌº¥Æ®°¡ ½ÇÇàµÈ´Ù.
-		input¹Ú½º teacherId´Â AddTeacherControllerÀÇ  ¸Å°³º¯¼ö teacherId·Î °¡°ÔµÇ¸ç ÀÔ·Â±æÀÌ°¡ 5ÀÚ ÀÌ»ó µÇÁö ¾ÊÀ¸¸é 
-		#helperÀÇ À§Ä¡¿¡ "¾ÆÀÌµğ 5ÀÚ ÀÌ»ó"ÀÌ»óÀÌ¶ó´Â ÅØ½ºÆ®°¡ ¶ç¿öÁö°Ô µÈ´Ù.
-		input¹Ú½º teacherPw´Â AddTeacherControllerÀÇ  ¸Å°³º¯¼ö teacherPw·Î °¡°ÔµÇ¸ç ÀÔ·Â±æÀÌ°¡ 5ÀÚ ÀÌ»ó µÇÁö ¾ÊÀ¸¸é 
-		#helperÀÇ À§Ä¡¿¡ "ºñ¹Ğ¹øÈ£ 5ÀÚ ÀÌ»ó"ÀÌ»óÀÌ¶ó´Â ÅØ½ºÆ®°¡ ¶ç¿öÁö°Ô µÈ´Ù.
-		input¹Ú½º teacherPwCheck´Â   teacherPw¿Í µ¿ÀÏÇÑ µ¥ÀÌÅÍ¸¦ ¹Ş°Ô µÇ¸ç ÀÔ·Âµ¥ÀÌÅÍ°¡ teacherPw¿Í ÀÏÄ¡ ÇÏÁö ¾ÊÀ»½Ã 
-		#helperÀÇ À§Ä¡¿¡ "µ¿ÀÏÇÑ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä"ÀÌ»óÀÌ¶ó´Â ÅØ½ºÆ®°¡ ¶ç¿öÁö°Ô µÈ´Ù.
-		 °¢°¢ÀÇ ÅØ½ºÆ®´Â #helper¶ó´Â ÇÑ °ø°£¿¡ ³ªÅ¸³ª±â ¶§¹®¿¡ Á¶°ÇÀÌ ¸ÂÁö ¾Ê´Â ¼ø¼­´ë·Î ³ªÅ¸³ª°Ô µÇ¸ç µ¿½Ã¿¡ Á¸ÀçÇÒ¼ö ¾ø´Ù 
-		 ¸ğµç Á¶°Ç¿¡ ÀÏÄ¡ÇÒ½Ã id="myform" ºÎºìÀÌ /addTeacher.lee·Î submitÇÏ°Ô µÇ´Âµ¥ ±âº»ÀûÀ¸·Î ÇØ´ç°æ·Î´Â 
-		 controller.AddTeacherController.java·Î ¸ÉÇÎÇØµĞ »óÅÂ±â ¶§¹®¿¡ AddTeacherController.java·Î submit
-		 µÇ¸ç get ¹æ½ÄÀÌ ¾Æ´Ñ post ¹æ½ÄÀ¸·Î Àü¼ÛÇÑ »óÅÂ±â ¶§¹®¿¡ doPost·Î ÀÔ·ÂµÇ°Ô µÈ´Ù		
+		/* ê¸°ë³¸ì ìœ¼ë¡œ class= formì€ ì „ì²´ê°€ hide ë˜ì–´ìˆë‹¤ê°€ ë²„íŠ¼ btn2ì„ í´ë¦­í•˜ëŠ” ìˆœê°„ showì´ë²¤íŠ¸ê°€ ì‹¤í–‰ëœë‹¤.
+		inputë°•ìŠ¤ teacherIdëŠ” AddTeacherControllerì˜  ë§¤ê°œë³€ìˆ˜ teacherIdë¡œ ê°€ê²Œë˜ë©° ì…ë ¥ê¸¸ì´ê°€ 5ì ì´ìƒ ë˜ì§€ ì•Šìœ¼ë©´ 
+		#helperì˜ ìœ„ì¹˜ì— "ì•„ì´ë”” 5ì ì´ìƒ"ì´ìƒì´ë¼ëŠ” í…ìŠ¤íŠ¸ê°€ ë„ì›Œì§€ê²Œ ëœë‹¤.
+		inputë°•ìŠ¤ teacherPwëŠ” AddTeacherControllerì˜  ë§¤ê°œë³€ìˆ˜ teacherPwë¡œ ê°€ê²Œë˜ë©° ì…ë ¥ê¸¸ì´ê°€ 5ì ì´ìƒ ë˜ì§€ ì•Šìœ¼ë©´ 
+		#helperì˜ ìœ„ì¹˜ì— "ë¹„ë°€ë²ˆí˜¸ 5ì ì´ìƒ"ì´ìƒì´ë¼ëŠ” í…ìŠ¤íŠ¸ê°€ ë„ì›Œì§€ê²Œ ëœë‹¤.
+		inputë°•ìŠ¤ teacherPwCheckëŠ”   teacherPwì™€ ë™ì¼í•œ ë°ì´í„°ë¥¼ ë°›ê²Œ ë˜ë©° ì…ë ¥ë°ì´í„°ê°€ teacherPwì™€ ì¼ì¹˜ í•˜ì§€ ì•Šì„ì‹œ 
+		#helperì˜ ìœ„ì¹˜ì— "ë™ì¼í•œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”"ì´ìƒì´ë¼ëŠ” í…ìŠ¤íŠ¸ê°€ ë„ì›Œì§€ê²Œ ëœë‹¤.
+		 ê°ê°ì˜ í…ìŠ¤íŠ¸ëŠ” #helperë¼ëŠ” í•œ ê³µê°„ì— ë‚˜íƒ€ë‚˜ê¸° ë•Œë¬¸ì— ì¡°ê±´ì´ ë§ì§€ ì•ŠëŠ” ìˆœì„œëŒ€ë¡œ ë‚˜íƒ€ë‚˜ê²Œ ë˜ë©° ë™ì‹œì— ì¡´ì¬í• ìˆ˜ ì—†ë‹¤ 
+		 ëª¨ë“  ì¡°ê±´ì— ì¼ì¹˜í• ì‹œ id="myform" ë¶€ë¸ì´ /addTeacher.leeë¡œ submití•˜ê²Œ ë˜ëŠ”ë° ê¸°ë³¸ì ìœ¼ë¡œ í•´ë‹¹ê²½ë¡œëŠ” 
+		 controller.AddTeacherController.javaë¡œ ë§´í•‘í•´ë‘” ìƒíƒœê¸° ë•Œë¬¸ì— AddTeacherController.javaë¡œ submit
+		 ë˜ë©° get ë°©ì‹ì´ ì•„ë‹Œ post ë°©ì‹ìœ¼ë¡œ ì „ì†¡í•œ ìƒíƒœê¸° ë•Œë¬¸ì— doPostë¡œ ì…ë ¥ë˜ê²Œ ëœë‹¤		
 		*/
 			
 	
@@ -57,7 +57,7 @@
 </head>
 
 <body>
-	<button type="button" id="btn2" class="btn btn-default">°¡ÀÔÇÏ±â</button>
+	<button type="button" id="btn2" class="btn btn-default">ê°€ì…í•˜ê¸°</button>
 		<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addTeacher.lee">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -67,21 +67,21 @@
 					<div class="form-group" >
 						<label for="teacherId" class="col-sm-3 control-label">teacher_id</label>
 						<div class="col-sm-8" >
-							<input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="id¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä">
+							<input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="idë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 	
 						</div>
 					</div>
 					<div class="form-group" >
 						<label for="teacherPw" class="col-sm-3 control-label">teacher_pw</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" id="teacherPw" name="teacherPw" placeholder="pw¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä">
+							<input type="password" class="form-control" id="teacherPw" name="teacherPw" placeholder="pwë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 	
 						</div>
 					</div>
 					<div class="form-group" >
-						<label for="teacherPwCheck" class="col-sm-3 control-label">teacher_pwÈ®ÀÎ</label>
+						<label for="teacherPwCheck" class="col-sm-3 control-label">teacher_pwí™•ì¸</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" id="teacherPwCheck" placeholder="pw¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä">
+							<input type="password" class="form-control" id="teacherPwCheck" placeholder="pwë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”">
 	
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 							<div>
 					    	<span id="helper"></span>
 					    	</div>		  
-							<button type="button" id="btn" class="btn btn-default">È®ÀÎ</button>
+							<button type="button" id="btn" class="btn btn-default">í™•ì¸</button>
 						</div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label for="teacherpwcheck" class="col-sm-3 control-label">teacher_pwÈ®ÀÎ : </label>
+	    <label for="teacherpwcheck" class="col-sm-3 control-label">teacher_pwí™•ì¸ : </label>
 	    <div class="col-sm-5">
 	      <input type="password" class="form-control" id="teacherpwcheck" placeholder="Passwordcheck">
 	    </div>

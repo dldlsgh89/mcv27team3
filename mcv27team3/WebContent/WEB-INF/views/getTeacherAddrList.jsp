@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "model.TeacherAddr" %>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style type="text/css"> 
@@ -22,18 +22,18 @@
  		} 
 </style> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-<script>
-
-<%	ArrayList<TeacherAddr> arrayTeacherAddr = (ArrayList<TeacherAddr>)request.getAttribute("arrayTeacherAddr"); 
-	int arrayTeacherAddrSize= arrayTeacherAddr.size();
+<%	
+	ArrayList<TeacherAddr> arrayTeacherAddr = (ArrayList<TeacherAddr>)request.getAttribute("arrayTeacherAddr"); 
+		int arrayTeacherAddrSize = arrayTeacherAddr.size();	
 %>
-	var arrayTeacherAddrSize = <%=arrayTeacherAddrSize%>;
-	$(document).ready(function(){				
+<script>
+	var arrayTeacherAddrSize = <%= arrayTeacherAddrSize %>;
+	$(document).ready(function(){			
 		if(arrayTeacherAddrSize<5){
 			$(".addressAdd").show();
-		}else if(arrayTeacherAddrSize>5)	
+		}else{	
 			$(".addressAdd").hide();
-		}			
+		}	
 	});
 </script>
 </head>
@@ -46,10 +46,11 @@
 	          <th>teacher number</th>
 	          <th>teacher addr number</th>
 	          <th>address</th>
-	          <th>ÁÖ¼Ò¼öÁ¤</th><!-- teacher num ³Ñ°ÜÁÙ¶§ ¹»·Î ³Ñ°ÜÁÙ°ÍÀÎ°¡  -->
+	          <th>ì£¼ì†Œìˆ˜ì •</th><!-- teacher num ë„˜ê²¨ì¤„ë•Œ ë­˜ë¡œ ë„˜ê²¨ì¤„ê²ƒì¸ê°€  -->
 	        </tr>
 	      </thead>
-<%			
+<%				
+		int sendNO = (int)session.getAttribute("sendNO");
 		for(TeacherAddr teacherAddr : arrayTeacherAddr){
 %>
 	      <tbody>
@@ -57,7 +58,7 @@
 	          <th scop e="row"><%= teacherAddr.getTeacherNo() %></th>
 	          <td><%=teacherAddr.getTeacherAddrNo() %></td>
 	          <td><%=teacherAddr.getAddress() %></td>          
-	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= arrayTeacherAddr.get(0).getTeacherNo() %>">ÁÖ¼Ò Ãß°¡</a></td>
+	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherNo() %>">ì£¼ì†Œ ìˆ˜ì •</a></td>
 	        </tr>       
 	      </tbody>	     
 <%
@@ -66,7 +67,7 @@
 		</table>  
   	</div>
   	<div class="addressAdd">
-  		<td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= arrayTeacherAddr.get(0).getTeacherNo() %>">ÁÖ¼Ò Ãß°¡</a></td>
+  		<td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= sendNO %>">ì£¼ì†Œ ì¶”ê°€</a></td>
 	</div>
 </body>
 </html>

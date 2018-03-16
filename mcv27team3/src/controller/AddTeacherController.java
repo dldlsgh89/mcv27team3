@@ -11,48 +11,48 @@ import model.Teacher;
 import model.TeacherDao;
 
 
-@WebServlet("/addTeacher.lee") //¸ÉÇÎµÈ AddTeacherControllerÀÇ ÁÖ¼Ò
+@WebServlet("/addTeacher.lee") //ï¿½ï¿½ï¿½Îµï¿½ AddTeacherControllerï¿½ï¿½ ï¿½Ö¼ï¿½
 public class AddTeacherController extends HttpServlet {
-	 //³ªÁß¿¡ »ç¿ëÇÏ°Ô µÉ TeacherDaoÅ¬·¡½º Å¸ÀÔÀÇ º¯¼ö teacherDaoÀ» ¹Ì¸® ¼±¾ðÇØ µÐ´Ù
-	//³ªÁß¿¡ »ç¿ëÇÏ°Ô µÉ TeacherÅ¬·¡½º Å¸ÀÔÀÇ º¯¼ö teacherÀ» ¹Ì¸® ¼±¾ðÇØ µÐ´Ù
+	 //ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ TeacherDaoÅ¬ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ teacherDaoï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´ï¿½
+	//ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ TeacherÅ¬ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ teacherï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´ï¿½
 	
 	
-	//teacher ÀÔ·Â Æû¿äÃ»
+	//teacher ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½Ã»
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 		request.getRequestDispatcher("/WEB-INF/views/addTeacher.jsp").forward(request, response);		
-		//insert ½ÃÀÛ È­¸é ¿¬°á ½ÇÇà½Ã addTeacher.jsp·Î ¿¬°áµÈ´Ù 
+		//insert ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ addTeacher.jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½ 
 	}
-	//teacher ÀÔ·Â
+	//teacher ï¿½Ô·ï¿½
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.request Ã³¸®
+		// 1.request Ã³ï¿½ï¿½
 		
-		//Teacher setter È£Ãâ
+		//Teacher setter È£ï¿½ï¿½
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
-		String teacherId = request.getParameter("teacherId"); //addTeacher.jsp¿¡¼­ input¹Ú½º name="teacherId"ÀÇ ³Ñ¾î¿Â °ªÀ» ¹Þ¾Æ String Å¸ÀÔ º¯¼ö teacherId¿¡ ´ã´Â´Ù
+		String teacherId = request.getParameter("teacherId"); //addTeacher.jspï¿½ï¿½ï¿½ï¿½ inputï¿½Ú½ï¿½ name="teacherId"ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ String Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ teacherIdï¿½ï¿½ ï¿½ï¿½Â´ï¿½
 		System.out.println(request.getParameter("teacherid")+"<----AddTeacherController");
-		String teacherPw = request.getParameter("teacherPw");//addTeacher.jsp¿¡¼­ input¹Ú½º name="teacherPw"ÀÇ ³Ñ¾î¿Â °ªÀ» ¹Þ¾Æ String Å¸ÀÔ º¯¼ö teacherPw¿¡ ´ã´Â´Ù
+		String teacherPw = request.getParameter("teacherPw");//addTeacher.jspï¿½ï¿½ï¿½ï¿½ inputï¿½Ú½ï¿½ name="teacherPw"ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ String Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ teacherPwï¿½ï¿½ ï¿½ï¿½Â´ï¿½
 		
-		Teacher teacher = new Teacher(); //»ý¼ºÀÚ ¸Å¼­µå·Î  TeacherÅ¬·¡½ºÀÇ °´Ã¼¸¦ »ý¼ºÇØ ¹Ì¸® ¼±¾ðÇØµÐ º¯¼ö teacher¿¡ ÂüÁ¶°ªÀ» ÇÒ´çÇÑ´Ù
-		teacher.setTeacherId(teacherId); //teacher¿¡ ÇÒ´çÈº ÂüÁ¶°ªÀ» Ã£¾Æ°¡ teacherIdÀ» ¼ÂÆÃÇÑ´Ù
-		teacher.setTeacherPw(teacherPw);//teacher¿¡ ÇÒ´çÈº ÂüÁ¶°ªÀ» Ã£¾Æ°¡ teacherPwÀ» ¼ÂÆÃÇÑ´Ù
-		
-		
-		TeacherDao teacherDao = new TeacherDao(); //»ý¼ºÀÚ ¸Þ¼­µå·Î TeacherDaoÅ¬·¡½ºÀÇ °´Ã¼¸¦ »ý¼ºÇØ ¹Ì¸® ¼±¾ðÇØµÐ º¯¼ö teacherDao¿¡ ÂüÁ¶°ªÀ» ÇÒ´çÇÑ´Ù
-		teacherDao.insertTeacher(teacher); //teacherDao¿¡ ÇÒ´çµÈ ÂüÁ¶°ªÀ» Ã£¾Æ°¡ insertTeacher¸Þ¼­µå¸¦ ½ÇÇàÇÏ°í ÀÔ·Âµ¥ÀÌÅÍ·Î teacherId,teacherPw°¡ ¼ÂÆÃµÈ teacherÀÇ ÂüÁ¶°ªÀ» ÀÔ·ÂÇÑ´Ù
+		Teacher teacher = new Teacher(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¼ï¿½ï¿½ï¿½ï¿½  TeacherÅ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ teacherï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ñ´ï¿½
+		teacher.setTeacherId(teacherId); //teacherï¿½ï¿½ ï¿½Ò´ï¿½Èº ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ teacherIdï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+		teacher.setTeacherPw(teacherPw);//teacherï¿½ï¿½ ï¿½Ò´ï¿½Èº ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ teacherPwï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 		
 		
-		// 2. ¸ðµ¨(DAO) È£Ãâ
+		TeacherDao teacherDao = new TeacherDao(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ TeacherDaoÅ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ teacherDaoï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ñ´ï¿½
+		teacherDao.insertTeacher(teacher); //teacherDaoï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ°ï¿½ insertTeacherï¿½Þ¼ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ï¿½Í·ï¿½ teacherId,teacherPwï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ teacherï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ñ´ï¿½
+		
+		
+		// 2. ï¿½ï¿½(DAO) È£ï¿½ï¿½
 		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee"); 
-		//°¡ÀÔÀÌÈÄ listÃ¢À¸·Î ÀÌµ¿ÇÏ±â À§ÇØ ÁÖ¼Ò getTeacherList.lee·Î redirect¸¦ ÇØÁØ´Ù 
-		//ÇØ´ç°æ·Î´Â GetTeacherListController.java·Î ¸ÉÇÎÀÌ µÇ¾îÀÖ±â ¶§¹®¿¡  GetTeacherListController.java·Î ÀÌµ¿ÇÑ´Ù
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ listÃ¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ getTeacherList.leeï¿½ï¿½ redirectï¿½ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½ 
+		//ï¿½Ø´ï¿½ï¿½Î´ï¿½ GetTeacherListController.javaï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  GetTeacherListController.javaï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ñ´ï¿½
 		
 		
-		// 3. ´Ù¸¥ controller È£Ãâ (redirect)
+		// 3. ï¿½Ù¸ï¿½ controller È£ï¿½ï¿½ (redirect)
 	}
 }

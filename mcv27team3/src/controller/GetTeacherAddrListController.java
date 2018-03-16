@@ -8,21 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import model.TeacherAddr;
 import model.TeacherAddrDao;
 
 @WebServlet("/GetTeacherAddrListController.lee")
 public class GetTeacherAddrListController extends HttpServlet {
-	
+		int	sendNO = 0;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//¾îµð¼±°¡ ÁÖ¼Ò¸®½ºÆ®°¡±â¸¦ Å¬¸¯½Ã¿¡ ½ÇÇàµÇ´Â ¸Þ¼­µå
+		//ï¿½ï¿½ð¼±°ï¿½ ï¿½Ö¼Ò¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½â¸¦ Å¬ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 		//
-		request.setCharacterEncoding("euckr");
-		
-		int sendNO = Integer.parseInt(request.getParameter("sendNO"));
+		request.setCharacterEncoding("UTF-8");
+		//sendNO = (int)request.getAttribute("sendNO");
+		sendNO = Integer.parseInt(request.getParameter("sendNO"));
 		
 		ArrayList<TeacherAddr> arrayTeacherAddr = new ArrayList<TeacherAddr>();
 		
@@ -31,7 +32,9 @@ public class GetTeacherAddrListController extends HttpServlet {
 		arrayTeacherAddr = teacherAddrDao.selectTeacherAddr(sendNO);
 		
 		System.out.println(arrayTeacherAddr.size()+"<------arrayTeacher.size()  GetTeacherAddrListController");
-		
+		//request.setAttribute("sendNO", sendNO);
+		HttpSession session = request.getSession();
+		session.setAttribute("sendNO", sendNO);
 		request.setAttribute("arrayTeacherAddr", arrayTeacherAddr);
 		
 		

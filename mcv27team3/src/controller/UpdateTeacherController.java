@@ -17,7 +17,7 @@ public class UpdateTeacherController extends HttpServlet {
 	private Teacher teacher;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("UTF-8");
 		
 		int teacherNo = (Integer.parseInt(request.getParameter("sendNO")));
 		System.out.println(request.getParameter("sendNO")+"<-----doGet-----UpdateTeacherController");
@@ -34,7 +34,7 @@ public class UpdateTeacherController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("UTF-8");
 		
 		int teacherNo = (Integer.parseInt(request.getParameter("teacherNo")));
 		System.out.println(teacherNo+"<------doPost----UpdateTeacherController");

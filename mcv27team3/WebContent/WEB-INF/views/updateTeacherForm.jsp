@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "model.Teacher"  %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <%
 	Teacher teacher = (Teacher)request.getAttribute("teacher");
@@ -25,7 +25,7 @@
 		<td><input type="text" name="teacherPw" size="20" value="<%= teacher.getTeacherPw() %>"></td>
 	<tr>
 	<tr>
-		<td colspan="4"><input type="submit" value="È¸¿ø¼öÁ¤¹öÆ°"></td>
+		<td colspan="4"><input type="submit" value="íšŒì›ìˆ˜ì •ë²„íŠ¼"></td>
 	</tr>
 	</table>
 	</form>
