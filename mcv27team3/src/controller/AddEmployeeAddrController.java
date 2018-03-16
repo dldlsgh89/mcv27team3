@@ -25,7 +25,7 @@ public class AddEmployeeAddrController extends HttpServlet {
 		//Controller���� EmployeeNo�� �Ѱܹ޾� jsp���ѷ���
 		request.setAttribute("EmployeeNo", EmployeeNo);
 		//form.jsp�� �̵�
-		request.getRequestDispatcher("/WEB-INF/views/addEmployeeAddrForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/employee/addEmployeeAddrForm.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

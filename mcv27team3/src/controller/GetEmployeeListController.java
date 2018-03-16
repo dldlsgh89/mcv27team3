@@ -30,13 +30,13 @@ public class GetEmployeeListController extends HttpServlet {
 		
 		this.employeedao = new EmployeeDao();
 		arrayEmployee= employeedao.selectEmployee();
-		//request¿¡ ¼Ó¼º Ãß°¡
+		//requestï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ß°ï¿½
 		
 		request.setAttribute("arrayEmployee", arrayEmployee);
 		
-		//request¿¡ ¼Ó¼ºÃß°¡
+		//requestï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ß°ï¿½
 		//forward
-		request.getRequestDispatcher("/WEB-INF/views/getEmployeeList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeeList.jsp").forward(request, response);
 	}
 
 }

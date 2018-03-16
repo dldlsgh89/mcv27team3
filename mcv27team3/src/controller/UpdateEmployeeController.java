@@ -31,7 +31,7 @@ public class UpdateEmployeeController extends HttpServlet {
 		
 		request.setAttribute("Employee", employee);
 		
-		request.getRequestDispatcher("/WEB-INF/views/updateEmployeeForm.jsp").forward(request, response);	
+		request.getRequestDispatcher("/WEB-INF/views/employee/updateEmployeeForm.jsp").forward(request, response);	
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

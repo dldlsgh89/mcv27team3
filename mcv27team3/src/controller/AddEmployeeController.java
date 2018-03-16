@@ -16,12 +16,12 @@ import model.EmployeeDao;
 public class AddEmployeeController extends HttpServlet {
 	private EmployeeDao employeeDao;
 	private Employee employee;
-	// employee ÀÔ·Â form Ã³¸®
+	// employee ï¿½Ô·ï¿½ form Ã³ï¿½ï¿½
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/addEmployee.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/employee/addEmployee.jsp").forward(request, response);
 	}
 
-//employee ÀÔ·Â	
+//employee ï¿½Ô·ï¿½	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -38,8 +38,8 @@ public class AddEmployeeController extends HttpServlet {
 		employeeDao.InsertEmployee(employee);
 		
 		response.sendRedirect(request.getContextPath()+"/getemployeelist.pjh");
-	} //1.request Ã³¸®
-	  //2.¸ðµ¨(DAO)È£Ãâ
+	} //1.request Ã³ï¿½ï¿½
+	  //2.ï¿½ï¿½(DAO)È£ï¿½ï¿½
 	  //3.redirect123
 	
 	
