@@ -51,7 +51,7 @@
 	        </tr>
 	      </thead>
 <%				
-		int sendNO = (int)request.getAttribute("sendNO");
+		int teacherNo = (int)request.getAttribute("sendNO");
 		for(TeacherAddr teacherAddr : arrayTeacherAddr){
 %>
 	      <tbody>
@@ -69,7 +69,7 @@
 		</table>  
   	</div>
   	<div class="addressAdd">
-  		<td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= sendNO %>">주소 추가</a></td>
+  		<td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherNo %>">주소 추가</a></td>
 	</div>
 </body>
 </html>
