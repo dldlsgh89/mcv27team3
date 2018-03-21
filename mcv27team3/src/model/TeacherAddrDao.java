@@ -16,7 +16,6 @@ public class TeacherAddrDao {
 	ResultSet resultset;
 	TeacherAddr teacherAddr;
 	ArrayList<TeacherAddr> arrayTeacherAddr;
-	PreparedStatement preparedstatement2;
 	
 	public void addTeacherAddress(int teacherNo, String teacherAddr) {
 		System.out.println(teacherNo+"<---------addTeacherAddress");
@@ -99,16 +98,16 @@ public class TeacherAddrDao {
 		
 	}
 	
-	public int deleteTeacherAddrSelect(int teacherAddrNo) {
+	/*public int deleteTeacherAddrSelect(int teacherAddrNo) {
 			int teacherNo = 0;
 		System.out.println("deleteTeacherAddrSelect : "+teacherAddrNo+"<------deleteTeacherAddrSelect");
 		
 		try {
 			connection = DriveDB.driverdbCon();
 			
-			preparedstatement2 = connection.prepareStatement("select teacher_no from teacher_addr WHERE teacher_addr_no=?");
-			preparedstatement2.setInt(1, teacherAddrNo);
-			resultset = preparedstatement2.executeQuery();
+			preparedstatement = connection.prepareStatement("select teacher_no from teacher_addr WHERE teacher_addr_no=?");
+			preparedstatement.setInt(1, teacherAddrNo);
+			resultset = preparedstatement.executeQuery();
 			if(resultset.next()) {
 				teacherNo = resultset.getInt("teacher_no");
 				System.out.println(teacherNo+"<-----teacherNo--------deleteTeacherAddrSelect");
@@ -123,5 +122,5 @@ public class TeacherAddrDao {
 			}
 		
 			return teacherNo;
-	}
+	}*/
 }

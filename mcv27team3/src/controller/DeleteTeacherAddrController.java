@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Teacher;
 import model.TeacherAddrDao;
 
 
@@ -15,8 +16,10 @@ import model.TeacherAddrDao;
 @WebServlet("/DeleteTeacherAddrController.lee")
 public class DeleteTeacherAddrController extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		System.out.println(request.getParameter("checkbox"));
 		int	teacherAddrNo = Integer.parseInt(request.getParameter("sendNO"));
 		System.out.println(teacherAddrNo+"<----teacherAddrNo-DeleteTeacherAddrController");
 		
@@ -34,6 +37,23 @@ public class DeleteTeacherAddrController extends HttpServlet {
 		//request.getRequestDispatcher("/GetTeacherAddrListController2.lee").forward(request, response);
 		
 		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController2.lee");
+	}*/
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		System.out.println(request.getParameterValues("checkbox[]")+"<------doPost---DeleteTeacherAddrController");
+		String[] checkbox = request.getParameterValues("checkbox[]");
+		System.out.println(checkbox[0]+"<--checkbox---DeleteTeacherAddrController");
+				
+		for(int i = 0; i<checkbox.length; i++) {
+			int teacherAddrNo = Integer.parseInt(checkbox[i]);
+			TeacherAddrDao teacherAddrDao = new TeacherAddrDao();
+			teacherAddrDao.deleteTeacherAddr(teacherAddrNo);
+		}
+	
+		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
+		
 	}
 
 }

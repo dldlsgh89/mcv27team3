@@ -22,9 +22,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$(".form").hide()
-		$("#btn2").click(function(){
-			$(".form").show()
 			$("#btn").click(function(){			
 				if($("#teacherId").val().length < 5){
 					$("#helper").html("아이디 5자 이상");
@@ -36,7 +33,7 @@
 					$("#myform").submit();
 				}					
 			});
-		});
+		
 	});
 		/* 기본적으로 class= form은 전체가 hide 되어있다가 버튼 btn2을 클릭하는 순간 show이벤트가 실행된다.
 		input박스 teacherId는 AddTeacherController의  매개변수 teacherId로 가게되며 입력길이가 5자 이상 되지 않으면 
@@ -57,7 +54,6 @@
 </head>
 
 <body>
-	<button type="button" id="btn2" class="btn btn-default">가입하기</button>
 		<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addTeacher.lee">
 			<div class="panel panel-default">
 				<div class="panel-heading">

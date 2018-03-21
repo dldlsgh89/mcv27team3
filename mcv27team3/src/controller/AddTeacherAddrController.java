@@ -56,7 +56,7 @@ public class AddTeacherAddrController extends HttpServlet {
 				
 		
 		
-		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController2.lee");
+		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
 	}
 
 }
