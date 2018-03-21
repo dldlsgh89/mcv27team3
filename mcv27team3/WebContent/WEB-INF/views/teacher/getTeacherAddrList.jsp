@@ -47,10 +47,11 @@
 	          <th>teacher addr number</th>
 	          <th>address</th>
 	          <th>주소수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+	          <th>삭제</th>
 	        </tr>
 	      </thead>
 <%				
-		int sendNO = (int)request.getAttribute("sendNO");
+		int teacherNo = (int)request.getAttribute("sendNO");
 		for(TeacherAddr teacherAddr : arrayTeacherAddr){
 %>
 	      <tbody>
@@ -59,6 +60,7 @@
 	          <td><%=teacherAddr.getTeacherAddrNo() %></td>
 	          <td><%=teacherAddr.getAddress() %></td>          
 	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherNo() %>">주소 수정</a></td>
+	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherAddrNo() %>">주소 삭제</a></td>
 	        </tr>       
 	      </tbody>	     
 <%
@@ -67,7 +69,7 @@
 		</table>  
   	</div>
   	<div class="addressAdd">
-  		<td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= sendNO %>">주소 추가</a></td>
+  		<td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherNo %>">주소 추가</a></td>
 	</div>
 </body>
 </html>

@@ -18,7 +18,7 @@ public class TeacherDao {
 	ResultSet resultset;
 	ArrayList<Teacher> arrayTeacher;
 	Teacher teacher;
-	
+	PreparedStatement preparedstatement2;
 	public void insertTeacher(Teacher teacher) {
 		
 		
@@ -143,6 +143,10 @@ public class TeacherDao {
 		preparedstatement = connection.prepareStatement("DELETE FROM teacher WHERE teacher_no=?");
 		preparedstatement.setInt(1, teacherNo);
 		preparedstatement.executeUpdate();
+		
+		/*preparedstatement2 = connection.prepareStatement("DELETE FROM teacher_addr WHERE teacher_no=?");		
+		preparedstatement2.setInt(1, teacherNo);		
+		preparedstatement2.executeUpdate();*/
 		
 		} catch (ClassNotFoundException classEX) {			
 			classEX.printStackTrace();
