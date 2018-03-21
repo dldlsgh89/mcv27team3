@@ -57,11 +57,8 @@ public class TeacherAddrDao {
 				System.out.println(teacherAddr.getTeacherAddrNo());
 				teacherAddr.setTeacherNo(resultset.getInt("teacher_no"));
 				teacherAddr.setAddress(resultset.getString("address")); 
-				arrayTeacherAddr.add(teacherAddr); 
-				
-				
-			}
-			
+				arrayTeacherAddr.add(teacherAddr); 				
+			}			
 			return arrayTeacherAddr;	
 		} catch (ClassNotFoundException classEX) {			
 			classEX.printStackTrace();
@@ -98,29 +95,54 @@ public class TeacherAddrDao {
 		
 	}
 	
-	/*public int deleteTeacherAddrSelect(int teacherAddrNo) {
-			int teacherNo = 0;
-		System.out.println("deleteTeacherAddrSelect : "+teacherAddrNo+"<------deleteTeacherAddrSelect");
+	public TeacherAddr teacherAddrSelectforUpdate(int teacherAddrNo){
+		System.out.println("teacherAddrNo : "+teacherAddrNo+"<------teacherAddrSelectforUpdate");
+
+		try {
+		connection = DriveDB.driverdbCon();
+		preparedstatement = connection.prepareStatement("select * from teacher_addr WHERE teacher_addr_no=?");
+		preparedstatement.setInt(1, teacherAddrNo);
+		resultset = preparedstatement.executeQuery();
+		if(resultset.next()) {
+			teacherAddr = new TeacherAddr();
+			teacherAddr.setTeacherAddrNo(resultset.getInt("teacher_addr_no"));
+			teacherAddr.setTeacherNo(resultset.getInt("teacher_no"));
+			teacherAddr.setAddress(resultset.getString("address"));
+		} 
+			return teacherAddr;		
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
+		
+		return null;
+	}
+	
+	public void updateTeacherAddr(TeacherAddr teacherAddr) {
+		System.out.println("TeacherAddrNo : "+teacherAddr.getTeacherAddrNo()+"<------updateTeacherAddr");
 		
 		try {
-			connection = DriveDB.driverdbCon();
-			
-			preparedstatement = connection.prepareStatement("select teacher_no from teacher_addr WHERE teacher_addr_no=?");
-			preparedstatement.setInt(1, teacherAddrNo);
-			resultset = preparedstatement.executeQuery();
-			if(resultset.next()) {
-				teacherNo = resultset.getInt("teacher_no");
-				System.out.println(teacherNo+"<-----teacherNo--------deleteTeacherAddrSelect");
-			}
-			} catch (ClassNotFoundException classEX) {			
-				classEX.printStackTrace();
-			} catch (SQLException sqlEX) {			
-				sqlEX.printStackTrace();
-			} finally {
-				if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
-				if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
-			}
+		connection = DriveDB.driverdbCon();
+		preparedstatement = connection.prepareStatement("UPDATE teacher_addr SET address=? WHERE teacher_addr_no = ?");
+		preparedstatement.setString(1, teacherAddr.getAddress());
+		preparedstatement.setInt(2, teacherAddr.getTeacherAddrNo());
 		
-			return teacherNo;
-	}*/
+		
+		preparedstatement.executeUpdate();
+		
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
+		
+		
+	}
 }

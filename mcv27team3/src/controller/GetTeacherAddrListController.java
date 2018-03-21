@@ -23,23 +23,20 @@ public class GetTeacherAddrListController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int teacherNo = 0;
 		HttpSession session = request.getSession();	
-		//if문으로 GetTeacherAddrListController와 GetTeacherAddrListController2 합치기
+		
 		if(request.getParameter("sendNO") != null) {
 			teacherNo = Integer.parseInt(request.getParameter("sendNO"));	
 			session.setAttribute("teacherNo", teacherNo);
 		}else {			
 			teacherNo = (int)session.getAttribute("teacherNo");
-		}
-		
+		}		
 		System.out.println(teacherNo+"<----GetTeacherAddrListController");
 		
-		ArrayList<TeacherAddr> arrayTeacherAddr = new ArrayList<TeacherAddr>();
-		
-		TeacherAddrDao teacherAddrDao = new TeacherAddrDao();
-		
-		arrayTeacherAddr = teacherAddrDao.selectTeacherAddr(teacherNo);
-		
+		ArrayList<TeacherAddr> arrayTeacherAddr = new ArrayList<TeacherAddr>();		
+		TeacherAddrDao teacherAddrDao = new TeacherAddrDao();		
+		arrayTeacherAddr = teacherAddrDao.selectTeacherAddr(teacherNo);		
 		System.out.println(arrayTeacherAddr.size()+"<------arrayTeacher.size()  GetTeacherAddrListController");		
+		
 		request.setAttribute("arrayTeacherAddr", arrayTeacherAddr);
 		
 		

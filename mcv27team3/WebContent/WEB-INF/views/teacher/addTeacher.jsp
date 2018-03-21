@@ -10,7 +10,7 @@
  			padding: 250px;
  			background-image: url("https://images.unsplash.com/photo-1509210459313-17feefdff5cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c5ddf153f3339e6ceffb94528f018a9d&w=1000&q=80");
 			background-size: 1600px 800px;
- 			}
+ 		}
 		form{ 
  			margin: 0 auto; 
  			padding: 10px 10px 10px 10px; 
@@ -22,18 +22,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	$(document).ready(function(){
-			$("#btn").click(function(){			
-				if($("#teacherId").val().length < 5){
-					$("#helper").html("아이디 5자 이상");
-				}else if($("#teacherPw").val().length < 5){
-					$("#helper").html("비밀번호 5자 이상")
-				}else if($("#teacherPwCheck").val() != $("#teacherPw").val()){
-					$("#helper").html("동일한 비밀번호를 입력하세요");
-				}else{
-					$("#myform").submit();
-				}					
-			});
-		
+		$("#btn").click(function(){			
+			if($("#teacherId").val().length < 5){
+				$("#helper").html("아이디 5자 이상");
+			}else if($("#teacherPw").val().length < 5){
+				$("#helper").html("비밀번호 5자 이상")
+			}else if($("#teacherPwCheck").val() != $("#teacherPw").val()){
+				$("#helper").html("동일한 비밀번호를 입력하세요");
+			}else{
+				$("#myform").submit();
+			}					
+		});		
 	});
 		/* 기본적으로 class= form은 전체가 hide 되어있다가 버튼 btn2을 클릭하는 순간 show이벤트가 실행된다.
 		input박스 teacherId는 AddTeacherController의  매개변수 teacherId로 가게되며 입력길이가 5자 이상 되지 않으면 
@@ -57,7 +56,7 @@
 		<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addTeacher.lee">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2 class="panel-title">addteacher</h2>
+					<h2 class="panel-title">teacher 가입양식</h2>
 				</div>
 				<div class="panel-body">
 					<div class="form-group" >
@@ -92,35 +91,5 @@
 				</div>
 			</div>
 		</form>	
-	
-	<%-- <form id="myform" class="form-horizontal" method="post" action="<%=request.getContextPath()%>/addTeacher.lee">
-	  <div class="form-group">
-	    <label for="teacherid" class="col-sm-3 control-label">teacher_id :</label>
-	    <div class="col-sm-5">
-	      <input type="text" class="form-control" id="teacherid" name="teacherid" placeholder="id">
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="teacherpw" class="col-sm-3 control-label">teacher_pw :</label>
-	    <div class="col-sm-5">
-	      <input type="password" class="form-control" id="teacherpw" name="teacherpw" placeholder="Password">
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="teacherpwcheck" class="col-sm-3 control-label">teacher_pw확인 : </label>
-	    <div class="col-sm-5">
-	      <input type="password" class="form-control" id="teacherpwcheck" placeholder="Passwordcheck">
-	    </div>
-	  </div>	
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	    	<div>
-	    	<span id="helper"></span>
-	    	</div>		  
-	      	<button id="btn" type="button" class="btn btn-default" >Sign in</button>
-	    </div>
-	  </div> --%>
-	</form>
-
 </body>
 </html>

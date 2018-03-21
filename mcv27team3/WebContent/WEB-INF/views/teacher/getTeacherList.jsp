@@ -12,7 +12,7 @@
  			padding: 250px;
  			background-image: url("https://images.unsplash.com/photo-1509210459313-17feefdff5cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c5ddf153f3339e6ceffb94528f018a9d&w=1000&q=80");
 			background-size: 1600px 800px;
- 			}
+ 		}
 		form{ 
  			margin: 0 auto; 
  			padding: 10px 10px 10px 10px; 
@@ -26,35 +26,35 @@
 	<h1>Teacher List</h1>
 	<button><a href="<%= request.getContextPath()%>/addTeacher.lee">가입하기</a></button>
 	<div class="bs-example" data-example-id="contextual-table">
-    <table class="table">
-      <thead>
-        <tr class="active">
-          <th>teacher number</th>
-          <th>teacher ID</th>
-          <th>teacher PW</th>
-          <th>주소</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
-          <th>수정</th>
-          <th>삭제</th>
-        </tr>
-      </thead>
+	    <table class="table">
+			<thead>
+				<tr class="active">
+					<th>teacher number</th>
+					<th>teacher ID</th>
+					<th>teacher PW</th>
+					<th>주소</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+					<th>수정</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
 <%
 	ArrayList<Teacher> arrayTeacher = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
 		for(Teacher teacher : arrayTeacher){
 %>
-	      <tbody>
-	        <tr class="active">
-	          <th scope="row"><%= teacher.getTeacherNo() %></th>
-	          <td><%=teacher.getTeacherId() %></td>
-	          <td>****</td>       
-	          <td><a href="<%= request.getContextPath()%>/GetTeacherAddrListController.lee?sendNO=<%= teacher.getTeacherNo() %>">주소List</a></td>
-	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
-	          <td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
-	        </tr>       
-	      </tbody>
+			<tbody>
+				<tr class="active">
+					<th scope="row"><%= teacher.getTeacherNo() %></th>
+					<td><%=teacher.getTeacherId() %></td>
+					<td>****</td>       
+					<td><a href="<%= request.getContextPath()%>/GetTeacherAddrListController.lee?sendNO=<%= teacher.getTeacherNo() %>">주소List</a></td>
+					<td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
+					<td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
+				</tr>       
+			</tbody>
 <%
 		}
 %>
-    </table>
-  </div>
+	    </table>
+	</div>
 </body>
 </html>

@@ -15,11 +15,9 @@ import model.TeacherDao;
 
 
 @WebServlet("/getTeacherList.lee") 
-public class GetTeacherListController extends HttpServlet {
+public class GetTeacherListController extends HttpServlet {	
 	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 	
 		request.setCharacterEncoding("UTF-8");
 		

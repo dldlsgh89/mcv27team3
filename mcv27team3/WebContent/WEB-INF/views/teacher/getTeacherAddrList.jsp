@@ -31,14 +31,16 @@
 	$(document).ready(function(){			
 		if(arrayTeacherAddrSize<5){
 			$(".addressAdd").show();
+			$(".addressAddText").hide();
 		}else{	
 			$(".addressAdd").hide();
+			$(".addressAddText").show();
 		}	
 	});
 	
 	$(document).ready(function(){
 		$("#btn").click(function(){
-			$('input:checkbox[name="checkbox[]"]:checked').each(function(){							
+			$('input[name="checkbox[]"]:checked').each(function(){							
 				var text = $(this).val();
 				alert("TeacherAddrNo"+text+"삭제");					
 				$("#form1").submit();				
@@ -94,19 +96,19 @@
 	          <td scop e="row"><%= teacherAddr.getTeacherNo() %></td>
 	          <td><%=teacherAddr.getTeacherAddrNo() %></td>
 	          <td><%=teacherAddr.getAddress() %></td>          
-	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherNo() %>">주소 수정</a></td>
+	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherAddrNo() %>">주소 수정</a></td>
 	        </tr>       
 	      </tbody>	     
 <%
 		}	
 %>	
 		</form>
-		</table>
-		
+		</table>		
   	</div>
   	<div class="addressAdd">
   		<button><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherNo %>">주소 추가</a></button>
 	</div>
+	<div class="addressAddText">주소가 5개 이상일 경우 더는 주소를 추가할수 없습니다. 주소를 삭제해주세요</div>
 	<div class="addressdelete">
   		<button id="btn">주소 삭제</button>
 	</div>
