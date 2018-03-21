@@ -74,6 +74,7 @@ ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAtt
 	</div>
 	<div class="addressAdd">
   		<td><a href="<%= request.getContextPath()%>/AddStudentAddrController.lim?sendNo=<%=sendNO%>">주소 추가</a></td>
+  		<td><a href="<%= request.getContextPath()%>">주소삭제</a></td>
 	</div>
 </body>
 </html>

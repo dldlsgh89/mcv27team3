@@ -1,3 +1,4 @@
+//27기 3팀 임가현
 package model;
 
 import java.sql.Connection;
@@ -11,10 +12,9 @@ public class StudentAddrDao {
 	PreparedStatement preparedstatement;
 	ResultSet resultset;
 	ArrayList<StudentAddr> arrayStudentAddr;
-	Student student;
 	
 	public void insertStudentAddr(int StudentNo, String StudentAddr) {
-		System.out.println(StudentNo+"<--------- StudentAddrDao.java/insertStudentAddr");
+		System.out.println(StudentNo+"<--------- insertStudentAddr StudentAddrDao.java");
 		try {
 			connection = DriveDB.driverdbCon();
 			
@@ -37,7 +37,7 @@ public class StudentAddrDao {
 	
 	//ArrayList<StudentAddr> selectStudentAddr
 		public ArrayList<StudentAddr> selectStudentAddr(int sendNO) {
-			System.out.println(sendNO+"<---- StudentAddrDao.java/selectStudentAddr");
+			System.out.println(sendNO+"<---- selectStudentAddr StudentAddrDao.java");
 			arrayStudentAddr = new ArrayList<StudentAddr>();
 			
 			try {
@@ -53,9 +53,9 @@ public class StudentAddrDao {
 					studentAddr.setStudentNo(resultset.getInt("student_no"));
 					studentAddr.setAddress(resultset.getString("address"));
 					arrayStudentAddr.add(studentAddr);	
-					
 				}
 				return arrayStudentAddr;
+				
 			}catch (SQLException ex) {
 				ex.getStackTrace();
 				System.out.println(ex.getMessage());	
@@ -72,8 +72,7 @@ public class StudentAddrDao {
 		}
 		
 		public void deleteStudentAddr(int studentAddrNo) { 
-			
-			System.out.println("studentAddrNo : "+studentAddrNo+"<------deleteStudentAddr");
+			System.out.println("studentAddrNo : " + studentAddrNo + "<------deleteStudentAddr StudentAddrDao.java");
 			
 			try {
 			connection = DriveDB.driverdbCon();

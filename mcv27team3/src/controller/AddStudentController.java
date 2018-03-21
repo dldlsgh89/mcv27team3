@@ -13,9 +13,6 @@ import model.Teacher;
 
 @WebServlet("/addStudent.lim")
 public class AddStudentController extends HttpServlet {
-	private StudentDao studentdao;
-	private Student student;
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/student/addStudent.jsp").forward(request, response);
 	}

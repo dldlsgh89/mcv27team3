@@ -1,4 +1,4 @@
-//27±â 3ÆÀ ÀÓ°¡Çö 
+//27ê¸° 3íŒ€ ìž„ê°€í˜„
 package model;
 
 public class Student {

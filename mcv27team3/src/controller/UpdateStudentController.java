@@ -35,7 +35,7 @@ public class UpdateStudentController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("utf-8");
 		
 		int studentNo = (Integer.parseInt(request.getParameter("studentNo")));
 		System.out.println(studentNo+"<------doPost----UpdateStudentController");
@@ -51,6 +51,5 @@ public class UpdateStudentController extends HttpServlet {
 		
 		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
 		
-		//request.getRequestDispatcher(request.getContextPath()+"/GetTeacherListController").forward(request, response);
 	}
 }
