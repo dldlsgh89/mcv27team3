@@ -18,16 +18,24 @@ public class GetStudentAddrListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		int sendNo = 0;
-		
-		sendNo = Integer.parseInt(request.getParameter("sendNo"));
-		ArrayList<StudentAddr> arrayStudentAddr = new ArrayList<StudentAddr>();
-		StudentAddrDao studentAddrdao = new StudentAddrDao();
-		arrayStudentAddr = studentAddrdao.selectStudentAddr(sendNo);
-		
+		int sendNO = 0;
 		HttpSession session = request.getSession();
-		session.setAttribute("sendNO", sendNo);				
+		
+		if(request.getParameter("sendNO") != null) {
+			sendNO = Integer.parseInt(request.getParameter("sendNO"));
+			session.setAttribute("sendNO", sendNO);
+		}else {
+			sendNO = (int)session.getAttribute("sendNO");
+		}
+		System.out.println(sendNO + "<-- sendNO GetStudentAddrListController.java");
+		
+		ArrayList<StudentAddr> arrayStudentAddr =  new ArrayList<StudentAddr>();
+		StudentAddrDao studentAddrDao = new StudentAddrDao();
+		arrayStudentAddr = studentAddrDao.selectStudentAddr(sendNO);
+		System.out.println(arrayStudentAddr + "<-- arrayStudentAddr GetStudentAddrListController.java");
+		
 		request.setAttribute("arrayStudentAddr", arrayStudentAddr);
+		
 		
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentAddrList.jsp").forward(request, response);
 	}

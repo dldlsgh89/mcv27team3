@@ -29,7 +29,6 @@ public class AddStudentAddrController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		request.setCharacterEncoding("utf-8");
 		
 		int studentNo = Integer.parseInt(request.getParameter("studentNo"));
