@@ -24,6 +24,7 @@
 </head>
 <body>
 	<h1>Teacher List</h1>
+	<button><a href="<%= request.getContextPath()%>/addTeacher.lee">가입하기</a></button>
 	<div class="bs-example" data-example-id="contextual-table">
     <table class="table">
       <thead>

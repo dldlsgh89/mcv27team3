@@ -28,7 +28,7 @@ public class AddTeacherAddrController extends HttpServlet {
 		request.setAttribute("teacherNo", teacherNo);
 		
 		
-		request.getRequestDispatcher("/WEB-INF/views/addTeacherAddrForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/teacher/addTeacherAddrForm.jsp").forward(request, response);
 		
 		
 		
@@ -56,7 +56,7 @@ public class AddTeacherAddrController extends HttpServlet {
 				
 		
 		
-		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController2.lee");
+		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
 	}
 
 }

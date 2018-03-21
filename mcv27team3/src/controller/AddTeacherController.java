@@ -17,7 +17,7 @@ public class AddTeacherController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		request.getRequestDispatcher("/WEB-INF/views/addTeacher.jsp").forward(request, response);		
+		request.getRequestDispatcher("/WEB-INF/views/teacher/addTeacher.jsp").forward(request, response);		
 		 
 	}
 	

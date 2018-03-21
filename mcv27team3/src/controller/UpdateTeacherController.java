@@ -30,7 +30,7 @@ public class UpdateTeacherController extends HttpServlet {
 		request.setAttribute("teacher", teacher);
 		
 		
-		request.getRequestDispatcher("/WEB-INF/views/updateTeacherForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/teacher/updateTeacherForm.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
