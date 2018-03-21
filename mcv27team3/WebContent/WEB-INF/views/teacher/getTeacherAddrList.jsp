@@ -31,33 +31,45 @@
 	$(document).ready(function(){			
 		if(arrayTeacherAddrSize<5){
 			$(".addressAdd").show();
+			$(".addressAddText").hide();
 		}else{	
 			$(".addressAdd").hide();
+			$(".addressAddText").show();
 		}	
 	});
+	
 	$(document).ready(function(){
 		$("#btn").click(function(){
-			$('input:checkbox[name="checkbox[]"]').each(function(){							
-				if($(this).is(':checked')){				
-					var text = $(this).val();
-					alert("TeacherAddrNo"+text+"삭제");					
-					$("#form1").submit();					
-				}
+			$('input[name="checkbox[]"]:checked').each(function(){							
+				var text = $(this).val();
+				alert("TeacherAddrNo"+text+"삭제");					
+				$("#form1").submit();				
 			});
 		});
 	});
+	
+	$(document).ready(function(){
+		$("#checkboxAll").click(function(){
+			if($(this).prop("checked")){
+				$("input[type=checkbox]").prop("checked",true);
+			}else{
+				$("input[type=checkbox]").prop("checked",false);
+			}
+		});
+	});
+	
 </script>
 </head>
 <body>
 	<h1>Teacher addr List</h1>
-	<div class="addressAdd">
+	<div>
   		<button><a href="<%= request.getContextPath()%>/getTeacherList.lee">리스트로 돌아가기</a></button>
 	</div>	
 	<div class="bs-example" data-example-id="contextual-table">
 	    <table class="table">
 	      <thead>
 	        <tr class="active">
-	          <th><input type="checkbox" name="subject" value="">전체선택</th>
+	          <th><input type="checkbox" id="checkboxAll" value="">전체선택</th>
 	          <th>teacher number</th>
 	          <th>teacher addr number</th>
 	          <th>address</th>
@@ -84,19 +96,19 @@
 	          <td scop e="row"><%= teacherAddr.getTeacherNo() %></td>
 	          <td><%=teacherAddr.getTeacherAddrNo() %></td>
 	          <td><%=teacherAddr.getAddress() %></td>          
-	          <td><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherNo() %>">주소 수정</a></td>
+	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherAddrNo() %>">주소 수정</a></td>
 	        </tr>       
 	      </tbody>	     
 <%
 		}	
 %>	
 		</form>
-		</table>
-		
+		</table>		
   	</div>
   	<div class="addressAdd">
   		<button><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherNo %>">주소 추가</a></button>
 	</div>
+	<div class="addressAddText">주소가 5개 이상일 경우 더는 주소를 추가할수 없습니다. 주소를 삭제해주세요</div>
 	<div class="addressdelete">
   		<button id="btn">주소 삭제</button>
 	</div>

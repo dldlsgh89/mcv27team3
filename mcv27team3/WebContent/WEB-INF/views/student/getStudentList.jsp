@@ -11,7 +11,7 @@
 <style type="text/css"> 
  		body{
  			padding: 250px;
- 			background-image: url("https://images.unsplash.com/photo-1509210459313-17feefdff5cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c5ddf153f3339e6ceffb94528f018a9d&w=1000&q=80");
+ 			background-color: #BDBDBD;
 			background-size: 1600px 800px;
  			}
 		form{ 
@@ -26,6 +26,9 @@
 </head>
 <body>
 	<h1>Student List</h1>
+	<ul class="nav nav-pills">
+		<li role="presentation"><a href="<%=request.getContextPath()%>/addStudent.lim">회원가입</a></li>
+	</ul>
 	<div class="bs-example" data-example-id="contextual-table">
 		<table class="table">
 			<thead>

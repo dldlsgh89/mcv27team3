@@ -11,7 +11,7 @@
 <style type="text/css"> 
  		body{
  			padding: 250px;
- 			background-image: url("https://images.unsplash.com/photo-1509210459313-17feefdff5cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c5ddf153f3339e6ceffb94528f018a9d&w=1000&q=80");
+ 			background-color: #BDBDBD;
 			background-size: 1600px 800px;
  			}
 		form{ 
@@ -21,7 +21,7 @@
  			background-color: #ffffff;
  			text-align: center;
  		} 
-</style> 
+</style>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 <script>
 <%
@@ -41,6 +41,9 @@ ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAtt
 </head>
 <body>
 	<h1>Student Addr List</h1>
+	<ul class="nav nav-pills">
+		<li role="presentation"><a href="<%=request.getContextPath()%>/getStudentList.lim">회원리스트</a></li>
+	</ul>
 	<div class="bs-example" data-example-id="contextual-table">
 		<table class="table">
 			<thead>
@@ -58,7 +61,6 @@ ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAtt
 			<tbody>
 				<tr class="active">
 					<th scop e="row"><%= studentAddr.getStudentNo() %></th>
-					<td><%= studentAddr.getStuedentAddrNo() %></td>
 					<td><%= studentAddr.getStudentNo() %></td>
 					<td><%= studentAddr.getAddress() %></td>
 					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%=studentAddr.getStudentNo()%>">수정</a></td>

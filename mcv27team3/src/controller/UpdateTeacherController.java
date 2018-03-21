@@ -14,7 +14,6 @@ import model.TeacherDao;
 @WebServlet("/UpdateTeacherController.lee")
 public class UpdateTeacherController extends HttpServlet {
 	private TeacherDao teacherDao;
-	private Teacher teacher;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -24,7 +23,7 @@ public class UpdateTeacherController extends HttpServlet {
 		
 		this.teacherDao = new TeacherDao();
 		
-		this.teacher = new Teacher();
+		Teacher teacher = new Teacher();
 		teacher	 =	teacherDao.teacherSelectforUpdate(teacherNo);
 		
 		request.setAttribute("teacher", teacher);
@@ -41,12 +40,12 @@ public class UpdateTeacherController extends HttpServlet {
 		String teacherId = request.getParameter("teacherId");
 		String teacherPw = request.getParameter("teacherPw");
 		
-		this.teacher = new Teacher();
+		Teacher teacher = new Teacher();
 		teacher.setTeacherNo(teacherNo);
 		teacher.setTeacherId(teacherId);
 		teacher.setTeacherPw(teacherPw);
 			
-		teacherDao.updateTeacher(teacher);
+		this.teacherDao.updateTeacher(teacher);
 		
 		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
 		

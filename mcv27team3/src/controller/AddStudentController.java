@@ -28,11 +28,11 @@ public class AddStudentController extends HttpServlet {
 		String studentPw = request.getParameter("studentPw");
 		System.out.println(studentPw +"<--AddStudentController.java");
 		
-		this.student = new Student();
+		Student student = new Student();
 		student.setStudentId(studentId);
 		student.setStudentPw(studentPw);
 		
-		this.studentdao = new StudentDao();
+		StudentDao studentdao = new StudentDao();
 		studentdao.insertStudent(student);
 		
 		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");

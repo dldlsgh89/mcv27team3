@@ -14,15 +14,12 @@ import model.StudentDao;
 
 @WebServlet("/DeleteStudentController.lim")
 public class DeleteStudentController extends HttpServlet {
-	private StudentDao studentdao;
-	private Student student;
-       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		int	sendNO = Integer.parseInt(request.getParameter("sendNO"));
 		System.out.println(sendNO+"<-----DeleteStudentController.java");
 		
-		this.studentdao = new StudentDao();
+		StudentDao studentdao = new StudentDao();
 		studentdao.deleteStudent(sendNO);
 		
 		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");

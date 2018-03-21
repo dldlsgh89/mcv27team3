@@ -50,11 +50,7 @@ public class AddTeacherAddrController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("teacherNo", teacherNo);
-		
-		
-				
-		
+		session.setAttribute("teacherNo", teacherNo);		
 		
 		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
 	}
