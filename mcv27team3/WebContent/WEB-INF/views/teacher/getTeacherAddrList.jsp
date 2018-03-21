@@ -35,29 +35,39 @@
 			$(".addressAdd").hide();
 		}	
 	});
+	
 	$(document).ready(function(){
 		$("#btn").click(function(){
-			$('input:checkbox[name="checkbox[]"]').each(function(){							
-				if($(this).is(':checked')){				
-					var text = $(this).val();
-					alert("TeacherAddrNo"+text+"삭제");					
-					$("#form1").submit();					
-				}
+			$('input:checkbox[name="checkbox[]"]:checked').each(function(){							
+				var text = $(this).val();
+				alert("TeacherAddrNo"+text+"삭제");					
+				$("#form1").submit();				
 			});
 		});
 	});
+	
+	$(document).ready(function(){
+		$("#checkboxAll").click(function(){
+			if($(this).prop("checked")){
+				$("input[type=checkbox]").prop("checked",true);
+			}else{
+				$("input[type=checkbox]").prop("checked",false);
+			}
+		});
+	});
+	
 </script>
 </head>
 <body>
 	<h1>Teacher addr List</h1>
-	<div class="addressAdd">
+	<div>
   		<button><a href="<%= request.getContextPath()%>/getTeacherList.lee">리스트로 돌아가기</a></button>
 	</div>	
 	<div class="bs-example" data-example-id="contextual-table">
 	    <table class="table">
 	      <thead>
 	        <tr class="active">
-	          <th><input type="checkbox" name="subject" value="">전체선택</th>
+	          <th><input type="checkbox" id="checkboxAll" value="">전체선택</th>
 	          <th>teacher number</th>
 	          <th>teacher addr number</th>
 	          <th>address</th>

@@ -26,8 +26,7 @@ public class GetTeacherListController extends HttpServlet {
 		ArrayList<Teacher> arrayTeacher = new ArrayList<Teacher>(); 
 		
 		TeacherDao teacherDao = new TeacherDao(); 
-		arrayTeacher = teacherDao.selectTeacher(); 
-													
+		arrayTeacher = teacherDao.selectTeacher(); 													
 				
 		request.setAttribute("arrayTeacher", arrayTeacher); 
 		
