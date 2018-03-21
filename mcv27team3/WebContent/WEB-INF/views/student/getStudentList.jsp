@@ -26,6 +26,11 @@
 </head>
 <body>
 	<h1>Student List</h1>
+	<ul class="nav nav-tabs">
+		<li role="presentation"><a href="#">학생리스트</a></li>
+		<li role="presentation"><a href="#">Profile</a></li>
+		<li role="presentation"><a href="#">Messages</a></li>
+	</ul>
 	<div class="bs-example" data-example-id="contextual-table">
 		<table class="table">
 			<thead>

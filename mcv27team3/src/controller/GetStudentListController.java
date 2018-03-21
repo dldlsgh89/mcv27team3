@@ -28,6 +28,7 @@ public class GetStudentListController extends HttpServlet {
 		request.setAttribute("arrayStudent", arrayStudent);
 		
 
+	
 		//forward
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentList.jsp").forward(request, response);
 	} 

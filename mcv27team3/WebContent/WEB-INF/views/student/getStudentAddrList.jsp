@@ -58,7 +58,6 @@ ArrayList<StudentAddr> arrayStudentAddr = (ArrayList<StudentAddr>)request.getAtt
 			<tbody>
 				<tr class="active">
 					<th scop e="row"><%= studentAddr.getStudentNo() %></th>
-					<td><%= studentAddr.getStuedentAddrNo() %></td>
 					<td><%= studentAddr.getStudentNo() %></td>
 					<td><%= studentAddr.getAddress() %></td>
 					<td><a href="<%=request.getContextPath()%>/AddStudentAddrController.lim?sendNO=<%=studentAddr.getStudentNo()%>">수정</a></td>
