@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.EmployeeAddr;
 import model.EmployeeAddrDao;
@@ -15,27 +16,34 @@ import model.StudentAddr;
 import model.StudentAddrDao;
 
 
-@WebServlet("/GetEmployeeAddrListController")
+@WebServlet("/GetEmployeeAddrListController.pjh")
 public class GetEmployeeAddrListController extends HttpServlet {
-	private EmployeeAddrDao employeeAddrdao;
-    private EmployeeAddr employeeAddr;   
-    
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		//request
-		this.employeeAddr = new EmployeeAddr();
 		
-		//EmployeeDao
-		ArrayList<EmployeeAddr> arrayStudentAddr = new ArrayList<EmployeeAddr>();
-		this.employeeAddrdao = new EmployeeAddrDao();
-		arrayEmployeetAddr = employeeAddrdao.selectStudentAddr();
-				
-		request.setAttribute("arrayStudentAddr", arrayStudentAddr);
+		request.setCharacterEncoding("UTF-8");
+		int EmployeeNo = 0;
+		HttpSession session = request.getSession();
+		
+		if(request.getParameter("sendNO") != null) {
+			EmployeeNo = Integer.parseInt(request.getParameter("sendNO"));
+			session.setAttribute("EmployeeNo", EmployeeNo);
+		}else {
+			EmployeeNo = (int)session.getAttribute("EmployeeNo");
+		}
+	
+		System.out.println(EmployeeNo+"<---GetStudentAddrListController");
+		
+		ArrayList<EmployeeAddr> arrayEmployeeAddr = new ArrayList<EmployeeAddr>();
+		
+		EmployeeAddrDao employeeAddrDao = new EmployeeAddrDao();
+		
+		arrayEmployeeAddr = employeeAddrDao.selectEmployeeAddr(EmployeeNo);
+		
+		System.out.println(arrayEmployeeAddr.size()+"<----arrayEmployeeAddr.size() GetEmployeeAddrListController");
+		
+		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeeAddList.jsp").forward(request, response);
+		
 	}
 
 }
-*/

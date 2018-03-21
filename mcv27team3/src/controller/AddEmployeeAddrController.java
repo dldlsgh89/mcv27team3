@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,9 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.EmployeeAddr;
 import model.EmployeeAddrDao;
+
+
+
 
 @WebServlet("/AddEmployeeAddrController.pjh")
 public class AddEmployeeAddrController extends HttpServlet {
@@ -17,10 +21,10 @@ public class AddEmployeeAddrController extends HttpServlet {
 
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("UTF-8");
 		
-		int EmployeeNo = Integer.parseInt(request.getParameter("employeeNo"));
-		System.out.println(request.getParameter("employeeNo")+"<------doGet AddEmployeeAddrController.java");
+		int EmployeeNo = Integer.parseInt(request.getParameter("sendNO"));
+		System.out.println(request.getParameter("sendNO")+"<------doGet AddEmployeeAddrController");
 		
 		//Controller���� EmployeeNo�� �Ѱܹ޾� jsp���ѷ���
 		request.setAttribute("EmployeeNo", EmployeeNo);
@@ -29,18 +33,21 @@ public class AddEmployeeAddrController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euckr");
+		request.setCharacterEncoding("UTF-8");
 		
-		int EmployeeNo = Integer.parseInt(request.getParameter("EmployeeNo"));
+		int EmployeeNo = Integer.parseInt(request.getParameter("sendNO"));
 		String employeeAddr = request.getParameter("employeeAddr");
 		System.out.println(EmployeeNo+"<--------doPostAddAddEmployeeAddrController.java");
 		System.out.println(employeeAddr+"<----------doPostAddEmployeeAddrController");
 		
 		employeeAddrDao = new EmployeeAddrDao();
 		employeeAddrDao.InsertEmployeeAddr(EmployeeNo,employeeAddr);
-
-		response.sendRedirect(request.getContextPath()+"/addEmployee.pjh");
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("EmployeeNo", EmployeeNo);
+		
+		response.sendRedirect(request.getContextPath()+"/GetEmployeeAddrListController.pjh");
 	}
 
 }
-*/
