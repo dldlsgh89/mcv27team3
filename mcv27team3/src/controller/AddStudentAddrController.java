@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.StudentAddr;
 import model.StudentAddrDao;
@@ -17,8 +18,6 @@ public class AddStudentAddrController extends HttpServlet {
 	private StudentAddr studentAddr;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//입력값에 숫자,한글,영어를 쓸 수 있게 한다.
 		request.setCharacterEncoding("utf-8");
 		
 		int studentNo = Integer.parseInt(request.getParameter("sendNO"));
@@ -31,7 +30,7 @@ public class AddStudentAddrController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("utf8");
+		request.setCharacterEncoding("utf-8");
 		
 		int studentNo = Integer.parseInt(request.getParameter("studentNo"));
 		String studentAddr = request.getParameter("studentAddr");
@@ -40,6 +39,9 @@ public class AddStudentAddrController extends HttpServlet {
 		
 		studentAddrDao = new StudentAddrDao();
 		studentAddrDao.insertStudentAddr(studentNo, studentAddr);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("studentNo", studentNo);
 		
 		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.lim");
 	}

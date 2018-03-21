@@ -70,6 +70,29 @@ public class StudentAddrDao {
 			return null;
 			
 		}
+		
+		public void deleteStudentAddr(int studentAddrNo) { 
+			
+			System.out.println("studentAddrNo : "+studentAddrNo+"<------deleteStudentAddr");
+			
+			try {
+			connection = DriveDB.driverdbCon();
+					
+			preparedstatement = connection.prepareStatement("DELETE FROM student_addr WHEREstudent_addr_no=?");
+			preparedstatement.setInt(1, studentAddrNo);
+			preparedstatement.executeUpdate();
+			
+			
+			} catch (ClassNotFoundException classEX) {			
+				classEX.printStackTrace();
+			} catch (SQLException sqlEX) {			
+				sqlEX.printStackTrace();
+			} finally {
+				if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+				if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+			}		
+			
 	
+		}
 }
 

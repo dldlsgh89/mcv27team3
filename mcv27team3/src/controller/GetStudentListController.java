@@ -15,20 +15,16 @@ import model.Teacher;
 
 @WebServlet("/getStudentList.lim")
 public class GetStudentListController extends HttpServlet {
-	private StudentDao studentdao;
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
 		//studentDAO
 		ArrayList<Student> arrayStudent = new ArrayList<Student>();
-		this.studentdao = new StudentDao();
+		StudentDao studentdao = new StudentDao();
 		arrayStudent = studentdao.selectStudent();
 		
 		request.setAttribute("arrayStudent", arrayStudent);
-		
 
-	
 		//forward
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentList.jsp").forward(request, response);
 	} 

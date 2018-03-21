@@ -15,15 +15,14 @@ import model.StudentAddrDao;
 
 @WebServlet("/GetStudentAddrListController.lim")
 public class GetStudentAddrListController extends HttpServlet {
-	private StudentAddrDao studentAddrdao;
-	int sendNo = 0;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
+		int sendNo = 0;
+		
 		sendNo = Integer.parseInt(request.getParameter("sendNo"));
 		ArrayList<StudentAddr> arrayStudentAddr = new ArrayList<StudentAddr>();
-		this.studentAddrdao = new StudentAddrDao();
+		StudentAddrDao studentAddrdao = new StudentAddrDao();
 		arrayStudentAddr = studentAddrdao.selectStudentAddr(sendNo);
 		
 		HttpSession session = request.getSession();
@@ -32,6 +31,7 @@ public class GetStudentAddrListController extends HttpServlet {
 		
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentAddrList.jsp").forward(request, response);
 	}
+	
 	
 	
 }
