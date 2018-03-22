@@ -42,19 +42,17 @@
 		#helper의 위치에 "비밀번호 5자 이상"이상이라는 텍스트가 띄워지게 된다.
 		input박스 teacherPwCheck는   teacherPw와 동일한 데이터를 받게 되며 입력데이터가 teacherPw와 일치 하지 않을시 
 		#helper의 위치에 "동일한 비밀번호를 입력하세요"이상이라는 텍스트가 띄워지게 된다.
-		 각각의 텍스트는 #helper라는 한 공간에 나타나기 때문에 조건이 맞지 않는 순서대로 나타나게 되며 동시에 존재할수 없다 
-		 모든 조건에 일치할시 id="myform" 부븐이 /addTeacher.lee로 submit하게 되는데 기본적으로 해당경로는 
+		 각각의 텍스트는 #helper라는 태그공간에 나타나기 때문에 조건이 맞지 않는 순서대로 나타나게 되며 동시에 존재할수 없다 
+		 모든 조건에 일치할시 id가 "myform" form이 /addTeacher.lee로 submit하게 되는데 기본적으로 해당경로는 
 		 controller.AddTeacherController.java로 맴핑해둔 상태기 때문에 AddTeacherController.java로 submit
 		 되며 get 방식이 아닌 post 방식으로 전송한 상태기 때문에 doPost로 입력되게 된다		
 		*/
 			
-	
-
 </script>
 </head>
 
 <body>
-		<form id="myform" class="form-horizontal form" method="post" action="${pageContext.request.contextPath}/addTeacher.lee">
+		<form id="myform" class="form-horizontal form" method="post" action="${pageContext.request.contextPath}/addTeacher.lee">  <!--  -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 class="panel-title">teacher 가입양식</h2>
@@ -63,22 +61,19 @@
 					<div class="form-group" >
 						<label for="teacherId" class="col-sm-3 control-label">teacher_id</label>
 						<div class="col-sm-8" >
-							<input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="id를 입력해주세요">
-	
+							<input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="id를 입력해주세요">	
 						</div>
 					</div>
 					<div class="form-group" >
 						<label for="teacherPw" class="col-sm-3 control-label">teacher_pw</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" id="teacherPw" name="teacherPw" placeholder="pw를 입력해주세요">
-	
+							<input type="password" class="form-control" id="teacherPw" name="teacherPw" placeholder="pw를 입력해주세요">	
 						</div>
 					</div>
 					<div class="form-group" >
 						<label for="teacherPwCheck" class="col-sm-3 control-label">teacher_pw확인</label>
 						<div class="col-sm-8">
-							<input type="password" class="form-control" id="teacherPwCheck" placeholder="pw를 다시 입력해주세요">
-	
+							<input type="password" class="form-control" id="teacherPwCheck" placeholder="pw를 다시 입력해주세요">	
 						</div>
 					</div>
 					<div class="form-group">

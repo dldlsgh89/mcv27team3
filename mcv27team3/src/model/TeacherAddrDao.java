@@ -39,15 +39,15 @@ public class TeacherAddrDao {
 		
 	}
 	
-	public ArrayList<TeacherAddr> selectTeacherAddr(int sendNO) {
+	public ArrayList<TeacherAddr> selectTeacherAddr(int teacherNo) {
 		
-		System.out.println(sendNO+"<---- selectTeacherAddr");
+		System.out.println(teacherNo+"<---- selectTeacherAddr");
 		arrayTeacherAddr = new ArrayList<TeacherAddr>(); 
 		try {
 			connection = DriveDB.driverdbCon();
 			
 			preparedstatement = connection.prepareStatement("select * from teacher_addr WHERE teacher_no=?"); 
-			preparedstatement.setInt(1, sendNO);
+			preparedstatement.setInt(1, teacherNo);
 			
 			resultset = preparedstatement.executeQuery(); 
 			
