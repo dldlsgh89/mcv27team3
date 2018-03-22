@@ -1,7 +1,10 @@
 <!-- 27기 3팀 임가현 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import = "model.Student" %>
-<%@ page import = "java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--	
+	<c:img>
+ --%>
+<%-- taglib java code -> 태그 --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +30,10 @@
 <body>
 	<h1>Student List</h1>
 	<ul class="nav nav-pills">
-		<li role="presentation"><a href="<%=request.getContextPath()%>/addStudent.lim">회원가입</a></li>
+		<!-- <a href="<%=request.getContextPath()%> -->
+		<li role="presentation"><a href="${pageContext.request.contextPath}/addStudent.lim">회원가입</a></li>
 	</ul>
+	
 	<div class="bs-example" data-example-id="contextual-table">
 		<table class="table">
 			<thead>
@@ -41,25 +46,20 @@
 					<th style="text-align: center">삭제</th><!-- StudentDao.delete -->
 				</tr>
 			</thead>
-<%
-ArrayList<Student> arrayStudent = (ArrayList<Student>)request.getAttribute("arrayStudent");
-	for(Student student : arrayStudent) {
-%>
-			<tbody>
-				<tr class="active">
-					<td><%= student.getStudentNo() %></td>
-					<td><%= student.getStudentId() %></td>
-					<td>****</td>
-					<td><a href="<%=request.getContextPath()%>/GetStudentAddrListController.lim?sendNO=<%=student.getStudentNo()%>">주소확인</a></td>
-					<td><a href="<%=request.getContextPath()%>/UpdateStudentController.lim?sendNO=<%=student.getStudentNo()%>">수정</a></td>
-					<td><a href="<%=request.getContextPath()%>/DeleteStudentController.lim?sendNO=<%=student.getStudentNo()%>">삭제</a></td>
-				</tr>
-			</tbody>
-				<%
-					}
-				%> 
-			
+			<c:forEach var="student" items="${arrayStudent}">
+				<tbody>
+					<tr class="active">
+						<td>${student.studentNo}</td>
+						<td>${student.studentId}</td>
+						<td>****</td>
+						<td><a href="${pageContext.request.contextPath}/GetStudentAddrListController.lim?sendNO=${student.studentNo}">주소확인</a></td>
+						<td><a href="${pageContext.request.contextPath}/UpdateStudentController.lim?sendNO=${student.studentNo}">수정</a></td>
+						<td><a href="${pageContext.request.contextPath}/DeleteStudentController.lim?sendNO=${student.studentNo}">삭제</a></td>
+					</tr>
+				</tbody>
+			</c:forEach>	
 		</table>
 	</div>
+
 </body>
 </html>

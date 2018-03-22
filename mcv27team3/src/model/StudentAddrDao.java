@@ -12,6 +12,7 @@ public class StudentAddrDao {
 	PreparedStatement preparedstatement;
 	ResultSet resultset;
 	ArrayList<StudentAddr> arrayStudentAddr;
+	StudentAddr studentAddr;
 	
 	public void insertStudentAddr(int StudentNo, String StudentAddr) {
 		System.out.println(StudentNo+"<--------- insertStudentAddr StudentAddrDao.java");
@@ -49,7 +50,7 @@ public class StudentAddrDao {
 				
 				while(resultset.next()) {
 					StudentAddr studentAddr = new StudentAddr();
-					studentAddr.setStuedentAddrNo(resultset.getInt("student_addr_no"));
+					studentAddr.setStudentAddrNo(resultset.getInt("student_addr_no"));
 					studentAddr.setStudentNo(resultset.getInt("student_no"));
 					studentAddr.setAddress(resultset.getString("address"));
 					arrayStudentAddr.add(studentAddr);	
@@ -93,5 +94,55 @@ public class StudentAddrDao {
 			
 	
 		}
+		
+		public StudentAddr studentAddrSelectforUpdate(int studentAddrNo){
+			System.out.println("studentAddrNo : "+studentAddrNo+"<------studentAddrSelectforUpdate");
+
+			try {
+			connection = DriveDB.driverdbCon();
+			preparedstatement = connection.prepareStatement("select * from student_addr WHERE student_addr_no=?");
+			preparedstatement.setInt(1, studentAddrNo);
+			resultset = preparedstatement.executeQuery();
+			if(resultset.next()) {
+				studentAddr = new StudentAddr();
+				studentAddr.setStudentAddrNo(resultset.getInt("student_addr_no"));
+				studentAddr.setStudentNo(resultset.getInt("student_no"));
+				studentAddr.setAddress(resultset.getString("address"));
+			} 
+				return studentAddr;		
+			} catch (ClassNotFoundException classEX) {			
+				classEX.printStackTrace();
+			} catch (SQLException sqlEX) {			
+				sqlEX.printStackTrace();
+			} finally {
+				if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+				if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+			}
+			
+			return null;
+		}
+		
+		public void updateStudentAddr(StudentAddr studentAddr) {
+			System.out.println("StudentAddrNo : "+studentAddr.getStudentAddrNo()+"<------updateStudentAddr");
+			
+			try {
+			connection = DriveDB.driverdbCon();
+			preparedstatement = connection.prepareStatement("UPDATE student_addr SET address=? WHERE student_addr_no = ?");
+			preparedstatement.setString(1, studentAddr.getAddress());
+			preparedstatement.setInt(2, studentAddr.getStudentAddrNo());
+			
+			
+			preparedstatement.executeUpdate();
+			
+			} catch (ClassNotFoundException classEX) {			
+				classEX.printStackTrace();
+			} catch (SQLException sqlEX) {			
+				sqlEX.printStackTrace();
+			} finally {
+				if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+				if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+			}
+			
+}
 }
 
