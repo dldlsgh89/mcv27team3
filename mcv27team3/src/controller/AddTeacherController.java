@@ -29,7 +29,7 @@ public class AddTeacherController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String teacherId = request.getParameter("teacherId"); 
-		System.out.println(request.getParameter("teacherid")+"<----AddTeacherController");
+		System.out.println(request.getParameter("teacherId")+"<----AddTeacherController");
 		String teacherPw = request.getParameter("teacherPw");
 		
 		Teacher teacher = new Teacher(); 

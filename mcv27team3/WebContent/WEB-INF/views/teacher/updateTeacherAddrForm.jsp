@@ -1,28 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import= "model.TeacherAddr"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%
-	TeacherAddr teacherAddr = (TeacherAddr)request.getAttribute("teacherAddr");
-%>
 </head>
 <body>
-	<form action="<%= request.getContextPath() %>/UpdateTeacherAddrController.lee" method="post">
+	<form action="${pageContext.request.contextPath}/UpdateTeacherAddrController.lee" method="post">
 		<table border="1">
 			<tr>
 				<td>teacherAddrNo</td>
-				<td><input type="text" name="teacherAddrNo" size="20" value="<%= teacherAddr.getTeacherAddrNo() %>" readonly></td>
+				<td><input type="text" name="teacherAddrNo" size="20" value="${teacherAddr.teacherAddrNo}" readonly></td>
 			<tr>
 			<tr>
 				<td>teacherNo</td>
-				<td><input type="text" name="teacherNo" size="20" value="<%= teacherAddr.getTeacherNo() %>" readonly></td>
+				<td><input type="text" name="teacherNo" size="20" value="${teacherAddr.teacherNo}" readonly></td>
 			<tr>
 			<tr>
 				<td>teacherAddress</td>
-				<td><input type="text" name="teacherAddress" size="20" value="<%= teacherAddr.getAddress() %>"></td>
+				<td><input type="text" name="teacherAddress" size="20" value="${teacherAddr.address}"></td>
 			<tr>
 			<tr>
 				<td colspan="4"><input type="submit" value="선생님주소수정버튼"></td>

@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import= "model.Teacher"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%
+<%-- <%
 	int teacherNo = (int)request.getAttribute("teacherNo");
-%>
+%> --%>
 </head>
 <body>
-	<form action="<%= request.getContextPath() %>/AddTeacherAddrController.lee" method="post">
+	<form action="${pageContext.request.contextPath}/AddTeacherAddrController.lee" method="post">
 		<table border="1">
 			<tr>
 				<td>teacherNo</td>
-				<td><input type="text" name="teacherNo" size="20" value="<%= teacherNo %>" readonly></td>
+				<td><input type="text" name="teacherNo" size="20" value="${teacherNo}" readonly></td>
 			<tr>
 			<tr>
 				<td>teacherAddr</td>

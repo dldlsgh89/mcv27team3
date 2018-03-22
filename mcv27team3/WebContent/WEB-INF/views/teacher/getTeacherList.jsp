@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="model.Teacher"%>
-<%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!-- taglib java code-> 태그처럼 표현  -->
+
+<%-- <!--  
+
+<%= %> 
+EL 사용
+<%=request.getAttribute("x")%>  --> ${x}
+<%=session.getAttribute("x")%>  --> ${y}
+<%=m.getNo()%>  -->  ${m.No}
+
+--> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +36,7 @@
 </head>
 <body>
 	<h1>Teacher List</h1>
-	<button><a href="<%= request.getContextPath()%>/addTeacher.lee">가입하기</a></button>
+	<button><a href="${pageContext.request.contextPath}/addTeacher.lee">가입하기</a></button>
 	<div class="bs-example" data-example-id="contextual-table">
 	    <table class="table">
 			<thead>
@@ -37,23 +49,22 @@
 					<th>삭제</th>
 				</tr>
 			</thead>
-<%
-	ArrayList<Teacher> arrayTeacher = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
-		for(Teacher teacher : arrayTeacher){
-%>
-			<tbody>
-				<tr class="active">
-					<th scope="row"><%= teacher.getTeacherNo() %></th>
-					<td><%=teacher.getTeacherId() %></td>
-					<td>****</td>       
-					<td><a href="<%= request.getContextPath()%>/GetTeacherAddrListController.lee?sendNO=<%= teacher.getTeacherNo() %>">주소List</a></td>
-					<td><a href="<%= request.getContextPath()%>/UpdateTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">수정</a></td>
-					<td><a href="<%= request.getContextPath()%>/DeleteTeacherController.lee?sendNO=<%= teacher.getTeacherNo() %>">삭제</a></td>
-				</tr>       
-			</tbody>
-<%
-		}
-%>
+
+	<%--  //ArrayList<Teacher> arrayTeacher = (ArrayList<Teacher>)request.getAttribute("arrayTeacher");
+	// ${list}
+	for(Teacher teacher : arrayTeacher){ --%>
+			<c:forEach var="teacher" items="${arrayTeacher}">
+				<tbody>
+					<tr class="active">
+						<th scope="row">${teacher.teacherNo}</th>
+						<td>${teacher.teacherId}</td>
+						<td>****</td>       
+						<td><a href="${pageContext.request.contextPath}/GetTeacherAddrListController.lee?sendNO=${teacher.teacherNo}">주소List</a></td>
+						<td><a href="${pageContext.request.contextPath}/UpdateTeacherController.lee?sendNO=${teacher.teacherNo}">수정</a></td>
+						<td><a href="${pageContext.request.contextPath}/DeleteTeacherController.lee?sendNO=${teacher.teacherNo}">삭제</a></td>
+					</tr>       
+				</tbody>
+			</c:forEach>
 	    </table>
 	</div>
 </body>

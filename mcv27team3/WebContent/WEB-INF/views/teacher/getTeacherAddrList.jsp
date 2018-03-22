@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import= "model.TeacherAddr" %>
-<%@ page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,12 +22,12 @@
  		} 
 </style> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-<%	
+<%-- <%	
 	ArrayList<TeacherAddr> arrayTeacherAddr = (ArrayList<TeacherAddr>)request.getAttribute("arrayTeacherAddr"); 
 		int arrayTeacherAddrSize = arrayTeacherAddr.size();	
-%>
+%> --%>
 <script>
-	var arrayTeacherAddrSize = <%= arrayTeacherAddrSize %>;
+	var arrayTeacherAddrSize = ${fn:length(arrayTeacherAddr)}
 	$(document).ready(function(){			
 		if(arrayTeacherAddrSize<5){
 			$(".addressAdd").show();
@@ -63,7 +63,7 @@
 <body>
 	<h1>Teacher addr List</h1>
 	<div>
-  		<button><a href="<%= request.getContextPath()%>/getTeacherList.lee">리스트로 돌아가기</a></button>
+  		<button><a href="${pageContext.request.contextPath}/getTeacherList.lee">리스트로 돌아가기</a></button>
 	</div>	
 	<div class="bs-example" data-example-id="contextual-table">
 	    <table class="table">
@@ -76,37 +76,36 @@
 	          <th>주소수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
 	        </tr>
 	      </thead>
-	      <form form id="form1" name="form1" method="post" action="<%= request.getContextPath() %>/DeleteTeacherAddrController.lee">
-<%				
+	      <form form id="form1" name="form1" method="post" action="${pageContext.request.contextPath}/DeleteTeacherAddrController.lee">
+				
 
-		/* 버튼 만드는 순서  주소 리스트까지 간다
+		<!-- /* 버튼 만드는 순서  주소 리스트까지 간다
 		주소 리스트에서 해당 주소를 클릭할 수 있는 체크 박스들을 만든다
 		해당 체크 박스를 클릭했을때 삭제버튼을 누르면 해당 주소 넘버의 자료가 삭제될 수 있게 만든다
 		전체 체크 박스를 체크할수 있는 체크 박스를 만든다
 		삭제 버튼을 누르면 다수 체크 박스에 있는 데이터가 삭제될 수있게 만든다
 		*/
 		int teacherNo = (int)session.getAttribute("teacherNo");
-		for(TeacherAddr teacherAddr : arrayTeacherAddr){
-%>
+		for(TeacherAddr teacherAddr : arrayTeacherAddr){ -->
+		
+		<c:forEach var="teacherAddr" items="${arrayTeacherAddr}">
 	      <tbody>
 	        <tr class="active">
 	        <!-- form을 for문 안에 넣어 시도해봤지만 submit 했을때 controller까지 데이터가 넘어가지 않음  -->
-	       	  <th><input type="checkbox" name="checkbox[]" value="<%= teacherAddr.getTeacherAddrNo()%>"></th>
+	       	  <th><input type="checkbox" name="checkbox[]" value="${teacherAddr.teacherAddrNo}"></th>
 	        
-	          <td scop e="row"><%= teacherAddr.getTeacherNo() %></td>
-	          <td><%=teacherAddr.getTeacherAddrNo() %></td>
-	          <td><%=teacherAddr.getAddress() %></td>          
-	          <td><a href="<%= request.getContextPath()%>/UpdateTeacherAddrController.lee?sendNO=<%= teacherAddr.getTeacherAddrNo() %>">주소 수정</a></td>
+	          <td scop e="row">${teacherAddr.teacherNo}</td>
+	          <td>${teacherAddr.teacherAddrNo}</td>
+	          <td>${teacherAddr.address}</td>          
+	          <td><a href="${pageContext.request.contextPath}/UpdateTeacherAddrController.lee?sendNO=${teacherAddr.teacherAddrNo}">주소 수정</a></td>
 	        </tr>       
 	      </tbody>	     
-<%
-		}	
-%>	
+		</c:forEach>
 		</form>
 		</table>		
   	</div>
   	<div class="addressAdd">
-  		<button><a href="<%= request.getContextPath()%>/AddTeacherAddrController.lee?sendNO=<%= teacherNo %>">주소 추가</a></button>
+  		<button><a href="${pageContext.request.contextPath}/AddTeacherAddrController.lee?sendNO=${teacherNo}">주소 추가</a></button>
 	</div>
 	<div class="addressAddText">주소가 5개 이상일 경우 더는 주소를 추가할수 없습니다. 주소를 삭제해주세요</div>
 	<div class="addressdelete">
