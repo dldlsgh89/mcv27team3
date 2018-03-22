@@ -22,7 +22,7 @@
 				<td><input type="text" name="studentAddr" size="20" value=""></td>
 			<tr>
 			<tr>
-				<td colspan="4"><input type="submit" value="회원주소수정"></td>
+				<td colspan="4"><input type="submit" value="주소추가"></td>
 			</tr>
 		</table>
 	</form>

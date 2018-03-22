@@ -18,7 +18,7 @@ public class UpdateStudentAddrController extends HttpServlet {
 	
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			  
-			int studentAddrNo = Integer.parseInt(request.getParameter("sendNO"));
+			int studentAddrNo = Integer.parseInt(request.getParameter("sendNo"));
 			System.out.println(studentAddrNo+"<--doGet---UpdatestudentAddrController");
 			
 			this.studentAddrDao = new StudentAddrDao();
@@ -48,7 +48,7 @@ public class UpdateStudentAddrController extends HttpServlet {
 		this.studentAddrDao.updateStudentAddr(studentAddr);
 		
 	
-		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.lee");
+		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.lim");
 		}
 
 }

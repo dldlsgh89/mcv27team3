@@ -1,18 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import= "model.Student"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-
-<%
-
-Student student = (Student)request.getAttribute("student");
-System.out.println(student + "<<---------- updateStudentForm.jsp");
-
-%>
-
-
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>m_update_form.jsp</title>
 </head>
 <body>

@@ -16,7 +16,7 @@ public class StudentAddr {
 		return studentNo;
 	}
 	public void setStudentNo(int studentNo) {
-		studentNo = studentNo;
+		this.studentNo = studentNo;
 	}
 	public String getAddress() {
 		return address;

@@ -24,7 +24,7 @@
 		</style>  
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 		<script>
-			var arrayStudentAddrSize = ${fn:length(arrayStudentAddr)};
+			var arrayStudentAddrSize = ${fn:length(arrayStudentAddr)}
 			$(document).ready(function(){			
 				if(arrayStudentAddrSize<5){
 					$(".addressAdd").show();
@@ -66,20 +66,22 @@
 			<table class="table">
 				<thead>
 					<tr class="active">
-						<th style="text-align: center">student addr no</th>
-						<th style="text-align: center">student no</th>
-						<th style="text-align: center">address</th>
-						<th style="text-align: center">수정</th><!-- StudentDao.update / studentNO=? -->
+						<th><input type="checkbox" id="checkboxAll" value="">전체선택</th>
+						<th>학생번호</th>
+						<th>주소번호</th>
+						<th>학생주소</th>
+						<th>수정</th><!-- StudentDao.update / studentNO=? -->
 					</tr>
 				</thead>
-				<form>
-					<c:forEach var="StudentAddr" items="arrayStudentAddr">
+				<form id="form1" name="form1" method="post" action="${pageContext.request.contextPath}/DeleteStudentAddrController.lim">
+					<c:forEach var="studentAddr" items="${arrayStudentAddr}">
 						<tbody>
 							<tr class="active">
-								<th scop e="row">${studentAddr.StudentNo}</th>
-								<td>${studentAddr.StudentNo}</td>
+								<th scop e="row"><input type="checkbox" name="checkbox[]" value="${studentAddr.studentAddrNo}"></th>
+								<td>${studentAddr.studentNo}</td>
+								<td>${studentAddr.studentAddrNo}</td>
 								<td>${studentAddr.address}</td>
-								<td><a href="${pageContext.request.contextPath}/UpdateStudentAddrController.lim??sendNO=${studentAddr.StudentNo}">수정</a></td>
+								<td><a href="${pageContext.request.contextPath}/UpdateStudentAddrController.lim?sendNo=${studentAddr.studentAddrNo}">수정</a></td>
 							</tr>
 						</tbody>
 					</c:forEach>
@@ -87,13 +89,13 @@
 			</table>	
 		</div>
 		<div class="addressAdd">
-	  		<button><a href="${pageContext.request.contextPath}/AddStudentAddrController.lim?sendNo=${sendNO}">주소 추가</a></button>
-		</div>
+			<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/AddStudentAddrController.lim?sendNO=${studentNo}'">주소추가</button>
+	  	</div>
 		<div class="addressAddText">
-			주소가 5개 이상일 경우 더는 주소를 추가할수 없습니다. 주소를 삭제해주세요
+			더 이상 주소를 추가할수 없습니다. 주소를 삭제해주세요
 		</div>
 		<div class="addressdelete">
-	  		<button id="btn">주소 삭제</button>
+	  		<button type="button" class="btn btn-default" id="btn">주소 삭제</button>
 		</div>
 	</body>
 </html>

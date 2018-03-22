@@ -38,18 +38,18 @@
 		<table class="table">
 			<thead>
 				<tr class="active">
-					<th style="text-align: center">student No</th>
-					<th style="text-align: center">student ID</th>
-					<th style="text-align: center">student PW</th>
-					<th style="text-align: center">Add student_Addr</th> <!-- StudentAddrDao.insertStudentAddr -->
-					<th style="text-align: center">수정</th><!-- StudentDao.update / studentNO=? -->
-					<th style="text-align: center">삭제</th><!-- StudentDao.delete -->
+					<th>student No</th>
+					<th>student ID</th>
+					<th>student PW</th>
+					<th>Add student_Addr</th> <!-- StudentAddrDao.insertStudentAddr -->
+					<th>수정</th><!-- StudentDao.update / studentNO=? -->
+					<th>삭제</th><!-- StudentDao.delete -->
 				</tr>
 			</thead>
 			<c:forEach var="student" items="${arrayStudent}">
 				<tbody>
 					<tr class="active">
-						<td>${student.studentNo}</td>
+						<td scope="row">${student.studentNo}</td>
 						<td>${student.studentId}</td>
 						<td>****</td>
 						<td><a href="${pageContext.request.contextPath}/GetStudentAddrListController.lim?sendNO=${student.studentNo}">주소확인</a></td>

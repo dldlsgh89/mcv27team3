@@ -10,16 +10,16 @@
 	<form action="${pageContext.request.contextPath}/UpdateStudentAddrController.lim" method="post">
 		<table border="1">
 			<tr>
-				<td>학생주소번호</td>
-				<td><input type="text" name="teacherAddrNo" size="20" value="${studentAddr.studentAddrNo}" readonly></td>
-			<tr>
-			<tr>
 				<td>학생번호</td>
-				<td><input type="text" name="teacherNo" size="20" value="${studentAddr.StudentNo}" readonly></td>
+				<td><input type="text" name="studentNo" size="20" value="${studentAddr.studentNo}" readonly></td>
+			<tr>
+			<tr>
+				<td>주소번호</td>
+				<td><input type="text" name="studentAddrNo" size="20" value="${studentAddr.studentAddrNo}" readonly></td>
 			<tr>
 			<tr>
 				<td>학생주소</td>
-				<td><input type="text" name="teacherAddress" size="20" value="${studentAddr.address}"></td>
+				<td><input type="text" name="studentAddress" size="20" value="${studentAddr.address}"></td>
 			<tr>
 			<tr>
 				<td colspan="4"><input type="submit" value="주소수정"></td>
