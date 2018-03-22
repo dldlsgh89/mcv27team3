@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -100,7 +100,29 @@ public class EmployeeAddrDao {
 			if(connection == null) try {connection.close();} catch(SQLException ex) {}
 		}
 	}
-
+	public EmployeeAddr employeeAddrSelectforUpdate(int employeeAddrNo) {
+		System.out.println("employeeAddrNo : "+ employeeAddrNo+"<---- employeeAddrSelectforUpdate");
+		
+		try {
+			connection = DriveDB.driverdbCon();
+			preparedstatement = connection.prepareStatement("select * from employee_addr WHERE employee_addr_no=?");
+			preparedstatement.setInt(1, employeeAddrNo);
+			resultset =  preparedstatement.executeQuery();
+			if(resultset.next()) {
+				employeeAddr = new EmployeeAddr();
+				employeeAddr.setEmployeeAddrNo(resultset.getInt("employee_addr_no"));;
+				employeeAddr.setEmployeeNo(resultset.getInt("employee_no"));
+				employeeAddr.setAddress(resultset.getString("address"));
+		}
+			 return employeeAddr;
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
+	}
 }
 
 
+*/
