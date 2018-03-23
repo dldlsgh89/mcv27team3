@@ -66,10 +66,29 @@ EL 사용
 		<c:if test="${currentPage > 1}">
 			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3">처음으로</a></button>
 			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">이전</a></button>
-		</c:if>		
-		<c:if test="${currentPage < lastPage}">
+		</c:if>
+		<%-- <c:forEach items="${currentPage}">
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?sendNO=%${currentPage}">${currentPage}</a></button>
+		</c:forEach> --%>
+				
+
+<%-- <%		
+		int startPage = (int)request.getAttribute("startPage");   //${startPage}
+		int endPage = (int)request.getAttribute("endPage");		//${endPage}
+		for (int iCount = startPage; iCount <= endPage; iCount++) {  //
+%>
+		    <button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=<%=iCount%>"><%=iCount%></a></button>
+<%
+		}
+%>	 --%>
+		<c:forEach var="iCount" begin="${startPage}" end="${endPage}">
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${iCount}">${iCount}</a></button>	
+		</c:forEach>	
+		
+						
+		<c:if test="${currentPage < totalPage}">
 			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage+1}">다음</a></button>
-			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${lastPage}">마지막으로</a></button>
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${totalPage}">마지막으로</a></button>
 		</c:if>		
 	</div>
 </body>
