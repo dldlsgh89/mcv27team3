@@ -1,34 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ page import= "model.Employee"  %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%
+<%-- <%
 	Employee employee = (Employee)request.getAttribute("employee");
-%>
+%> --%>
 </head>
 <body>
-	<form action="<%= request.getContextPath() %>/UpdateEmployeeController.pjh" method="post">
-	<table border="1">
-	<tr>
-		<td>Á÷¿ø¹øÈ£</td>
-		<td><input type="text" name="employeeNo" size="20" value="<%= employee.getEmployeeNo() %>" readonly></td>
-	<tr>
-	<tr>
-		<td>Á÷¿øÀÌ¸§</td>
-		<td><input type="text" name="employeeId" size="20" value="<%= employee.getEmployeeId() %>"></td>
-	<tr>
-	<tr>
-		<td>Á÷¿øºñ¹Ð¹øÈ£</td>
-		<td><input type="text" name="employeePw" size="20" value="<%= employee.getEmployeePw() %>"></td>
-	<tr>
-	<tr>
-		<td colspan="4"><input type="submit" value="Á÷¿ø¼öÁ¤¹öÆ°"></td>
-	</tr>
-	</table>
+	<form action="${pageContext.request.contextPath}/UpdateEmployeeController.pjh" method="post">
+		<table border="1">
+			<tr>
+				<td>ì§ì›ë²ˆí˜¸</td>
+				<td><input type="text" name="employeeNo" size="20" value="${employee.employeeNo}" readonly></td>
+			<tr>
+			<tr>
+				<td>ì§ì›ì´ë¦„</td>
+				<td><input type="text" name="employeeId" size="20" value="${employee.employeeId}"></td>
+			<tr>
+			<tr>
+				<td>ì§ì›ë¹„ë°€ë²ˆí˜¸</td>
+				<td><input type="text" name="employeePw" size="20" value="${employee.employeePw}"></td>
+			<tr>
+			<tr>
+				<td colspan="4"><input type="submit" value="ì§ì›ìˆ˜ì •ë²„íŠ¼"></td>
+			</tr>
+		</table>
 	</form>
-
 </body>
 </html>

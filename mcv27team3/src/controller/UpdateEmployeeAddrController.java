@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -22,13 +22,31 @@ public class UpdateEmployeeAddrController extends HttpServlet {
 		this.employeeAddrDao = new EmployeeAddrDao();
 		
 		EmployeeAddr employeeAddr = new EmployeeAddr();
-		employeeAddr = employeeAddrDao.em
+		employeeAddr = employeeAddrDao.employeeAddrSelectforUpdate(employeeAddrNo);
+		
+		request.setAttribute("employeeAddr", employeeAddr);
+		
+		request.getRequestDispatcher("/WEB-INF/views/employee/updateEmployeeForm.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+	int employeeAddrNo = Integer.parseInt(request.getParameter("employeeAddrNo"));
+	System.out.println(employeeAddrNo+"<---doPost-----UpdateEmployeeAddrController");
+	int employeeNo = Integer.parseInt(request.getParameter("employeeNo"));
+	String employeeAddress = request.getParameter("employeeAddress");
+	
+	EmployeeAddr employeeAddr = new EmployeeAddr();
+	employeeAddr.setEmployeeAddrNo(employeeAddrNo);
+	employeeAddr.setEmployeeAddrNo(employeeAddrNo);
+	employeeAddr.setAddress(employeeAddress);
+	
+	this.employeeAddrDao.updateEmployeeAddr(employeeAddr);
+	
+	response.sendRedirect(request.getContextPath()+"/GetEmployeeAddrListController.pjh");
+	
 	}
 
 }
-*/

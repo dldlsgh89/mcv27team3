@@ -11,19 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class EmployeeDao {
-// ÃÊ±âÈ­
+// ï¿½Ê±ï¿½È­
 Connection connection = null;
 PreparedStatement preparedstatement = null;
 ResultSet resultset = null;
 Employee employee = null;
 
-//Insert try catch ¹® »ç¿ë
+//Insert try catch ï¿½ï¿½ ï¿½ï¿½ï¿½
 public void InsertEmployee(Employee employee) {
-	//3´Ü°è Äõ¸®½ÇÇàÁØºñ ºÎÅÍ ½ÃÀÛ
+	//3ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	String employeeId = employee.getEmployeeId();
 	System.out.println(employeeId+"<--insertEmployee");
 	String employeePw = employee.getEmployeePw();
-	
+	//ë©”ê²Œë³€ìˆ˜ int startRow -> selectê²°ê³¼ë¬¼ì˜ ì‹œì‘í–‰
+	//ë§¤ê°œë³€ìˆ˜ int pagePerRow->select ê²°ê³¼ë¬¼ì˜ê°¯ìˆ˜
+	//return :Employee List
 	
 	try {
 		connection = DriveDB.driverdbCon();
@@ -54,13 +56,13 @@ public void InsertEmployee(Employee employee) {
 			resultset = preparedstatement.executeQuery();			
 			
 			while(resultset.next()) {
-				System.out.println("selectemployee ¿¬°á");
+				System.out.println("selectemployee ï¿½ï¿½ï¿½ï¿½");
 				Employee employee = new Employee();
 				employee.setEmployeeNo(Integer.parseInt(resultset.getString("employee_no")));
 				employee.setEmployeeId(resultset.getString("employee_id"));
 				employee.setEmployeePw(resultset.getString("employee_pw"));
 				arraylist.add(employee);	
-				System.out.println(arraylist + "<-- arraylist Ãâ·Â");
+				System.out.println(arraylist + "<-- arraylist ï¿½ï¿½ï¿½");
 			}
 			for(Employee employee : arraylist) {
 				System.out.println(employee.getEmployeeId());
@@ -80,7 +82,7 @@ public void InsertEmployee(Employee employee) {
 		}
 		
 	public Employee SelectforUpdate(int employeeNo){
-		System.out.println("04 ÇÑ¸íÈ¸¿ø Á¶È¸ mSelectforUpdate Mdao.java");
+		System.out.println("04 ï¿½Ñ¸ï¿½È¸ï¿½ï¿½ ï¿½ï¿½È¸ mSelectforUpdate Mdao.java");
 		System.out.println("employeeNo : "+ employeeNo);
 		
 		try {
@@ -89,7 +91,7 @@ public void InsertEmployee(Employee employee) {
 		preparedstatement.setInt(1, employeeNo);
 		resultset = preparedstatement.executeQuery();
 		if(resultset.next()) {
-			System.out.println("Äõ¸® ½ÇÇà °á°ú ÀÖ³ª? mSelectforUpdate Mdao.java");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö³ï¿½? mSelectforUpdate Mdao.java");
 			employee = new Employee();
 			employee.setEmployeeNo(resultset.getInt("employee_no"));
 			employee.setEmployeeId(resultset.getString("employee_id"));
@@ -113,7 +115,7 @@ public void InsertEmployee(Employee employee) {
 	}
 		
 		public void UpdateEmployee(Employee employee) {
-			//3´Ü°è Äõ¸®½ÇÇàÁØºñ ºÎÅÍ ½ÃÀÛ
+			//3ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			String employeeId = employee.getEmployeeId();
 			System.out.println(employeeId+"<--UpdateEmployee");
 			String employeePw = employee.getEmployeePw();

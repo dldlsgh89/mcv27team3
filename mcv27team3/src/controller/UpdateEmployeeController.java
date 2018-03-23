@@ -26,7 +26,7 @@ public class UpdateEmployeeController extends HttpServlet {
 		
 		this.employeeDao = new EmployeeDao();
 		
-		this.employee = new Employee();
+		Employee employee = new Employee();
 		employee = employeeDao.SelectforUpdate(employeeNo);
 		
 		request.setAttribute("Employee", employee);

@@ -15,7 +15,7 @@
 		<table border="1">
 			<tr>
 				<td>"employeeNo"</td>
-				<td><input type="text" name="EmployeeNo" size="20" value="${employeeNo}" readonly></td>
+				<td><input type="text" name="EmployeeNO" size="20" value="${EmployeeNo}" readonly></td>
 			<tr>
 			<tr>
 				<td>studentAddr</td>

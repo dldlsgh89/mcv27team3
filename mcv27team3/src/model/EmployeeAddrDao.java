@@ -1,4 +1,4 @@
-/*package model;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,7 +46,7 @@ public class EmployeeAddrDao {
 		try {
 			connection =  DriveDB.driverdbCon();
 			
-			preparedstatement = connection.prepareStatement("select * from teacher_addr WHERE teacher_no=?");
+			preparedstatement = connection.prepareStatement("select * from employee_addr WHERE employee_no=?");
 			preparedstatement.setInt(1, sendNO);
 			
 			resultset = preparedstatement.executeQuery();			
@@ -84,7 +84,7 @@ public class EmployeeAddrDao {
 		try {
 		connection =  DriveDB.driverdbCon();
 		
-		preparedstatement = connection.prepareStatement("DELETE FROM teacher_addr WHERE teacher_addr_no=?");
+		preparedstatement = connection.prepareStatement("DELETE FROM employee_addr WHERE employee_addr_no=?");
 		preparedstatement.setInt(1, employeeAddrNo);
 		preparedstatement.executeUpdate();
 		
@@ -115,6 +115,32 @@ public class EmployeeAddrDao {
 				employeeAddr.setAddress(resultset.getString("address"));
 		}
 			 return employeeAddr;
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}
+	
+		return null;
+	}
+	
+	public void updateEmployeeAddr(EmployeeAddr employeeaddr) {
+		
+		System.out.println("EmployeeAddrNo : "+employeeAddr.getEmployeeAddrNo()+"<-------updateEmployeeAddr");
+		
+		try {
+			connection = DriveDB.driverdbCon();
+			preparedstatement = connection.prepareStatement("UPDATE employee_addr SET address=? WHERE employee_addr_no = ?");
+			preparedstatement.setString(1, employeeAddr.getAddress());
+			preparedstatement.setInt(2, employeeAddr.getEmployeeAddrNo());
+			
+			preparedstatement.executeUpdate();
+			
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
 		} catch (SQLException sqlEX) {			
 			sqlEX.printStackTrace();
 		} finally {
@@ -125,4 +151,3 @@ public class EmployeeAddrDao {
 }
 
 
-*/
