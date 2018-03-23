@@ -86,7 +86,24 @@ public class TeacherDao {
 		int Count = 0; 
 		//select count(*) from teacher
 		
-		return Count;
+		try {
+			connection = DriveDB.driverdbCon();
+			preparedstatement = connection.prepareStatement("select count(*) as count from teacher");
+									
+			resultset = preparedstatement.executeQuery();
+			if(resultset.next()) {
+			Count = resultset.getInt("count");
+			}
+			return Count;
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}		
+		return 0;
 	}
 	
 	public Teacher teacherSelectforUpdate(int teacherNo){

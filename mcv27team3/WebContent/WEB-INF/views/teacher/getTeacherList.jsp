@@ -63,14 +63,14 @@ EL 사용
 				</tbody>
 			</c:forEach>
 	    </table>
-		<a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">처음으로</a>
 		<c:if test="${currentPage > 1}">
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3">처음으로</a></button>
 			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">이전</a></button>
-		</c:if>
-		<%-- <c:if test="${currentPage < lastPage}"> --%>
+		</c:if>		
+		<c:if test="${currentPage < lastPage}">
 			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage+1}">다음</a></button>
-		<%-- </c:if> --%>
-		<a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">마지막으로</a>
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${lastPage}">마지막으로</a></button>
+		</c:if>		
 	</div>
 </body>
 </html>

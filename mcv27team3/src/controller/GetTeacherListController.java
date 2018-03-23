@@ -25,15 +25,15 @@ public class GetTeacherListController extends HttpServlet {
 		//기본적으로 list를 출력하기 때문에 ArrayList를 사용하고 Teacher클래스에서 데이터를 get하기 때문에 ArrayList<Teacher>타입의 변수 arrayTeacher에 ArrayList<Teacher>객체를 참조함
 		
 		int pagePerRow = 10;	//요청페이지에서 받을수도 있지만 지금은 그냥 정해둠
-		
+		System.out.println(request.getParameter("currentPage")+"<---currentPage---GetTeacherListController");
 		int currentPage = 1;
+		System.out.println(currentPage+"<-----currentPage----notif----GetTeacherListController");
 		if(request.getParameter("currentPage") != null) {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-		
+		System.out.println(currentPage+"<-----currentPage2----if----GetTeacherListController");
 		int starRow = (currentPage-1)*pagePerRow;
-		
-		
+				
 		TeacherDao teacherDao = new TeacherDao(); 
 		//메서드를 사용하기 위해 TeacherDao 객체를 생성해 참조 할당
 		arrayTeacher = teacherDao.selectTeacher(starRow, pagePerRow);
@@ -42,10 +42,11 @@ public class GetTeacherListController extends HttpServlet {
 				
 		int totalRowCount = teacherDao.teacherRowCount();
 		int lastPage = totalRowCount/pagePerRow;
+		
 		if(totalRowCount % pagePerRow != 0) {
 			lastPage++;
 		}
-		
+		System.out.println(lastPage+"<---lastPage---GetTeacherListController");
 		request.setAttribute("arrayTeacher", arrayTeacher); 
 		//참조된 arrayTeacher를 넘겨주기 위해 "arrayTeacher"라는 이름을 사용하여 setAttribute한다
 		//list같은 경우는 특별히 데이터를 계속 남길 필요가 없으니 setAttribute는 request로 하는게 좋아보인다
@@ -53,12 +54,8 @@ public class GetTeacherListController extends HttpServlet {
 		request.setAttribute("currentPage", currentPage);
 		
 		request.setAttribute("lastPage", lastPage);
-		
-		
-		
+				
 		request.getRequestDispatcher("/WEB-INF/views/teacher/getTeacherList.jsp").forward(request, response);
 		//setAttribute한 데이터를 넘겨주기 위해 List를 출력하는 jsp의 경로인 "/WEB-INF/views/teacher/getTeacherList.jsp"로 forward한다. 
-		
 	}
-
 }
