@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="${pageContext.request.contextPath}/UpdateStudentController.lim" method="post">
+	<form action="${pageContext.request.contextPath}/UpdateStudentController.team3" method="post">
 		<table border="1">
 			<tr>
 				<td>학생번호</td>

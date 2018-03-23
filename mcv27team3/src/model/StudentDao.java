@@ -41,14 +41,29 @@ public class StudentDao {
 		}
 		
 	}
+	
+	public int studentRowCount() {
+		int count = 0;
+		/*
+		 * select count(*) from student
+		 */
+		return count;
+	}
 	//ArrayList<Student> selectStudent
-	public ArrayList<Student> selectStudent() {
+	/*
+	 * 매개변수 : startRow -> select 결과물의 시작행
+	 * 매개변수 int pagePerRow -> select 결과물의 객수
+	 * return : student List
+	 */
+	public ArrayList<Student> selectStudent(int startRow, int pagePerRow) {
 		arrayStudent = new ArrayList<Student>();
-		
+		System.out.println(startRow+"selectStudent");
 		try {
 			connection = DriveDB.driverdbCon();
 			
-			preparedstatement = connection.prepareStatement("select * from student");
+			preparedstatement = connection.prepareStatement("select * from student limit ?, ?");
+			preparedstatement.setInt(1,startRow);
+			preparedstatement.setInt(2, pagePerRow);
 			resultset = preparedstatement.executeQuery();			
 			
 			while(resultset.next()) {
@@ -66,13 +81,18 @@ public class StudentDao {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}finally {
-			if(resultset != null) try {resultset.close();} catch(SQLException ex) {}
+			//if(resultset != null) try {resultset.close();} catch(SQLException ex) {}
 			if(preparedstatement == null) try {preparedstatement.close();} catch(SQLException ex) {}
 			if(connection == null) try {connection.close();} catch(SQLException ex) {}
 		}
 		return null;
-		
 	}
+	
+	private PreparedStatement setInt(int i, int startRow) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	//SelectforUpdate
 	public Student SelectforUpdate(int studentNo){
 		System.out.println("studentNo : "+studentNo+"<------StudentDao.java/SelectforUpdate");

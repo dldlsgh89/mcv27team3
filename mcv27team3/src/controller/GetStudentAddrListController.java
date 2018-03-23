@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import model.StudentAddr;
 import model.StudentAddrDao;
 
-@WebServlet("/GetStudentAddrListController.lim")
+@WebServlet("/GetStudentAddrListController.team3")
 public class GetStudentAddrListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");

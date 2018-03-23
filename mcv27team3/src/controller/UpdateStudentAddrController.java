@@ -12,7 +12,7 @@ import model.StudentAddrDao;
 import model.TeacherAddr;
 import model.TeacherAddrDao;
 
-@WebServlet("/UpdateStudentAddrController.lim")
+@WebServlet("/UpdateStudentAddrController.team3")
 public class UpdateStudentAddrController extends HttpServlet {
 	private StudentAddrDao studentAddrDao;
 	
@@ -48,7 +48,7 @@ public class UpdateStudentAddrController extends HttpServlet {
 		this.studentAddrDao.updateStudentAddr(studentAddr);
 		
 	
-		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.lim");
+		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.team3");
 		}
 
 }

@@ -60,7 +60,7 @@
 	<body>
 		<h1>Student Addr List</h1>
 		<ul class="nav nav-pills">
-			<li role="presentation"><a href="${pageContext.request.contextPath}/getStudentList.lim">회원리스트</a></li>
+			<li role="presentation"><a href="${pageContext.request.contextPath}/getStudentList.team3">회원리스트</a></li>
 		</ul>
 		<div class="bs-example" data-example-id="contextual-table">
 			<table class="table">
@@ -73,7 +73,7 @@
 						<th>수정</th><!-- StudentDao.update / studentNO=? -->
 					</tr>
 				</thead>
-				<form id="form1" name="form1" method="post" action="${pageContext.request.contextPath}/DeleteStudentAddrController.lim">
+				<form id="form1" name="form1" method="post" action="${pageContext.request.contextPath}/DeleteStudentAddrController.team3">
 					<c:forEach var="studentAddr" items="${arrayStudentAddr}">
 						<tbody>
 							<tr class="active">
@@ -81,7 +81,7 @@
 								<td>${studentAddr.studentNo}</td>
 								<td>${studentAddr.studentAddrNo}</td>
 								<td>${studentAddr.address}</td>
-								<td><a href="${pageContext.request.contextPath}/UpdateStudentAddrController.lim?sendNo=${studentAddr.studentAddrNo}">수정</a></td>
+								<td><a href="${pageContext.request.contextPath}/UpdateStudentAddrController.team3?sendNo=${studentAddr.studentAddrNo}">수정</a></td>
 							</tr>
 						</tbody>
 					</c:forEach>
@@ -89,7 +89,7 @@
 			</table>	
 		</div>
 		<div class="addressAdd">
-			<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/AddStudentAddrController.lim?sendNO=${studentNo}'">주소추가</button>
+			<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/AddStudentAddrController.team3?sendNO=${studentNo}'">주소추가</button>
 	  	</div>
 		<div class="addressAddText">
 			더 이상 주소를 추가할수 없습니다. 주소를 삭제해주세요

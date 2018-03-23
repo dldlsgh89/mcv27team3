@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form action="${pageContext.request.contextPath}/AddStudentAddrController.lim" method="post">
+<form action="${pageContext.request.contextPath}/AddStudentAddrController.team3" method="post">
 		<table border="1">
 			<tr>
 				<td>studentNo</td>

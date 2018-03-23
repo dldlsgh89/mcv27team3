@@ -7,7 +7,7 @@
 <title>updateStudentAddrForm.jsp</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/UpdateStudentAddrController.lim" method="post">
+	<form action="${pageContext.request.contextPath}/UpdateStudentAddrController.team3" method="post">
 		<table border="1">
 			<tr>
 				<td>학생번호</td>

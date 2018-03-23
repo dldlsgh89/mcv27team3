@@ -11,7 +11,7 @@ import model.Student;
 import model.StudentDao;
 import model.Teacher;
 
-@WebServlet("/addStudent.lim")
+@WebServlet("/addStudent.team3")
 public class AddStudentController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/student/addStudent.jsp").forward(request, response);
@@ -32,7 +32,7 @@ public class AddStudentController extends HttpServlet {
 		StudentDao studentdao = new StudentDao();
 		studentdao.insertStudent(student);
 		
-		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
+		response.sendRedirect(request.getContextPath()+"/getStudentList.team3");
 	}
 
 }

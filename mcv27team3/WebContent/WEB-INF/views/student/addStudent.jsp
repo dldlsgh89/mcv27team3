@@ -49,7 +49,7 @@
 </head>
 <body>
 	
-	<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addStudent.lim">
+	<form id="myform" class="form-horizontal form" method="post" action="<%=request.getContextPath()%>/addStudent.team3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h2 class="panel-title">addStudent</h2>

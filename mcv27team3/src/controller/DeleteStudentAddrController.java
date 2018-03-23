@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.StudentAddrDao;
 import model.TeacherAddrDao;
 
-@WebServlet("/DeleteStudentAddrController.lim")
+@WebServlet("/DeleteStudentAddrController.team3")
 public class DeleteStudentAddrController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class DeleteStudentAddrController extends HttpServlet {
 			studentAddrdao.deleteStudentAddr(studentAddrNo);
 		}
 	
-		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.lim");
+		response.sendRedirect(request.getContextPath()+"/GetStudentAddrListController.team3");
 
 	}
 

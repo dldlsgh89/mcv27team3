@@ -11,7 +11,7 @@ import model.Student;
 import model.StudentDao;
 import model.Teacher;
 
-@WebServlet("/UpdateStudentController.lim")
+@WebServlet("/UpdateStudentController.team3")
 public class UpdateStudentController extends HttpServlet {
 	private StudentDao studentdao;
 	private Student student;
@@ -49,7 +49,7 @@ public class UpdateStudentController extends HttpServlet {
 			
 		studentdao.updateStudent(student);
 		
-		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
+		response.sendRedirect(request.getContextPath()+"/getStudentList.team3");
 		
 	}
 }

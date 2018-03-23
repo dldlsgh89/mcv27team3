@@ -12,7 +12,7 @@ import model.StudentDao;
 
 
 
-@WebServlet("/DeleteStudentController.lim")
+@WebServlet("/DeleteStudentController.team3")
 public class DeleteStudentController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -22,6 +22,6 @@ public class DeleteStudentController extends HttpServlet {
 		StudentDao studentdao = new StudentDao();
 		studentdao.deleteStudent(sendNO);
 		
-		response.sendRedirect(request.getContextPath()+"/getStudentList.lim");
+		response.sendRedirect(request.getContextPath()+"/getStudentList.team3");
 	}
 }
