@@ -53,7 +53,7 @@ public class TeacherDao {
 		try {
 			connection = DriveDB.driverdbCon(); //드라이브 로딩
 			
-			preparedstatement = connection.prepareStatement("select * from teacher limit ?, ?"); //메서드 실행시 teacher테이블의 모든 데이터를 select하는 query문장 준비
+			preparedstatement = connection.prepareStatement("select * from teacher limit ?, ?"); 
 			preparedstatement.setInt(1, starrow);
 			preparedstatement.setInt(2, pagePerRow);
 			resultset = preparedstatement.executeQuery(); //query문장 실행후 리턴데이터를 resultset변수에 담는다
