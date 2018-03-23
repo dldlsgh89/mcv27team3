@@ -31,7 +31,7 @@
 	<h1>Student List</h1>
 	<ul class="nav nav-pills">
 		<!-- <a href="<%=request.getContextPath()%> -->
-		<li role="presentation"><a href="${pageContext.request.contextPath}/addStudent.lim">회원가입</a></li>
+		<li role="presentation"><a href="${pageContext.request.contextPath}/addStudent.team3">회원가입</a></li>
 	</ul>
 	
 	<div class="bs-example" data-example-id="contextual-table">
@@ -52,21 +52,21 @@
 						<td scope="row">${student.studentNo}</td>
 						<td>${student.studentId}</td>
 						<td>****</td>
-						<td><a href="${pageContext.request.contextPath}/GetStudentAddrListController.lim?sendNO=${student.studentNo}">주소확인</a></td>
-						<td><a href="${pageContext.request.contextPath}/UpdateStudentController.lim?sendNO=${student.studentNo}">수정</a></td>
-						<td><a href="${pageContext.request.contextPath}/DeleteStudentController.lim?sendNO=${student.studentNo}">삭제</a></td>
+						<td><a href="${pageContext.request.contextPath}/GetStudentAddrListController.team3?sendNO=${student.studentNo}">주소확인</a></td>
+						<td><a href="${pageContext.request.contextPath}/UpdateStudentController.team3?sendNO=${student.studentNo}">수정</a></td>
+						<td><a href="${pageContext.request.contextPath}/DeleteStudentController.team3?sendNO=${student.studentNo}">삭제</a></td>
 					</tr>
 				</tbody>
 			</c:forEach>	
 		</table>
-		<a href="${pageContext.request.contextPath}/getStudentList.lim">처음으로</a>
+		<a href="${pageContext.request.contextPath}/getStudentList.team3">처음으로</a>
 		<c:if test="${currentPage > 1}">
-		<a href="${pageContext.request.contextPath}/getStudentList.lim?currentPage=${currentPage-1}">이전</a> <!-- 현재페이지 -1 -->
+		<a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${currentPage-1}">이전</a> <!-- 현재페이지 -1 -->
 		</c:if>
 		<%-- <c:if test = "${currentPage < lastPage}"> --%>
-		<a href="${pageContext.request.contextPath}/getStudentList.lim?currentPage=${currentPage+1}">다음</a> <!-- 현재페이지 +1 -->
+		<a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${currentPage+1}">다음</a> <!-- 현재페이지 +1 -->
 		<%-- </c:if> --%>
-		<a href="${pageContext.request.contextPath}/getStudentList.lim">마지막으로</a>
+		<a href="${pageContext.request.contextPath}/getStudentList.team3">마지막으로</a>
 	</div>
 
 </body>

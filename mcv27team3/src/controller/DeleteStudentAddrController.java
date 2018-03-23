@@ -14,6 +14,7 @@ import model.TeacherAddrDao;
 public class DeleteStudentAddrController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		System.out.println(request.getParameterValues("checkbox[]")+"<------doPost---DeleteStudentAddrController.java");
 		String[] checkbox = request.getParameterValues("checkbox[]");
 		System.out.println(checkbox[0]+"<--checkbox---DeleteStudentAddrController.java");

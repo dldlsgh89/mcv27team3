@@ -86,7 +86,7 @@
 						</tbody>
 					</c:forEach>
 				</form>
-			</table>	
+			</table>
 		</div>
 		<div class="addressAdd">
 			<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/AddStudentAddrController.team3?sendNO=${studentNo}'">주소추가</button>
