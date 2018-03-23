@@ -11,7 +11,7 @@ import model.Teacher;
 import model.TeacherDao;
 
 
-@WebServlet("/UpdateTeacherController.lee")
+@WebServlet("/UpdateTeacherController.team3")
 public class UpdateTeacherController extends HttpServlet {
 	private TeacherDao teacherDao;
 	
@@ -58,7 +58,7 @@ public class UpdateTeacherController extends HttpServlet {
 		this.teacherDao.updateTeacher(teacher);
 		//미리 선언해둔 teacherDao객체 참조변수에 접근해 update query문장을 실행해주는 메서드 updateTeacher에 setting된 teacher 객체참조변수를 입력데이터로 넣어 호출
 		
-		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");
+		response.sendRedirect(request.getContextPath()+"/getTeacherList.team3");
 		//결과값을 전달한다던가 하지 않음으로 그냥 GetTeacherListController.java로 redirect
 	}
 }

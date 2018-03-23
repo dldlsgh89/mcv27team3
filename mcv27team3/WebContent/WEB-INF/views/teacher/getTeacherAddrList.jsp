@@ -63,7 +63,7 @@
 <body>
 	<h1>Teacher addr List</h1>
 	<div>
-  		<button><a href="${pageContext.request.contextPath}/getTeacherList.lee">리스트로 돌아가기</a></button>
+  		<button><a href="${pageContext.request.contextPath}/getTeacherList.team3">리스트로 돌아가기</a></button>
 	</div>	
 	<div class="bs-example" data-example-id="contextual-table">
 	    <table class="table">
@@ -76,7 +76,7 @@
 	          <th>주소수정</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
 	        </tr>
 	      </thead>
-	      <form form id="form1" name="form1" method="post" action="${pageContext.request.contextPath}/DeleteTeacherAddrController.lee">
+	      <form form id="form1" name="form1" method="post" action="${pageContext.request.contextPath}/DeleteTeacherAddrController.team3">
 				
 
 		<!-- /* 버튼 만드는 순서  주소 리스트까지 간다
@@ -97,7 +97,7 @@
 	          <td scop e="row">${teacherAddr.teacherNo}</td>
 	          <td>${teacherAddr.teacherAddrNo}</td>
 	          <td>${teacherAddr.address}</td>          
-	          <td><a href="${pageContext.request.contextPath}/UpdateTeacherAddrController.lee?sendNO=${teacherAddr.teacherAddrNo}">주소 수정</a></td>
+	          <td><a href="${pageContext.request.contextPath}/UpdateTeacherAddrController.team3?sendNO=${teacherAddr.teacherAddrNo}">주소 수정</a></td>
 	        </tr>       
 	      </tbody>	     
 		</c:forEach>
@@ -105,10 +105,10 @@
 		</table>		
   	</div>
   	<div class="addressAdd">
-  		<button><a href="${pageContext.request.contextPath}/AddTeacherAddrController.lee?sendNO=${teacherNo}">주소 추가</a></button>
+  		<button><a href="${pageContext.request.contextPath}/AddTeacherAddrController.team3?sendNO=${teacherNo}">주소 추가</a></button>
 	</div>
 	<div class="addressAddText">주소가 5개 이상일 경우 더는 주소를 추가할수 없습니다. 주소를 삭제해주세요</div>
-	<div class="addressdelete">
+	<div>
   		<button id="btn">주소 삭제</button>
 	</div>
 </body>

@@ -10,7 +10,7 @@
 %> --%>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/AddTeacherAddrController.lee" method="post">
+	<form action="${pageContext.request.contextPath}/AddTeacherAddrController.team3" method="post">
 		<table border="1">
 			<tr>
 				<td>teacherNo</td>

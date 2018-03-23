@@ -11,7 +11,7 @@ import model.Teacher;
 import model.TeacherDao;
 
 
-@WebServlet("/addTeacher.lee") 
+@WebServlet("/addTeacher.team3") 
 public class AddTeacherController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +43,7 @@ public class AddTeacherController extends HttpServlet {
 		TeacherDao teacherDao = new TeacherDao(); //TeacherDao클래스 객체 생성수 변수 teacherDao에 참조
 		teacherDao.insertTeacher(teacher); //참조된 변수의 객체에 접근해서 teacherId,teacherPw가 setting된 teacher참조변수를 매개변수로 하는 메서드 insertTeacher메서드 실행
 				
-		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee"); 
+		response.sendRedirect(request.getContextPath()+"/getTeacherList.team3"); 
 		//getTeacherList.lee로 redirect. veiw의 getTeacherList.jsp를 다시 보여준다
 	}
 }

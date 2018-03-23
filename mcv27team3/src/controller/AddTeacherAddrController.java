@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import model.TeacherAddr;
 import model.TeacherAddrDao;
 
-@WebServlet("/AddTeacherAddrController.lee")
+@WebServlet("/AddTeacherAddrController.team3")
 public class AddTeacherAddrController extends HttpServlet {
 	private TeacherAddrDao teacherAddrDao;
 	private TeacherAddr teacherAddr;
@@ -52,7 +52,7 @@ public class AddTeacherAddrController extends HttpServlet {
 		
 		session.setAttribute("teacherNo", teacherNo);		
 		
-		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
+		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.team3");
 	}
 
 }

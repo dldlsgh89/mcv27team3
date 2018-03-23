@@ -13,7 +13,7 @@ import model.TeacherAddrDao;
 
 
 
-@WebServlet("/DeleteTeacherAddrController.lee")
+@WebServlet("/DeleteTeacherAddrController.team3")
 public class DeleteTeacherAddrController extends HttpServlet {
 		
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +28,7 @@ public class DeleteTeacherAddrController extends HttpServlet {
 			teacherAddrDao.deleteTeacherAddr(teacherAddrNo);
 		}
 	
-		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
+		response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.team3");
 		
 	}
 

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/UpdateTeacherAddrController.lee" method="post">
+	<form action="${pageContext.request.contextPath}/UpdateTeacherAddrController.team3" method="post">
 		<table border="1">
 			<tr>
 				<td>teacherAddrNo</td>

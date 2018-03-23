@@ -33,7 +33,7 @@ EL 사용
 </head>
 <body>
 	<h1>Teacher List</h1>
-	<button><a href="${pageContext.request.contextPath}/addTeacher.lee">가입하기</a></button>  <!-- 가입입력화면인 addTeacher.jsp로 forward해주는 addTeacherController로 연결시킨 버튼 -->
+	<button><a href="${pageContext.request.contextPath}/addTeacher.team3">가입하기</a></button>  <!-- 가입입력화면인 addTeacher.jsp로 forward해주는 addTeacherController로 연결시킨 버튼 -->
 	<div class="bs-example" data-example-id="contextual-table">
 	    <table class="table">
 			<thead>
@@ -56,13 +56,21 @@ EL 사용
 						<th scope="row">${teacher.teacherNo}</th> <!-- 참조된 teacher에 접근해  내부에 setting된 teacherNo변수를 가져온다-->
 						<td>${teacher.teacherId}</td>
 						<td>****</td>       
-						<td><a href="${pageContext.request.contextPath}/GetTeacherAddrListController.lee?sendNO=${teacher.teacherNo}">주소List</a></td>  <!-- teacher객체의 teacherNo변수 값을 sendNO에 담아 model에 속하는 selectTeacherAddr메서드를 실행해 해당teacherNo가 포함된 teacher_addr테이블을 전부 select하고 veiw에 속하는 getTeacherAddrList.jsp로 forward해주는 GetTeacherAddrListController로 보낸다 -->
-						<td><a href="${pageContext.request.contextPath}/UpdateTeacherController.lee?sendNO=${teacher.teacherNo}">수정</a></td>	<!-- teacher객체의 teacherNo변수 값을 sendNO에 담아 model에 속하는 teacherSelectforUpdate메서드를 실행해 해당 teacherNo에 데이터만 select하고 veiw에 속하는 updateTeacherForm.jsp로 forward해주는 UpdateTeacherController로 보낸다 -->
-						<td><a href="${pageContext.request.contextPath}/DeleteTeacherController.lee?sendNO=${teacher.teacherNo}">삭제</a></td>	<!-- teacher객체의 teacherNo변수 값을 sendNO에 담아 model에 속하는 deleteTeacher메서드를 실행해 해당 teacherNo의 데이터를 delete하고 veiw에 속하는 getTeacherList.jsp로 redirect해주는 DeleteTeacherController로 보낸다 -->
+						<td><a href="${pageContext.request.contextPath}/GetTeacherAddrListController.team3?sendNO=${teacher.teacherNo}">주소List</a></td>  <!-- teacher객체의 teacherNo변수 값을 sendNO에 담아 model에 속하는 selectTeacherAddr메서드를 실행해 해당teacherNo가 포함된 teacher_addr테이블을 전부 select하고 veiw에 속하는 getTeacherAddrList.jsp로 forward해주는 GetTeacherAddrListController로 보낸다 -->
+						<td><a href="${pageContext.request.contextPath}/UpdateTeacherController.team3?sendNO=${teacher.teacherNo}">수정</a></td>	<!-- teacher객체의 teacherNo변수 값을 sendNO에 담아 model에 속하는 teacherSelectforUpdate메서드를 실행해 해당 teacherNo에 데이터만 select하고 veiw에 속하는 updateTeacherForm.jsp로 forward해주는 UpdateTeacherController로 보낸다 -->
+						<td><a href="${pageContext.request.contextPath}/DeleteTeacherController.team3?sendNO=${teacher.teacherNo}">삭제</a></td>	<!-- teacher객체의 teacherNo변수 값을 sendNO에 담아 model에 속하는 deleteTeacher메서드를 실행해 해당 teacherNo의 데이터를 delete하고 veiw에 속하는 getTeacherList.jsp로 redirect해주는 DeleteTeacherController로 보낸다 -->
 					</tr>       
 				</tbody>
 			</c:forEach>
 	    </table>
+		<a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">처음으로</a>
+		<c:if test="${currentPage > 1}">
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">이전</a></button>
+		</c:if>
+		<%-- <c:if test="${currentPage < lastPage}"> --%>
+			<button><a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage+1}">다음</a></button>
+		<%-- </c:if> --%>
+		<a href="${pageContext.request.contextPath}/getTeacherList.team3?currentPage=${currentPage-1}">마지막으로</a>
 	</div>
 </body>
 </html>

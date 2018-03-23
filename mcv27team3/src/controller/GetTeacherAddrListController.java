@@ -14,7 +14,7 @@ import javax.websocket.Session;
 import model.TeacherAddr;
 import model.TeacherAddrDao;
 
-@WebServlet("/GetTeacherAddrListController.lee")
+@WebServlet("/GetTeacherAddrListController.team3")
 public class GetTeacherAddrListController extends HttpServlet {
 		 
 	

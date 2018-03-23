@@ -14,7 +14,7 @@ import model.TeacherAddrDao;
 import model.TeacherDao;
 
 
-@WebServlet("/DeleteTeacherController.lee")
+@WebServlet("/DeleteTeacherController.team3")
 public class DeleteTeacherController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,7 +37,7 @@ public class DeleteTeacherController extends HttpServlet {
 	   		//getWriter메서드를 통해 응답하고 리턴 데이터 타입은 PrintWriter이고 변수 out에 담는 코드이다 getWriter메서드는 Writer즉 쓰기에 해당되는 메서드이다
 	   		out.println("<script>");
 	   		out.println("alert('주소가 남아있으면 삭제할 수 없습니다');");
-	   		out.println("location.href='" + request.getContextPath() + "/getTeacherList.lee';");
+	   		out.println("location.href='" + request.getContextPath() + "/getTeacherList.team3';");
 	   		out.println("</script>");
 	   		//PrintWriter타입의 변수 out에 접근해서 각각의 문장을 println한다
 	   		//처음부터 끝까지 전부 완료시 적용되는 코드는 
@@ -57,7 +57,7 @@ public class DeleteTeacherController extends HttpServlet {
 			//TeacherDao참조변수에 접근해서 Teacher데이터를 삭제해주는  dalete query문장을 실행해주는 메서드 deleteTeacher를 호출하고 입력데이터로 teacherNo를 넣는다
 		}
 		
-		response.sendRedirect(request.getContextPath()+"/getTeacherList.lee");		
+		response.sendRedirect(request.getContextPath()+"/getTeacherList.team3");		
 		//넘겨줘야할 데이터같은게 없기때문에 GetTeacherListController.java로 redirect한다
 	}
 }

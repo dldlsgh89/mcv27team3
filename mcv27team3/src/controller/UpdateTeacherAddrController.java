@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.TeacherAddr;
 import model.TeacherAddrDao;
 
-@WebServlet("/UpdateTeacherAddrController.lee")
+@WebServlet("/UpdateTeacherAddrController.team3")
 public class UpdateTeacherAddrController extends HttpServlet {
 	private TeacherAddrDao teacherAddrDao;
 	
@@ -46,7 +46,7 @@ public class UpdateTeacherAddrController extends HttpServlet {
 	this.teacherAddrDao.updateTeacherAddr(teacherAddr);
 	
 
-	response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.lee");
+	response.sendRedirect(request.getContextPath()+"/GetTeacherAddrListController.team3");
 	
 	}
 

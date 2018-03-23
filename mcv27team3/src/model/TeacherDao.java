@@ -47,14 +47,15 @@ public class TeacherDao {
 		 
 	}
 	
-	public ArrayList<Teacher> selectTeacher() {
+	public ArrayList<Teacher> selectTeacher(int starrow, int pagePerRow) {
 		//GetTeacherListController실행시 실행되는 메서드이다
 		arrayTeacher = new ArrayList<Teacher>(); //리턴 데이터 타입이 ArrayList<Teacher>임으로 미리 ArrayList<Teacher>타입의 참조객체변수 선언
 		try {
 			connection = DriveDB.driverdbCon(); //드라이브 로딩
 			
-			preparedstatement = connection.prepareStatement("select * from teacher"); //메서드 실행시 teacher테이블의 모든 데이터를 select하는 query문장 준비
-			
+			preparedstatement = connection.prepareStatement("select * from teacher limit ?, ?"); //메서드 실행시 teacher테이블의 모든 데이터를 select하는 query문장 준비
+			preparedstatement.setInt(1, starrow);
+			preparedstatement.setInt(2, pagePerRow);
 			resultset = preparedstatement.executeQuery(); //query문장 실행후 리턴데이터를 resultset변수에 담는다
 			
 			while(resultset.next()) { //query문 실행결과가 담긴 resultset변수에 접근해 결과값이 있으면 true 없으면 false가 리턴되는 메서드를 while 반복문의 조건값으로 넣어 반복문을 실행한다
@@ -80,6 +81,13 @@ public class TeacherDao {
 		return null;
 	}
 	
+	
+	public int teacherRowCount() {
+		int Count = 0; 
+		//select count(*) from teacher
+		
+		return Count;
+	}
 	
 	public Teacher teacherSelectforUpdate(int teacherNo){
 		//UpdateTeacherController클래스의 doGet메서드 실행시 호출되는 메서드

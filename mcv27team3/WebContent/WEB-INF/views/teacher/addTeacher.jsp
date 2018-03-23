@@ -52,7 +52,7 @@
 </head>
 
 <body>
-		<form id="myform" class="form-horizontal form" method="post" action="${pageContext.request.contextPath}/addTeacher.lee">  <!--  -->
+		<form id="myform" class="form-horizontal form" method="post" action="${pageContext.request.contextPath}/addTeacher.team3">  <!--  -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 class="panel-title">teacher 가입양식</h2>

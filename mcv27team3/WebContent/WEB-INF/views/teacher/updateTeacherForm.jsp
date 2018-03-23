@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- UpdateTeacherController클래스의 doGet메서드 실행결과 넘어온 데이터를 사용 -->
-	<form action="${pageContext.request.contextPath}/UpdateTeacherController.lee" method="post"> 
+	<form action="${pageContext.request.contextPath}/UpdateTeacherController.team3" method="post"> 
 	<!-- form태그를 사용하고 post방식으로  UpdateTeacherController.java로 보낸다-->
 		<table border="1">
 			<tr>
