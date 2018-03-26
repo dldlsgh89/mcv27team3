@@ -59,15 +59,20 @@
 				</tbody>
 			</c:forEach>	
 		</table>
-		<a href="${pageContext.request.contextPath}/getStudentList.team3">처음으로</a>
+		
+		<button><a href="${pageContext.request.contextPath}/getStudentList.team3">처음으로</a></button>
 		<c:if test="${currentPage > 1}">
-		<a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${currentPage-1}">이전</a> <!-- 현재페이지 -1 -->
+		<button><a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${currentPage-1}">이전</a></button> <!-- 현재페이지 -1 -->
 		</c:if>
-		<%-- <c:if test = "${currentPage < lastPage}"> --%>
-		<a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${currentPage+1}">다음</a> <!-- 현재페이지 +1 -->
-		<%-- </c:if> --%>
-		<a href="${pageContext.request.contextPath}/getStudentList.team3">마지막으로</a>
+		
+		<c:forEach var="iCount" begin="${startPage}" end="${endPage}">
+			<button><a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${iCount}">${iCount}</a></button>	
+		</c:forEach>
+		
+		<c:if test="${currentPage < totalPage}">
+		<button><a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${currentPage+1}">다음</a></button> <!-- 현재페이지 +1 -->
+		<button><a href="${pageContext.request.contextPath}/getStudentList.team3?currentPage=${totalPage}">마지막으로</a></button>
+		</c:if>
 	</div>
-
 </body>
 </html>

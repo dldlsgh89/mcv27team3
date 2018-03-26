@@ -44,10 +44,24 @@ public class StudentDao {
 	
 	public int studentRowCount() {
 		int count = 0;
-		/*
-		 * select count(*) from student
-		 */
-		return count;
+		try {
+			connection = DriveDB.driverdbCon();
+			preparedstatement = connection.prepareStatement("select count(*) as count from student");
+									
+			resultset = preparedstatement.executeQuery();
+			if(resultset.next()) {
+			count = resultset.getInt("count");
+			}
+			return count;
+		} catch (ClassNotFoundException classEX) {			
+			classEX.printStackTrace();
+		} catch (SQLException sqlEX) {			
+			sqlEX.printStackTrace();
+		} finally {
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlEX) {}
+			if(connection != null) try{connection.close();} catch(SQLException sqlEX) {}			
+		}		
+		return 0;
 	}
 	//ArrayList<Student> selectStudent
 	/*
