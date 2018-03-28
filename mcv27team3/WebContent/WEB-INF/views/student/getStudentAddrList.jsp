@@ -95,7 +95,7 @@
 			더 이상 주소를 추가할수 없습니다. 주소를 삭제해주세요
 		</div>
 		<div class="addressdelete">
-	  		<button type="button" class="btn btn-default" id="btn">주소 삭제</button>
+	  		<button type="button" class="btn btn-default" id="btn">주소삭제</button>
 		</div>
 	</body>
 </html>

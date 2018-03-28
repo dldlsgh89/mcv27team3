@@ -78,7 +78,7 @@ public class StudentAddrDao {
 			try {
 			connection = DriveDB.driverdbCon();
 					
-			preparedstatement = connection.prepareStatement("DELETE FROM student_addr WHEREstudent_addr_no=?");
+			preparedstatement = connection.prepareStatement("DELETE FROM student_addr WHERE student_addr_no=?");
 			preparedstatement.setInt(1, studentAddrNo);
 			preparedstatement.executeUpdate();
 			
