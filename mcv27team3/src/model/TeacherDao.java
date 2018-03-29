@@ -1,3 +1,4 @@
+//27기 3팀 이인호
 package model;
 
 import java.sql.Connection;
@@ -48,14 +49,15 @@ public class TeacherDao {
 	}
 	
 	public ArrayList<Teacher> selectTeacher(int starrow, int pagePerRow) {
-		//GetTeacherListController실행시 실행되는 메서드이다
+		//GetTeacherListController.java실행시 호출되는 메서드이다
+		//입력데이터는  GetTeacherListController.java에서 넘어온 int starrow와 int pagePerRow이다
 		arrayTeacher = new ArrayList<Teacher>(); //리턴 데이터 타입이 ArrayList<Teacher>임으로 미리 ArrayList<Teacher>타입의 참조객체변수 선언
 		try {
 			connection = DriveDB.driverdbCon(); //드라이브 로딩
 			
-			preparedstatement = connection.prepareStatement("select * from teacher limit ?, ?"); 
-			preparedstatement.setInt(1, starrow);
-			preparedstatement.setInt(2, pagePerRow);
+			preparedstatement = connection.prepareStatement("select * from teacher limit ?, ?"); //teacher테이블의 ?번쨰부터 ?번 select하는 qurey문 
+			preparedstatement.setInt(1, starrow);	//select를 시작하는 행이 몇번째부터인지
+			preparedstatement.setInt(2, pagePerRow);	//시작행부터 몇번 select할것인지 
 			resultset = preparedstatement.executeQuery(); //query문장 실행후 리턴데이터를 resultset변수에 담는다
 			
 			while(resultset.next()) { //query문 실행결과가 담긴 resultset변수에 접근해 결과값이 있으면 true 없으면 false가 리턴되는 메서드를 while 반복문의 조건값으로 넣어 반복문을 실행한다
@@ -83,13 +85,13 @@ public class TeacherDao {
 	
 	
 	public int teacherRowCount() {
-		int Count = 0; 
-		//select count(*) from teacher
-		
+		//teacher테이블에 있는 총게시물을 select하고 select한 숫자만큼 count를 메겨 그 count를 return해주는 메서드이다
+		//GetTeacherListController.java 클래스 실행시 호출되며 입력데이터는 없다
+		int Count = 0; //qurey문으로 Count숫자를 담을 int형 변수 Count선언
+				
 		try {
 			connection = DriveDB.driverdbCon();
-			preparedstatement = connection.prepareStatement("select count(*) as count from teacher");
-									
+			preparedstatement = connection.prepareStatement("select count(*) as count from teacher");	//teacher테이블을 select하고 그 숫자를								
 			resultset = preparedstatement.executeQuery();
 			if(resultset.next()) {
 			Count = resultset.getInt("count");

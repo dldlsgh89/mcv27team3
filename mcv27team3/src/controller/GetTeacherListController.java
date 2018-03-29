@@ -1,3 +1,4 @@
+//27기 3팀 이인호
 package controller;
 
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class GetTeacherListController extends HttpServlet {
 		int startPage = ((currentPage - 1) / 5) * 5 + 1;  //page목록이 나올때 첫번째 page 숫자
 		int endPage = startPage + pageView - 1; //page목록이 나올때 마지막 page숫자
 		
-		if(endPage>totalPage) {		//마지막 page목록의 숫자가 총page보다 클때 page목록숫자를 총페이지로 바꾸는 if문
+		if(endPage>totalPage) {		//마지막 page목록의 숫자가 총page보다 클때 page목록숫자를 총페이지까지만 보여주게 바꾸는 if문
 			endPage=totalPage;
 		}
 			

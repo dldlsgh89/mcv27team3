@@ -1,6 +1,7 @@
+<!-- 27기 3팀 이인호 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> <!-- 배열의 사이즈를 가져올수 있는 jstl taglib -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,14 +28,15 @@
 		int arrayTeacherAddrSize = arrayTeacherAddr.size();	
 %> --%>
 <script>
-	var arrayTeacherAddrSize = ${fn:length(arrayTeacherAddr)}
-	$(document).ready(function(){			
+	var arrayTeacherAddrSize = ${fn:length(arrayTeacherAddr)}		/*taglib uri="http://java.sun.com/jsp/jstl/functions"를 fn의로 선언해주고*/
+	$(document).ready(function(){										/* ArrayList타입의 변수 arrayTeacherAddr의 length를 가져와 변수 arrayTeacherAddrSize에 담는다 */
 		if(arrayTeacherAddrSize<5){
 			$(".addressAdd").show();
 			$(".addressAddText").hide();
 		}else{	
 			$(".addressAdd").hide();
 			$(".addressAddText").show();
+			/* alert("주소가 5개 이상일 경우 더는 주소를 추가할수 없습니다. 주소를 삭제해주세요") */
 		}	
 	});
 	

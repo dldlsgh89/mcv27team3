@@ -1,3 +1,4 @@
+<!-- 27기 3팀 이인호 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -41,7 +42,7 @@ EL 사용
 					<th>teacher number</th>
 					<th>teacher ID</th>
 					<th>teacher PW</th>
-					<th>주소</th><!-- teacher num 넘겨줄때 뭘로 넘겨줄것인가  -->
+					<th>주소</th>
 					<th>수정</th>
 					<th>삭제</th>
 				</tr>
